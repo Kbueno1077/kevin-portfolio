@@ -7,6 +7,7 @@ import {
     IconLayoutDashboard,
     IconSettings,
     IconUserBolt,
+    IconCode,
 } from "@tabler/icons-react";
 import { useState } from "react";
 
@@ -40,6 +41,13 @@ export function SidebarLayout({ children }: any) {
             ),
         },
 
+        {
+            label: "Tech stack",
+            href: "/tech",
+            icon: (
+                <IconCode className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+            ),
+        },
         {
             label: "Settings",
             href: "#",
@@ -95,7 +103,7 @@ export function SidebarLayout({ children }: any) {
                 </SidebarBody>
             </Sidebar>
 
-            <div className="overflow-auto w-full rounded-l-3xl bg-[#303030]">
+            <div className="overflow-auto w-full rounded-t-3xl md:rounded-l-3xl  bg-[#303030]">
                 {children}
             </div>
         </div>

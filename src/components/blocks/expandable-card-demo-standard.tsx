@@ -44,7 +44,7 @@ export default function ExpandableCardDemo() {
             </AnimatePresence>
             <AnimatePresence>
                 {active && typeof active === "object" ? (
-                    <div className="fixed inset-0 grid place-items-center z-[100]">
+                    <div className="fixed inset-0 grid place-items-center z-[100] ">
                         <motion.button
                             key={`button-${active.title}-${id}`}
                             layout
@@ -89,7 +89,7 @@ export default function ExpandableCardDemo() {
                                     <div className="">
                                         <motion.h3
                                             layoutId={`title-${active.title}-${id}`}
-                                            className="font-bold text-neutral-700 dark:text-neutral-200"
+                                            className="font-bold text-neutral-700 dark:text-neutral-200 "
                                         >
                                             {active.title}
                                         </motion.h3>
@@ -128,15 +128,18 @@ export default function ExpandableCardDemo() {
                     </div>
                 ) : null}
             </AnimatePresence>
-            <ul className="max-w-2xl mx-auto w-full gap-4">
+            <ul className="max-w-2xl mx-auto w-full px-4 md:px-0 gap-4">
                 {cards.map((card, index) => (
-                    <li key={`card-${card.title}-${id}`}>
+                    <li
+                        key={`card-${card.title}-${id}`}
+                        className="mb-3 md:mb-0 border-gray-black border-2 rounded-lg md:border-none"
+                    >
                         <motion.div
                             layoutId={`card-${card.title}-${id}`}
                             onClick={() => setActive(card)}
-                            className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+                            className="p-4 py-6 md:py-4 flex md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
                         >
-                            <div className="flex gap-4 flex-col md:flex-row ">
+                            <div className="flex gap-4 flex-col md:flex-row  ">
                                 <motion.div
                                     layoutId={`image-${card.title}-${id}`}
                                 >
