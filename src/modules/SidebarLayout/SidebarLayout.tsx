@@ -8,6 +8,8 @@ import {
     IconSettings,
     IconUserBolt,
     IconCode,
+    IconBrandGithub,
+    IconBrandLinkedin,
 } from "@tabler/icons-react";
 import { useState } from "react";
 
@@ -81,7 +83,32 @@ export function SidebarLayout({ children }: any) {
                             ))}
                         </div>
                     </div>
-                    <div>
+
+                    <div className="flex flex-col ">
+                        <SidebarLink
+                            //@ts-ignore
+                            target="_blank"
+                            link={{
+                                label: "Github",
+                                href: "https://github.com/Kbueno1077",
+                                icon: (
+                                    <IconBrandGithub className="h-7 w-7 flex-shrink-0 rounded-full" />
+                                ),
+                            }}
+                        />
+
+                        <SidebarLink
+                            //@ts-ignore
+                            target="_blank"
+                            link={{
+                                label: "Linkedin",
+                                href: "https://www.linkedin.com/in/kevin-bueno-0a8809218/",
+                                icon: (
+                                    <IconBrandLinkedin className="h-7 w-7 flex-shrink-0 rounded-full" />
+                                ),
+                            }}
+                        />
+
                         <SidebarLink
                             link={{
                                 label: "Kevin Bueno",
