@@ -1,13 +1,10 @@
-import { ExpandableCardDemo } from "@/modules/ProjectsExpandable/ProjectsExpandable";
+import ExpandableCardDemo from "@/components/blocks/expandable-card-demo-standard";
 
 export default function Projects() {
     return (
         <>
-            <div className="px-10 pt-10">
-                <h1 className="text-4xl font-bold"> Projects </h1>
-            </div>
-
-            <div className="w-full h-full flex flex-col justify-center items-center">
+            <h1 className="text-5xl md:text-3xl font-bold p-10">Projects</h1>
+            <div className="overflow-auto w-full flex flex-col justify-center items-center">
                 <ExpandableCardDemo />
             </div>
         </>

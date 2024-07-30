@@ -18,11 +18,7 @@ export default function RootLayout({
     return (
         <html lang="en" className={"dark"}>
             <body className={inter.className}>
-                <SidebarLayout>
-                    <div className="w-full bg-[#4B4B4B] rounded-l-3xl">
-                        {children}
-                    </div>
-                </SidebarLayout>
+                <SidebarLayout>{children}</SidebarLayout>
             </body>
         </html>
     );

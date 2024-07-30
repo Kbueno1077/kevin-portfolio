@@ -18,10 +18,18 @@ import Link from "next/link";
 export function SidebarLayout({ children }: any) {
     const links = [
         {
-            label: "Dashboard",
+            label: "Home",
             href: "/",
             icon: (
                 <IconLayoutDashboard className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+            ),
+        },
+
+        {
+            label: "About Me",
+            href: "#",
+            icon: (
+                <IconUserBolt className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
             ),
         },
         {
@@ -31,13 +39,7 @@ export function SidebarLayout({ children }: any) {
                 <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
             ),
         },
-        {
-            label: "Profile",
-            href: "#",
-            icon: (
-                <IconUserBolt className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-            ),
-        },
+
         {
             label: "Settings",
             href: "#",
@@ -93,7 +95,9 @@ export function SidebarLayout({ children }: any) {
                 </SidebarBody>
             </Sidebar>
 
-            {children}
+            <div className="overflow-auto w-full rounded-l-3xl bg-[#303030]">
+                {children}
+            </div>
         </div>
     );
 }

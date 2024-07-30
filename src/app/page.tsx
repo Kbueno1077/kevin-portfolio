@@ -1,3 +1,9 @@
+import { SpotlightPreview } from "@/modules/SpotlightPreview/SpotlightPreview";
+
 export default function Home() {
-    return <div></div>;
+    return (
+        <div>
+            <SpotlightPreview />
+        </div>
+    );
 }
