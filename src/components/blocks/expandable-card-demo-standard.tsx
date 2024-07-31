@@ -132,7 +132,7 @@ export default function ExpandableCardDemo() {
                 {cards.map((card, index) => (
                     <li
                         key={`card-${card.title}-${id}`}
-                        className="mb-3 md:mb-0 border-gray-black border-2 rounded-lg md:border-none"
+                        className="mb-3 md:mb-0 dark:border-white/[0.2] border-2 rounded-lg md:border-none"
                     >
                         <motion.div
                             layoutId={`card-${card.title}-${id}`}
