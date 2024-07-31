@@ -37,6 +37,21 @@ export const projects = [
         img: "/tech/javascript-original.svg",
     },
     {
+        title: "Zustand",
+        description:
+            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+        img: "/tech/zustand.svg",
+        link: "https://zustand-demo.pmnd.rs/",
+    },
+    {
+        title: "Redux",
+        description:
+            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+        img: "/tech/redux.svg",
+        link: "https://redux.js.org/",
+    },
+
+    {
         title: "HTML",
         description:
             "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
@@ -59,31 +74,13 @@ export const projects = [
         link: "https://tailwindcss.com/",
         imgClassName: "h-14",
     },
-
     {
-        title: "Redux",
+        title: "Next UI",
         description:
             "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-        img: "/tech/redux.svg",
-        link: "https://redux.js.org/",
+        img: "/tech/nextUI.png",
+        link: "https://nextui.org/",
     },
-
-    {
-        title: "Zustand",
-        description:
-            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-        img: "/tech/zustand.svg",
-        link: "https://zustand-demo.pmnd.rs/",
-    },
-
-    {
-        title: "Xata",
-        description:
-            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-        img: "/tech/xata.svg",
-        link: "https://xata.io/",
-    },
-
     {
         title: "Material UI",
         description:
@@ -93,11 +90,25 @@ export const projects = [
     },
 
     {
-        title: "Next UI",
+        title: "Xata",
         description:
             "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-        img: "/tech/nextUI.png",
-        link: "https://nextui.org/",
+        img: "/tech/xata.svg",
+        link: "https://xata.io/",
+    },
+    {
+        title: "NextAuth.js",
+        description:
+            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+        img: "/tech/nextAuth.png",
+        link: "https://next-auth.js.org/",
+    },
+    {
+        title: "Jest",
+        description:
+            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+        img: "/tech/jest-js-icon.svg",
+        link: "https://jestjs.io/",
     },
 
     {

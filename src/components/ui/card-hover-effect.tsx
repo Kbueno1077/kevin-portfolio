@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { BackgroundGradient } from "./background-gradient";
 
 export const HoverEffect = ({
     items,
@@ -40,7 +41,7 @@ export const HoverEffect = ({
                     <AnimatePresence>
                         {hoveredIndex === idx && (
                             <motion.span
-                                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-black/[0.8] block rounded-3xl"
+                                className="absolute inset-0 h-full w-full bg-neutral-200 bg-white dark:bg-zinc-900 block rounded-3xl"
                                 layoutId="hoverBackground"
                                 initial={{ opacity: 0 }}
                                 animate={{
@@ -54,7 +55,8 @@ export const HoverEffect = ({
                             />
                         )}
                     </AnimatePresence>
-                    <Card>
+
+                    <BackgroundGradient className="h-full rounded-[22px] max-w-sm p-4 sm:p-10 bg-white dark:bg-zinc-900">
                         <Image
                             priority
                             width={300}
@@ -74,7 +76,7 @@ export const HoverEffect = ({
                         <CardDescription className="mt-2">
                             {item.description}
                         </CardDescription>
-                    </Card>
+                    </BackgroundGradient>
                 </Link>
             ))}
         </div>

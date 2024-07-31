@@ -1,20 +1,7 @@
-"use client";
-
 import React, { useEffect } from "react";
 import { Spotlight } from "@/components/ui/spotlight";
 
 export function SpotlightPreview() {
-    useEffect(() => {
-        window.addEventListener("scroll", function () {
-            if (
-                document.body.scrollTop > 0 ||
-                document.documentElement.scrollTop > 0
-            ) {
-                window.scrollTo(0, 1);
-            }
-        });
-    }, []);
-
     return (
         <div className="h-full w-full rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
             <Spotlight
