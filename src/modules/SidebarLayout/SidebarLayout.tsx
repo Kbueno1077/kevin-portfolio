@@ -130,18 +130,14 @@ export function SidebarLayout({ children }: any) {
                 </SidebarBody>
             </Sidebar>
 
-            <div className="overflow-auto w-full rounded-t-3xl md:rounded-l-3xl  dark:bg-black bg-white  dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] relative flex items-center justify-center">
+            <div className="overflow-auto h-full  w-full rounded-t-3xl md:rounded-l-3xl  dark:bg-black bg-white  dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] relative flex items-center justify-center">
                 {/* Radial gradient for the container to give a faded look */}
-                <div className="overflow-auto absolute pointer rounded-t-3xl md:rounded-l-3xl -events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-                {/* <div className ="overflow-auto h-full w-full relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8"> */}
+                <div className="overflow-auto h-full  absolute pointer rounded-t-3xl md:rounded-l-3xl -events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+
                 <div className="overflow-auto h-full w-full relative z-20 bg-clip-text ">
                     {children}
                 </div>
             </div>
-
-            {/* <div className="overflow-auto h-full w-full rounded-t-3xl md:rounded-l-3xl  bg-[#303030]">
-            
-            </div> */}
         </div>
     );
 }
