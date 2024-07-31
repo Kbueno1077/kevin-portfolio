@@ -70,7 +70,7 @@ export function SidebarLayout({ children }: any) {
         <div
             className={cn(
                 "rounded-md flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-800 w-full flex-1  mx-auto border border-neutral-200 dark:border-neutral-700 overflow-hidden",
-                "h-screen"
+                "h-dvh"
             )}
         >
             <Sidebar open={open} setOpen={setOpen}>
@@ -130,7 +130,7 @@ export function SidebarLayout({ children }: any) {
                 </SidebarBody>
             </Sidebar>
 
-            <div className="overflow-auto w-full rounded-t-3xl md:rounded-l-3xl  bg-[#303030]">
+            <div className="overflow-auto h-full w-full rounded-t-3xl md:rounded-l-3xl  bg-[#303030]">
                 {children}
             </div>
         </div>

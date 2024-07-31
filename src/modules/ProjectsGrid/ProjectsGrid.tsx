@@ -4,7 +4,7 @@ import { LayoutGrid } from "@/components/ui/layout-grid";
 
 export function LayoutGridDemo() {
     return (
-        <div className="h-screen py-10 w-full">
+        <div className="h-dvh py-10 w-full">
             <div className="px-10">
                 <h1 className="text-4xl font-bold"> Projects </h1>
             </div>
