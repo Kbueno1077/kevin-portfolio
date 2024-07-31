@@ -13,12 +13,15 @@ export function SpotlightPreview() {
                     Welcome <br /> to my portfolio!
                 </h1>
                 <p className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto ">
-                    I&apos;m a passionate Web UI developer with a knack for
-                    creating seamless and engaging user experiences. Here,
-                    you&apos;ll find a showcase of my projects, skills, and the
-                    journey I&apos;ve embarked on in the world of frontend
-                    development. Dive in and explore how I bring ideas to life
-                    through code! 🔭
+                    I&apos;m a passionate{" "}
+                    <span className="text-[#9377FF] font-bold">
+                        Web UI developer
+                    </span>{" "}
+                    with a knack for creating seamless and engaging user
+                    experiences. Here, you&apos;ll find a showcase of my
+                    projects, skills, and the journey I&apos;ve embarked on in
+                    the world of frontend development. Dive in and explore how I
+                    bring ideas to life through code! 🔭
                 </p>
             </div>
         </div>
