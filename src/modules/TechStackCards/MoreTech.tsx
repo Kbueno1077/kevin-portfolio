@@ -5,7 +5,7 @@ function MoreTech() {
     return (
         <div>
             <div className="flex justify-center items-center py-10  md:mt-[100px] flex-col px-4">
-                <p className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-6xl mx-auto mb-10">
+                <p className="text-neutral-500 text-justify dark:text-neutral-400 text-xl md:text-3xl max-w-6xl mx-auto mb-10">
                     I have also used tools like
                     <LinkPreview
                         url="https://cloudinary.com/"
@@ -31,7 +31,7 @@ function MoreTech() {
                     which are a great way to storage data and media.
                 </p>
 
-                <p className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-6xl mx-auto mb-10">
+                <p className="text-neutral-500 text-justify dark:text-neutral-400 text-xl md:text-3xl max-w-6xl mx-auto mb-10">
                     I&apos;m always trying new ways to build stuff so I have
                     given a try to some libraries like
                     <LinkPreview
@@ -49,7 +49,7 @@ function MoreTech() {
                     </LinkPreview>{" "}
                 </p>
 
-                <p className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-6xl mx-auto mb-10">
+                <p className="text-neutral-500 text-justify dark:text-neutral-400 text-xl md:text-3xl max-w-6xl mx-auto mb-10">
                     And UI/UX tools to make better, faster and smoother
                     experiences like
                     <LinkPreview
