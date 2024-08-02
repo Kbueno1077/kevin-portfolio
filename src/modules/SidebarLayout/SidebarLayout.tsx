@@ -134,9 +134,7 @@ export function SidebarLayout({ children }: any) {
             {/* Radial gradient for the container to give a faded look */}
             {/* <div className="overflow-auto h-full  absolute pointer rounded-t-3xl md:rounded-l-3xl -events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div> */}
 
-            <div className="overflow-auto h-full w-full relative z-20 bg-clip-text ">
-                {children}
-            </div>
+            <div className="">{children}</div>
             {/* </div> */}
         </div>
     );
