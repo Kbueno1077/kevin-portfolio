@@ -12,41 +12,41 @@ export const projects = [
         title: "React.js",
         img: "/tech/react-js-icon.svg",
         description:
-            "A technology company that builds economic infrastructure for the internet.",
+            "React is an open-source, front-end JavaScript library used for building user interfaces. It’s particularly popular for single-page applications where you need a fast, interactive user experience",
         link: "https://react.dev/",
     },
     {
         title: "Next.js",
         description:
-            "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
+            "Next.js is a React framework for building full-stack web applications with SSR in mind. You use React Components to build user interfaces, and Next.js for additional features and optimizations.",
         link: "https://nextjs.org/",
         img: "/tech/nextjs-icon.svg",
     },
     {
         title: "TypeScript",
         description:
-            "A multinational technology company that specializes in Internet-related services and products.",
+            "TypeScript is a free and open-source high-level programming language developed by Microsoft. It adds static typing with optional type annotations to JavaScript, making it suitable for building large applications.",
         link: "https://www.typescriptlang.org/",
         img: "/tech/typescript-original.svg",
     },
     {
         title: "JavaScript",
         description:
-            "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
+            "JavaScript is a cross-platform, object-oriented scripting language used to make webpages interactive. It enables complex animations, clickable buttons, popup menus, and more. JavaScript is a core technology of the Web, alongside HTML and CSS. ",
         link: "https://developer.mozilla.org/es/docs/Web/JavaScript",
         img: "/tech/javascript-original.svg",
     },
     {
         title: "Zustand",
         description:
-            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+            "Zustand is a small, fast, and scalable state management solution for React. It provides a comfy API based on hooks, making it easy to work with",
         img: "/tech/zustand.svg",
         link: "https://zustand-demo.pmnd.rs/",
     },
     {
         title: "Redux",
         description:
-            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+            "Redux is a pattern and library for managing and updating application state. It’s commonly used with React, but you can also use it with other JavaScript frameworks or libraries. Instead of scattering state across various components, Redux centralizes it in a single store. ",
         img: "/tech/redux.svg",
         link: "https://redux.js.org/",
     },
@@ -54,14 +54,14 @@ export const projects = [
     {
         title: "HTML",
         description:
-            "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
+            " HTML (HyperText Markup Language) is the most basic building block of the Web. It defines the meaning and structure of web content. When you create a web page, you use HTML to structure its elements. ",
         img: "/tech/html5-original.svg",
         link: "https://developer.mozilla.org/es/docs/Web/HTML",
     },
     {
         title: "CSS",
         description:
-            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+            "CSS (Cascading Style Sheets) is a style sheet language used to define the presentation and styling of HTML documents. It allows you to control how HTML elements are displayed on a web page, including aspects like fonts, colors, spacing, column layouts, and animations. ",
         img: "/tech/css3-original.svg",
         link: "https://developer.mozilla.org/es/docs/Web/CSS",
     },
@@ -69,7 +69,7 @@ export const projects = [
     {
         title: "Taiwindcss",
         description:
-            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+            "Tailwind CSS is an open-source utility-first CSS framework that allows you to rapidly build modern websites directly in your HTML.  It’s highly customizable, scales well on large teams, and adapts to any design.",
         img: "/tech/tailwind-css-icon.svg",
         link: "https://tailwindcss.com/",
         imgClassName: "h-14",
@@ -77,14 +77,14 @@ export const projects = [
     {
         title: "Next UI",
         description:
-            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+            "NextUI is a beautiful, fast, and modern React UI library that allows you to create stunning websites and applications, regardless of your design experience.",
         img: "/tech/nextUI.png",
         link: "https://nextui.org/",
     },
     {
         title: "Material UI",
         description:
-            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+            " Material UI is an open-source React component library that implements Google’s Material Design. It offers a comprehensive collection of prebuilt components, including buttons, text fields, tables, alerts, tooltips, and more. ",
         img: "/tech/material.svg",
         link: "https://mui.com/material-ui/",
     },
@@ -92,21 +92,21 @@ export const projects = [
     {
         title: "Xata",
         description:
-            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+            "Xata is a serverless data platform built on top of PostgreSQL. It provides a full-text and vector search engine, record-level file attachments, and table-level aggregations. With Xata, you get a single consistent REST API with SDKs",
         img: "/tech/xata.svg",
         link: "https://xata.io/",
     },
     {
         title: "NextAuth.js",
         description:
-            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+            "NextAuth.js is an open-source authentication library designed for Next.js applications. It simplifies the process of managing sessions, sign-in, and sign-out, making it easier to implement authentication features. ",
         img: "/tech/nextAuth.png",
         link: "https://next-auth.js.org/",
     },
     {
         title: "Jest",
         description:
-            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+            "Jest is a JavaScript testing framework designed to ensure the correctness of any JavaScript codebase. It allows you to write tests with an approachable, familiar, and feature-rich API that provides quick results1.",
         img: "/tech/jest-js-icon.svg",
         link: "https://jestjs.io/",
     },
@@ -114,7 +114,7 @@ export const projects = [
     {
         title: "Node.js",
         description:
-            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+            "Node.js is an open-source, cross-platform JavaScript runtime environment. It allows developers to run JavaScript code on the server, making it possible to create servers, web apps, command line tools, and scripts.",
         img: "/tech/nodejs-original-wordmark.svg",
         link: "https://nodejs.org/en",
         imgClassName: "bg-slate-200",
@@ -123,7 +123,7 @@ export const projects = [
     {
         title: "Git",
         description:
-            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+            "Git is a free and open-source distributed version control system designed for managing everything from small to very large projects with speed and efficiency. It’s easy to learn and has a tiny footprint, offering lightning-fast performance.",
         img: "/tech/git.svg",
         link: "https://git-scm.com/",
     },
