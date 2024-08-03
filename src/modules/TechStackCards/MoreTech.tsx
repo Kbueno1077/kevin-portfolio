@@ -45,8 +45,9 @@ function MoreTech() {
                         url="https://xstate.js.org/"
                         className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
                     >
-                        xState
-                    </LinkPreview>{" "}
+                        xstate
+                    </LinkPreview>
+                    .
                 </p>
 
                 <p className="text-neutral-500 text-justify dark:text-neutral-400 text-xl md:text-3xl max-w-6xl mx-auto mb-10">
@@ -65,7 +66,7 @@ function MoreTech() {
                     >
                         Framer Motion
                     </LinkPreview>{" "}
-                    <span>and others</span>
+                    <span>and others.</span>
                 </p>
             </div>
         </div>
