@@ -172,7 +172,7 @@ export default function VerticalTimelineDemo() {
                 icon={
                     <div className="flex justify-center items-center w-full h-full">
                         <img
-                            src={"/logos/logo.png"}
+                            src={"/logos/Logo.png"}
                             alt={"Front10 Company"}
                             className="w-[80%] h-[80%] object-contain"
                         />
@@ -222,7 +222,7 @@ export default function VerticalTimelineDemo() {
                 icon={
                     <div className="flex justify-center items-center w-full h-full">
                         <img
-                            src={"/logos/front10.jpg"}
+                            src={"/logos/Front10.jpg"}
                             alt={"Front10 Company"}
                             className="w-[60%] h-[60%] object-contain"
                         />
