@@ -171,7 +171,7 @@ export default function ExpandableCardDemo() {
                                 layoutId={`button-${card.title}-${id}`}
                                 className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-4 md:mt-0"
                             >
-                                {card.ctaText}
+                                {card.ctaText2}
                             </motion.button>
                         </motion.div>
                     </li>
@@ -221,6 +221,7 @@ const cards = [
         smallSrc: "/small/Pros.jpg",
         bigSrc: "/big/Pros.jpg",
         ctaText: "Open",
+        ctaText2: "Details",
         ctaLink: "https://book.azoresairlines.pt/booking/",
         content: () => {
             return <p></p>;
@@ -232,6 +233,7 @@ const cards = [
         smallSrc: "/small/woxo.png",
         bigSrc: "/big/woxo.png",
         ctaText: "Open",
+        ctaText2: "Details",
         ctaLink: "https://woxo.tech/",
         content: () => {
             return (
@@ -254,6 +256,7 @@ const cards = [
         smallSrc: "/small/evan.png",
         bigSrc: "/big/evan.png",
         ctaText: "Open",
+        ctaText2: "Details",
         ctaLink: "https://evanhomecare.vercel.app/",
         content: () => {
             return (
@@ -272,6 +275,7 @@ const cards = [
         smallSrc: "/small/storeFront.png",
         bigSrc: "/big/storeFront.png",
         ctaText: "Open",
+        ctaText2: "Details",
         ctaLink: "https://store-front-swart.vercel.app/",
         content: () => {
             return (
@@ -291,6 +295,7 @@ const cards = [
         smallSrc: "/small/beer-warehouse.png",
         bigSrc: "/big/beer-warehouse.png",
         ctaText: "Open",
+        ctaText2: "Details",
         ctaLink: "https://beer-warehouse.com/",
         content: () => {
             return (
@@ -312,6 +317,7 @@ const cards = [
         bigSrc: "/big/beer-mobile.png",
         description: "Personal Project  ",
         ctaText: "Open",
+        ctaText2: "Details",
         ctaLink: "https://github.com/Kbueno1077/beer-warehouse-rn",
         content: () => {
             return (
@@ -333,6 +339,7 @@ const cards = [
         description: "Personal Project  ",
         bigSrc: "/big/olympus.png",
         ctaText: "Open",
+        ctaText2: "Details",
         ctaLink: "https://olympus-dominoes.vercel.app/",
         content: () => {
             return (
