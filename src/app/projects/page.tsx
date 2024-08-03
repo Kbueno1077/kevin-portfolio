@@ -1,4 +1,4 @@
-import ExpandableCardDemo from "@/components/blocks/expandable-card-demo-standard";
+import ExpandableCardDemo from "@/modules/ProjectsModule/expandable-card-demo-standard";
 
 export default function Projects() {
     return (

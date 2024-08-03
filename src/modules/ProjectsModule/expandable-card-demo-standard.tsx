@@ -119,7 +119,7 @@ export default function ExpandableCardDemo() {
                                         className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
                                     >
                                         {typeof active.content === "function"
-                                            ? active.content()
+                                            ? active.content(active.tech)
                                             : active.content}
                                     </motion.div>
                                 </div>
@@ -223,8 +223,33 @@ const cards = [
         ctaText: "Open",
         ctaText2: "Details",
         ctaLink: "https://book.azoresairlines.pt/booking/",
-        content: () => {
-            return <p></p>;
+        tech: ["React.js", "TypeScript", "JavaScript", "Sass"],
+        content: (technologies: string[]) => {
+            return (
+                <div>
+                    <p>
+                        Help Airlines enhance customer experience by creating
+                        functional, highly customizable web applications and
+                        translating designs into efficient code. Streamline
+                        booking and check-in processes, implement responsive and
+                        accessible designs, integrate real-time flight
+                        information and updates, and offer personalized features
+                        and recommendations to improve user satisfaction and
+                        operational efficiency.
+                    </p>
+                    <br />
+                    <div>
+                        {technologies.map((tech, idx) => (
+                            <>
+                                <span className="text-colorAccent" key={idx}>
+                                    {tech}
+                                </span>
+                                {idx !== technologies.length - 1 && ", "}
+                            </>
+                        ))}
+                    </div>
+                </div>
+            );
         },
     },
     {
@@ -235,17 +260,37 @@ const cards = [
         ctaText: "Open",
         ctaText2: "Details",
         ctaLink: "https://woxo.tech/",
-        content: () => {
+        tech: [
+            "React.js",
+            "Next.js",
+            "TypeScript",
+            "JavaScript",
+            "MaterialUI",
+            "GSAP",
+            "Fabric.js",
+            "Zustand",
+        ],
+        content: (technologies: string[]) => {
             return (
-                <p>
-                    Contributed to the development of an online video creation
-                    tool.
-                    <br /> <br />
-                    Woxo, is an Online effortless video editor that allows you
-                    to create videos in a matter of seconds. The project is
-                    designed to be user-friendly and take avantage of the new AI
-                    capabilities in the market.
-                </p>
+                <div>
+                    <p>
+                        Woxo, is an Online effortless video editor that allows
+                        you to create videos in a matter of seconds. The project
+                        is designed to be user-friendly and take avantage of the
+                        new AI capabilities in the market.
+                    </p>
+                    <br />{" "}
+                    <div>
+                        {technologies.map((tech, idx) => (
+                            <>
+                                <span className="text-colorAccent" key={idx}>
+                                    {tech}
+                                </span>
+                                {idx !== technologies.length - 1 && ", "}
+                            </>
+                        ))}{" "}
+                    </div>
+                </div>
             );
         },
     },
@@ -258,13 +303,35 @@ const cards = [
         ctaText: "Open",
         ctaText2: "Details",
         ctaLink: "https://evanhomecare.vercel.app/",
-        content: () => {
+        tech: [
+            "React.js",
+            "Next.js",
+            "TypeScript",
+            "NextUI",
+            "TailwindCSS",
+            "AspyrPdf",
+            "Resend",
+        ],
+        content: (technologies: string[]) => {
             return (
-                <p>
-                    Created a presentational web site for a healthcare business
-                    and also a space where can request and apply for jobs in
-                    that enterprise
-                </p>
+                <div>
+                    <p>
+                        Created a presentational web site for a healthcare
+                        business and also a space where can request and apply
+                        for jobs in that enterprise
+                    </p>
+                    <br />{" "}
+                    <div>
+                        {technologies.map((tech, idx) => (
+                            <>
+                                <span className="text-colorAccent" key={idx}>
+                                    {tech}
+                                </span>
+                                {idx !== technologies.length - 1 && ", "}
+                            </>
+                        ))}{" "}
+                    </div>
+                </div>
             );
         },
     },
@@ -277,14 +344,35 @@ const cards = [
         ctaText: "Open",
         ctaText2: "Details",
         ctaLink: "https://store-front-swart.vercel.app/",
-        content: () => {
+        tech: [
+            "React.js",
+            "Next.js",
+            "JavaScript",
+            "MaterialUI",
+            "Style-Components",
+            "Redux",
+        ],
+        content: (technologies: string[]) => {
             return (
-                <p>
-                    As part of a demo I created a prototype Ui for a Online
-                    Store heavely inspired in Amazon and Aeroenvio with and
-                    interactive UX Technologies used: React.js, Next.js,
-                    JavaScript, MaterialUI, Style-Components, Redux,
-                </p>
+                <div>
+                    <p>
+                        As part of a demo I created a prototype Ui for a Online
+                        Store heavely inspired in Amazon and Aeroenvio with and
+                        interactive UX Technologies used: React.js, Next.js,
+                        JavaScript, MaterialUI, Style-Components, Redux,
+                    </p>
+                    <br />{" "}
+                    <div>
+                        {technologies.map((tech, idx) => (
+                            <>
+                                <span className="text-colorAccent" key={idx}>
+                                    {tech}
+                                </span>
+                                {idx !== technologies.length - 1 && ", "}
+                            </>
+                        ))}{" "}
+                    </div>
+                </div>
             );
         },
     },
@@ -297,16 +385,40 @@ const cards = [
         ctaText: "Open",
         ctaText2: "Details",
         ctaLink: "https://beer-warehouse.com/",
-        content: () => {
+        tech: [
+            "React.js",
+            "Next.js",
+            "TypeScript",
+            "NextUI",
+            "TailwindCSS",
+            "NextAuth",
+            "Cloudinary",
+            "Xata.io",
+            "Echarts",
+            "next-intl",
+            "Zustand",
+        ],
+        content: (technologies: string[]) => {
             return (
-                <p>
-                    Created a personal web application where I store a
-                    collection of different beers that I have had the pleasure
-                    of enjoying. Friends can check the information as create
-                    their owns account to store theirs. Tecnologies used:
-                    React.js, Next.js, TypeScript, NextUI, TailwindCSS,
-                    NextAuth, Cloudinary, Xata.io, Echarts, next-intl, Zustand
-                </p>
+                <div>
+                    <p>
+                        Created a personal web application where I store a
+                        collection of different beers that I have had the
+                        pleasure of enjoying. Friends can check the information
+                        as create their owns account to store theirs.
+                    </p>
+                    <br />{" "}
+                    <div>
+                        {technologies.map((tech, idx) => (
+                            <>
+                                <span className="text-colorAccent" key={idx}>
+                                    {tech}
+                                </span>
+                                {idx !== technologies.length - 1 && ", "}
+                            </>
+                        ))}{" "}
+                    </div>
+                </div>
             );
         },
     },
@@ -319,16 +431,38 @@ const cards = [
         ctaText: "Open",
         ctaText2: "Details",
         ctaLink: "https://github.com/Kbueno1077/beer-warehouse-rn",
-        content: () => {
+        tech: [
+            "React.js",
+            "React Native",
+            "Expo",
+            "Zustand",
+            "Cloudinary",
+            "Xata.io",
+        ],
+        content: (technologies: string[]) => {
             return (
-                <p>
-                    I created a mobile app for the beer warehouse. It was a
-                    personal project that I worked on I used React Native,
-                    Cloudinary to store media and Xata for data. The app was
-                    designed to be a simple and user-friendly interface for
-                    ordering and managing my beer collection, ispired by the web
-                    application and with a similar stack of technologies.
-                </p>
+                <div>
+                    <p>
+                        I created a mobile app for the beer warehouse. It was a
+                        personal project that I worked on I used React Native,
+                        Cloudinary to store media and Xata for data. The app was
+                        designed to be a simple and user-friendly interface for
+                        ordering and managing my beer collection, ispired by the
+                        web application and with a similar stack of
+                        technologies.
+                    </p>
+                    <br />{" "}
+                    <div>
+                        {technologies.map((tech, idx) => (
+                            <>
+                                <span className="text-colorAccent" key={idx}>
+                                    {tech}
+                                </span>
+                                {idx !== technologies.length - 1 && ", "}
+                            </>
+                        ))}{" "}
+                    </div>
+                </div>
             );
         },
     },
@@ -341,18 +475,38 @@ const cards = [
         ctaText: "Open",
         ctaText2: "Details",
         ctaLink: "https://olympus-dominoes.vercel.app/",
-        content: () => {
+        tech: [
+            "React.js",
+            "Next.js",
+            "TypeScript",
+            "MaterialUI",
+            "TailwindCSS",
+            "Supabase",
+            "Recoil",
+        ],
+        content: (technologies: string[]) => {
             return (
-                <p>
-                    I love to play dominoes, (55 pieces) so I created a web
-                    application keep the score in matches and keep track of
-                    history records Technologies Used: React.js, Next.js,
-                    TypeScript, MaterialUI, TailwindCSS, Supabase, Recoil
+                <div>
+                    <p>
+                        I love to play dominoes, (55 pieces) so I created a web
+                        application keep the score in matches and keep track of
+                        history records
+                    </p>
                     <br />
+                    <div>
+                        {technologies.map((tech, idx) => (
+                            <>
+                                <span className="text-colorAccent" key={idx}>
+                                    {tech}
+                                </span>
+                                {idx !== technologies.length - 1 && ", "}
+                            </>
+                        ))}{" "}
+                    </div>
                     <br />
                     <strong>Olympus</strong>, where the gods come togheter to
                     player dominoes
-                </p>
+                </div>
             );
         },
     },

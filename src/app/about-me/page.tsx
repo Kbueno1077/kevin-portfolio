@@ -1,5 +1,4 @@
-import ExpandableCardDemo from "@/components/blocks/expandable-card-demo-standard";
-import VerticalTimelineDemo from "@/components/VerticalTimeline/VerticalTimeline";
+import VerticalTimelineDemo from "@/modules/VerticalTimeline/VerticalTimeline";
 
 export default function AboutMe() {
     return (
