@@ -3,8 +3,9 @@ import { TextArea } from "@/components/ui/areatext";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import React from "react";
+import React, { useEffect } from "react";
 import Swal from "sweetalert2";
+import "@sweetalert2/theme-dark/dark.css";
 
 export function ContactMeModule() {
     const [firstname, setFirstname] = React.useState("");
@@ -26,6 +27,10 @@ export function ContactMeModule() {
         document.head.appendChild(ss);
     }
 
+    useEffect(() => {
+        setCSSLink();
+    }, []);
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = e.target;
         if (id === "firstname") {
@@ -40,8 +45,6 @@ export function ContactMeModule() {
             setMessage(value);
         }
     };
-
-    console.log(firstname, lastname, email, subject, message);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -88,9 +91,6 @@ export function ContactMeModule() {
                 text: "Your message has been sent, keep an eye out for a response in your inbox",
                 icon: "success",
                 confirmButtonText: "Ok",
-                willOpen: () => {
-                    setCSSLink();
-                },
             });
         } else {
             Swal.fire({
@@ -98,9 +98,6 @@ export function ContactMeModule() {
                 text: "An error has ocurred and couldn't send the message, you can try again later or send the message to this email address: kbueno1077@gmail.com",
                 icon: "error",
                 confirmButtonText: "Continue",
-                willOpen: () => {
-                    setCSSLink();
-                },
             });
         }
     };
