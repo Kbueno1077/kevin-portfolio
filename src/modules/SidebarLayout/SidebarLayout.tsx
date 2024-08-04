@@ -9,6 +9,8 @@ import {
     IconLayoutDashboard,
     IconUserBolt,
     IconAt,
+    IconBookDownload,
+    IconClipboard,
 } from "@tabler/icons-react";
 import { useState } from "react";
 
@@ -77,7 +79,19 @@ export function SidebarLayout({ children }: any) {
                         </div>
                     </div>
 
-                    <div className="flex flex-col ">
+                    <div className="flex flex-col gap-1">
+                        <SidebarLink
+                            //@ts-ignore
+                            target="_blank"
+                            link={{
+                                label: "CV",
+                                href: "/KevinBuenoResume.pdf",
+                                icon: (
+                                    <IconClipboard className="h-7 w-7 flex-shrink-0 rounded-full" />
+                                ),
+                            }}
+                        />
+
                         <SidebarLink
                             //@ts-ignore
                             target="_blank"
