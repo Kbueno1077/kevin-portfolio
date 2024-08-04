@@ -33,7 +33,6 @@ export const viewport: Viewport = {
     width: "device-width",
     colorScheme: "dark",
     viewportFit: "cover",
-    userScalable: false,
 };
 
 export default function RootLayout({
