@@ -8,6 +8,7 @@ import {
     IconCode,
     IconLayoutDashboard,
     IconUserBolt,
+    IconAt,
 } from "@tabler/icons-react";
 import { useState } from "react";
 
@@ -46,6 +47,14 @@ export function SidebarLayout({ children }: any) {
             href: "/tech",
             icon: (
                 <IconCode className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+            ),
+        },
+
+        {
+            label: "Contact Me",
+            href: "/contact-me",
+            icon: (
+                <IconAt className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
             ),
         },
     ];
