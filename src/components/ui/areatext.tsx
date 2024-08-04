@@ -50,6 +50,7 @@ const TextArea = React.forwardRef<HTMLInputElement, TextAreaProps>(
            `,
                         className
                     )}
+                    //@ts-ignore
                     ref={ref}
                     {...props}
                 />
