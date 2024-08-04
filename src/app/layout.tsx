@@ -1,6 +1,8 @@
 import { SidebarLayout } from "@/modules/SidebarLayout/SidebarLayout";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
 
@@ -32,6 +34,9 @@ export default function RootLayout({
         <html lang="en" className={"dark"}>
             <body className={inter.className}>
                 <SidebarLayout>{children}</SidebarLayout>
+
+                <Analytics />
+                <SpeedInsights />
             </body>
         </html>
     );
