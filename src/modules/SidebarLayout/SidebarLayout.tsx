@@ -12,7 +12,7 @@ import {
     IconBookDownload,
     IconClipboard,
 } from "@tabler/icons-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -20,6 +20,25 @@ import Image from "next/image";
 import Link from "next/link";
 
 export function SidebarLayout({ children }: any) {
+    useEffect(() => {
+        const hideAddressBar = () => {
+            window.addEventListener("load", function () {
+                // Timeout is needed for iOS
+                setTimeout(function () {
+                    window.scrollTo(0, 1);
+                }, 0);
+            });
+        };
+
+        window.addEventListener("load", hideAddressBar);
+        window.addEventListener("resize", hideAddressBar);
+
+        return () => {
+            window.removeEventListener("load", hideAddressBar);
+            window.removeEventListener("resize", hideAddressBar);
+        };
+    }, []);
+
     const links = [
         {
             label: "Home",
