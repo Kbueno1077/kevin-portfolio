@@ -1,5 +1,5 @@
 import { SidebarLayout } from "@/modules/SidebarLayout/SidebarLayout";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -23,6 +23,17 @@ export const metadata: Metadata = {
     ],
     description:
         "Hi, I’m Kevin, a skilled frontend developer specializing in converting mockups into responsive, user-friendly web applications.",
+};
+
+export const viewport: Viewport = {
+    initialScale: 1,
+    minimumScale: 1,
+    maximumScale: 1,
+    height: "device-height",
+    width: "device-width",
+    colorScheme: "dark",
+    viewportFit: "cover",
+    userScalable: false,
 };
 
 export default function RootLayout({
