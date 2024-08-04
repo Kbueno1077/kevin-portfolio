@@ -1,15 +1,13 @@
 "use client";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
 import {
-    IconArrowLeft,
-    IconBrandTabler,
-    IconBuildingSkyscraper,
-    IconLayoutDashboard,
-    IconSettings,
-    IconUserBolt,
-    IconCode,
     IconBrandGithub,
     IconBrandLinkedin,
+    IconBrandTabler,
+    IconBuildingSkyscraper,
+    IconCode,
+    IconLayoutDashboard,
+    IconUserBolt,
 } from "@tabler/icons-react";
 import { useState } from "react";
 
@@ -48,20 +46,6 @@ export function SidebarLayout({ children }: any) {
             href: "/tech",
             icon: (
                 <IconCode className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-            ),
-        },
-        {
-            label: "Settings",
-            href: "#",
-            icon: (
-                <IconSettings className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-            ),
-        },
-        {
-            label: "Logout",
-            href: "#",
-            icon: (
-                <IconArrowLeft className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
             ),
         },
     ];
