@@ -1,6 +1,7 @@
 "use client";
 
 import { IconCode } from "@tabler/icons-react";
+import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import {
     VerticalTimeline,
@@ -26,7 +27,10 @@ export default function VerticalTimelineDemo() {
                 iconStyle={{ background: "#404040", color: "#fff" }}
                 icon={
                     <div className="flex justify-center items-center w-full h-full">
-                        <img
+                        <Image
+                            height={500}
+                            width={500}
+                            quality={100}
                             src={"/logos/uclv.png"}
                             alt={"Front10 Company"}
                             className="w-[100%] h-[100%] object-contain"
@@ -121,7 +125,10 @@ export default function VerticalTimelineDemo() {
                 }}
                 icon={
                     <div className="flex justify-center items-center w-full h-full">
-                        <img
+                        <Image
+                            height={500}
+                            width={500}
+                            quality={100}
                             src={"/logos/dark_woxo.jpeg"}
                             alt={"Front10 Company"}
                             className="w-[60%] h-[60%] object-contain"
@@ -171,7 +178,10 @@ export default function VerticalTimelineDemo() {
                 iconStyle={{ background: "#404040", color: "#fff" }}
                 icon={
                     <div className="flex justify-center items-center w-full h-full">
-                        <img
+                        <Image
+                            height={500}
+                            width={500}
+                            quality={100}
                             src={"/logos/Logo.png"}
                             alt={"Front10 Company"}
                             className="w-[80%] h-[80%] object-contain"
@@ -221,7 +231,10 @@ export default function VerticalTimelineDemo() {
                 iconStyle={{ background: "black", color: "#fff" }}
                 icon={
                     <div className="flex justify-center items-center w-full h-full">
-                        <img
+                        <Image
+                            height={500}
+                            width={500}
+                            quality={100}
                             src={"/logos/Front10.jpg"}
                             alt={"Front10 Company"}
                             className="w-[60%] h-[60%] object-contain"

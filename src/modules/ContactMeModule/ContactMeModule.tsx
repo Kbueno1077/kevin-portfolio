@@ -5,7 +5,6 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import React, { useEffect } from "react";
 import Swal from "sweetalert2";
-import "@sweetalert2/theme-dark/dark.css";
 
 export function ContactMeModule() {
     const [firstname, setFirstname] = React.useState("");
