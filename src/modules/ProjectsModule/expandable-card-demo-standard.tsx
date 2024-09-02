@@ -468,6 +468,48 @@ const cards = [
     },
 
     {
+        title: "Todo - Doing - Done",
+        smallSrc: "/small/todoLogo.png",
+        bigSrc: "/big/todoLogo.png",
+        description: "Personal Project  ",
+        ctaText: "Open",
+        ctaText2: "Details",
+        ctaLink: "https://todo-doing-done.kbueno-studio.com/",
+        tech: [
+            "React.js",
+            "Next.js",
+            "TypeScript",
+            "Zustand",
+            "Supabase",
+            "DaisyUI",
+        ],
+        content: (technologies: string[]) => {
+            return (
+                <div>
+                    <p>
+                        This project is a feature-rich project management board
+                        inspired by popular tools like Trello, Jira and Kanban.
+                        It is designed to help teams organize tasks, collaborate
+                        efficiently, and track progress in a visually intuitive
+                        manner.
+                    </p>
+                    <br />{" "}
+                    <div>
+                        {technologies.map((tech, idx) => (
+                            <>
+                                <span className="text-colorAccent" key={idx}>
+                                    {tech}
+                                </span>
+                                {idx !== technologies.length - 1 && ", "}
+                            </>
+                        ))}{" "}
+                    </div>
+                </div>
+            );
+        },
+    },
+
+    {
         title: "Olympus Dominoes",
         smallSrc: "/small/olympus.png",
         description: "Personal Project  ",
