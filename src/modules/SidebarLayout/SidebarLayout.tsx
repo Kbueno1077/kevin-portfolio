@@ -85,7 +85,7 @@ export function SidebarLayout({ children }: any) {
                             target="_blank"
                             link={{
                                 label: "CV",
-                                href: "/KevinBuenoResume.pdf",
+                                href: "/KevinBuenoCV.pdf",
                                 icon: (
                                     <IconClipboard className="h-7 w-7 flex-shrink-0 rounded-full" />
                                 ),
