@@ -302,7 +302,7 @@ const cards = [
         bigSrc: "/big/evan.png",
         ctaText: "Open",
         ctaText2: "Details",
-        ctaLink: "https://evanhomecare.vercel.app/",
+        ctaLink: "https://evanhomecare.kbueno-studio.com/",
         tech: [
             "React.js",
             "Next.js",
@@ -343,7 +343,7 @@ const cards = [
         bigSrc: "/big/storeFront.png",
         ctaText: "Open",
         ctaText2: "Details",
-        ctaLink: "https://store-front-swart.vercel.app/",
+        ctaLink: "https://storefront.kbueno-studio.com/",
         tech: [
             "React.js",
             "Next.js",
@@ -516,7 +516,7 @@ const cards = [
         bigSrc: "/big/olympus.png",
         ctaText: "Open",
         ctaText2: "Details",
-        ctaLink: "https://olympus-dominoes.vercel.app/",
+        ctaLink: "https://olympus-dominoes.kbueno-studio.com/",
         tech: [
             "React.js",
             "Next.js",
