@@ -276,8 +276,8 @@ const cards = [
                     <p>
                         Woxo, is an Online effortless video editor that allows
                         you to create videos in a matter of seconds. The project
-                        is designed to be user-friendly and take avantage of the
-                        new AI capabilities in the market.
+                        is designed to be user-friendly and take advantage of
+                        the new AI capabilities in the market.
                     </p>
                     <br />{" "}
                     <div>
