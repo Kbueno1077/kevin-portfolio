@@ -510,6 +510,52 @@ const cards = [
     },
 
     {
+        title: "GranLine Maps",
+        smallSrc: "/small/maps.png",
+        bigSrc: "/big/maps.png",
+        description: "Personal Project  ",
+        ctaText: "Open",
+        ctaText2: "Details",
+        ctaLink: "https://grand-line.kbueno-studio.com/",
+        tech: [
+            "React.js",
+            "Next.js",
+            "TypeScript",
+            "Zustand",
+            "Supabase",
+            "Radix UI",
+            "Radix Themes",
+            "Leaflet",
+        ],
+        content: (technologies: string[]) => {
+            return (
+                <div>
+                    <p>
+                        GrandLine Maps is a web-based application designed to
+                        allow users to create custom maps and assign locations
+                        that hold significant emotional or important data. This
+                        tool is perfect for individuals who want to visually
+                        document and share their personal journeys, memories,
+                        and meaningful places. The Name is inspired by the One
+                        Piece Franchise.
+                    </p>
+                    <br />{" "}
+                    <div>
+                        {technologies.map((tech, idx) => (
+                            <>
+                                <span className="text-colorAccent" key={idx}>
+                                    {tech}
+                                </span>
+                                {idx !== technologies.length - 1 && ", "}
+                            </>
+                        ))}{" "}
+                    </div>
+                </div>
+            );
+        },
+    },
+
+    {
         title: "Olympus Dominoes",
         smallSrc: "/small/olympus.png",
         description: "Personal Project  ",
