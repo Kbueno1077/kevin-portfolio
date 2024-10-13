@@ -128,53 +128,64 @@ export default function ExpandableCardDemo() {
                     </div>
                 ) : null}
             </AnimatePresence>
-            <ul className="max-w-2xl mx-auto w-full px-4 md:px-0 gap-4">
+            <ul className="max-w-2xl mx-auto w-full px-4 md:px-0 gap-4 pb-10">
                 {cards.map((card, index) => (
-                    <li
-                        key={`card-${card.title}-${id}`}
-                        className="mb-3 md:mb-0 dark:border-white/[0.2] border-2 rounded-lg md:border-none"
-                    >
-                        <motion.div
-                            layoutId={`card-${card.title}-${id}`}
-                            onClick={() => setActive(card)}
-                            className="p-4 py-6 md:py-4 flex md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
-                        >
-                            <div className="flex gap-4 flex-col md:flex-row  ">
-                                <motion.div
-                                    layoutId={`image-${card.title}-${id}`}
-                                >
-                                    <Image
-                                        width={100}
-                                        height={100}
-                                        src={card.smallSrc}
-                                        alt={card.title}
-                                        quality={100}
-                                        className="h-40 w-40 md:h-20 md:w-20 rounded-lg object-cover object-top"
-                                    />
-                                </motion.div>
-                                <div className="">
-                                    <motion.h3
-                                        layoutId={`title-${card.title}-${id}`}
-                                        className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left"
-                                    >
-                                        {card.title}
-                                    </motion.h3>
-                                    <motion.p
-                                        layoutId={`description-${card.description}-${id}`}
-                                        className="text-neutral-600 dark:text-neutral-400 text-center md:text-left"
-                                    >
-                                        {card.description}
-                                    </motion.p>
-                                </div>
-                            </div>
-                            <motion.button
-                                layoutId={`button-${card.title}-${id}`}
-                                className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-4 md:mt-0"
+                    <>
+                        {card.first && (
+                            <h1
+                                className={`pb-4 ${
+                                    index !== 0 && "mt-10"
+                                } text-2xl lg:ml-[-40px] font-bold underline`}
                             >
-                                {card.ctaText2}
-                            </motion.button>
-                        </motion.div>
-                    </li>
+                                {card.first}
+                            </h1>
+                        )}
+                        <li
+                            key={`card-${card.title}-${id}`}
+                            className="mb-3 md:mb-0 dark:border-white/[0.2] border-2 rounded-lg md:border-none"
+                        >
+                            <motion.div
+                                layoutId={`card-${card.title}-${id}`}
+                                onClick={() => setActive(card)}
+                                className="p-4 py-6 md:py-4 flex md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+                            >
+                                <div className="flex gap-4 flex-col md:flex-row  ">
+                                    <motion.div
+                                        layoutId={`image-${card.title}-${id}`}
+                                    >
+                                        <Image
+                                            width={100}
+                                            height={100}
+                                            src={card.smallSrc}
+                                            alt={card.title}
+                                            quality={100}
+                                            className="h-40 w-40 md:h-20 md:w-20 rounded-lg object-cover object-top"
+                                        />
+                                    </motion.div>
+                                    <div className="">
+                                        <motion.h3
+                                            layoutId={`title-${card.title}-${id}`}
+                                            className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left"
+                                        >
+                                            {card.title}
+                                        </motion.h3>
+                                        <motion.p
+                                            layoutId={`description-${card.description}-${id}`}
+                                            className="text-neutral-600 dark:text-neutral-400 text-center md:text-left"
+                                        >
+                                            {card.description}
+                                        </motion.p>
+                                    </div>
+                                </div>
+                                <motion.button
+                                    layoutId={`button-${card.title}-${id}`}
+                                    className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-4 md:mt-0"
+                                >
+                                    {card.ctaText2}
+                                </motion.button>
+                            </motion.div>
+                        </li>
+                    </>
                 ))}
             </ul>
         </>
@@ -218,6 +229,7 @@ const cards = [
     {
         description: "Front10 - PROS",
         title: "TravelPaas",
+        first: "Corporation",
         smallSrc: "/small/Pros.jpg",
         bigSrc: "/big/Pros.jpg",
         ctaText: "Open",
@@ -298,6 +310,7 @@ const cards = [
     {
         title: "Evan Home Care",
         description: "Contractor  ",
+        first: "Contractor / Freelancer",
         smallSrc: "/small/evan.png",
         bigSrc: "/big/evan.png",
         ctaText: "Open",
@@ -380,6 +393,8 @@ const cards = [
     {
         title: "Beer Warehouse",
         description: "Personal Project",
+        first: "Personal Projects",
+
         smallSrc: "/small/beer-warehouse.png",
         bigSrc: "/big/beer-warehouse.png",
         ctaText: "Open",
@@ -404,8 +419,10 @@ const cards = [
                     <p>
                         Created a personal web application where I store a
                         collection of different beers that I have had the
-                        pleasure of enjoying. Friends can check the information
-                        as create their owns account to store theirs.
+                        pleasure of enjoying. Powered also with Gen AI to search
+                        and provied info of other beers as you browse for them
+                        on a store. Friends can check the information as create
+                        their owns account to store theirs.
                     </p>
                     <br />{" "}
                     <div>
