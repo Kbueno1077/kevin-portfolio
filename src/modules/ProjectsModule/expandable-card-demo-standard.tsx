@@ -229,7 +229,7 @@ const cards = [
     {
         description: "Front10 - PROS",
         title: "TravelPaas",
-        first: "Corporation",
+        first: "Front10 LLC",
         smallSrc: "/small/Pros.jpg",
         bigSrc: "/big/Pros.jpg",
         ctaText: "Open",
@@ -310,7 +310,7 @@ const cards = [
     {
         title: "Evan Home Care",
         description: "Contractor  ",
-        first: "Contractor / Freelancer",
+        first: "WorkInWeb / Freelancer",
         smallSrc: "/small/evan.png",
         bigSrc: "/big/evan.png",
         ctaText: "Open",
@@ -375,6 +375,42 @@ const cards = [
                         JavaScript, MaterialUI, Style-Components, Redux,
                     </p>
                     <br />{" "}
+                    <div>
+                        {technologies.map((tech, idx) => (
+                            <>
+                                <span className="text-colorAccent" key={idx}>
+                                    {tech}
+                                </span>
+                                {idx !== technologies.length - 1 && ", "}
+                            </>
+                        ))}{" "}
+                    </div>
+                </div>
+            );
+        },
+    },
+
+    {
+        title: "Illustrator Portfolio",
+        smallSrc: "/small/luiso.png",
+        description: "Contractor",
+        bigSrc: "/big/luiso.png",
+        ctaText: "Open",
+        ctaText2: "Details",
+        ctaLink: "https://luiso-portfolio.framer.website/",
+        tech: ["Framer"],
+        content: (technologies: string[]) => {
+            return (
+                <div>
+                    <p>
+                        Explore vibrant and imaginative world`s of
+                        illustrations, brought to life with the dynamic
+                        capabilities of Luis Ernesto. This portfolio showcases
+                        his passion for storytelling through art, with each
+                        piece crafted to transport you to a unique and
+                        captivating realm. Made with Framer
+                    </p>
+                    <br />
                     <div>
                         {technologies.map((tech, idx) => (
                             <>
