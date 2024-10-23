@@ -63,7 +63,7 @@ export const AnimatedTooltip = ({
                                 exit={{ opacity: 0, y: 20, scale: 0.6 }}
                                 style={{
                                     translateX: translateX,
-                                    //@ts-expect-error
+                                    //@ts-ignore
                                     rotate: rotate,
                                     whiteSpace: "nowrap",
                                 }}
