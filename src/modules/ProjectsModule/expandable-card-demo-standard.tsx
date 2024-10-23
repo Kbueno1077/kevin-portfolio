@@ -130,7 +130,7 @@ export default function ExpandableCardDemo() {
             </AnimatePresence>
             <ul className="max-w-2xl mx-auto w-full px-4 md:px-0 gap-4 pb-10">
                 {cards.map((card, index) => (
-                    <>
+                    <div key={card.id}>
                         {card.first && (
                             <h1
                                 className={`pb-4 ${
@@ -185,7 +185,7 @@ export default function ExpandableCardDemo() {
                                 </motion.button>
                             </motion.div>
                         </li>
-                    </>
+                    </div>
                 ))}
             </ul>
         </>
@@ -227,6 +227,7 @@ export const CloseIcon = () => {
 
 const cards = [
     {
+        id: 1,
         description: "Front10 - PROS",
         title: "TravelPaas",
         first: "Front10 LLC",
@@ -265,6 +266,7 @@ const cards = [
         },
     },
     {
+        id: 2,
         description: "Front10",
         title: "Woxo Video Editor",
         smallSrc: "/small/woxo.png",
@@ -308,6 +310,7 @@ const cards = [
     },
 
     {
+        id: 3,
         title: "Evan Home Care",
         description: "Contractor  ",
         first: "WorkInWeb / Freelancer",
@@ -350,6 +353,7 @@ const cards = [
     },
 
     {
+        id: 4,
         description: "Contractor",
         title: "Secret Store",
         smallSrc: "/small/storeFront.png",
@@ -391,6 +395,7 @@ const cards = [
     },
 
     {
+        id: 5,
         title: "Illustrator Portfolio",
         smallSrc: "/small/luiso.png",
         description: "Contractor",
@@ -427,6 +432,7 @@ const cards = [
     },
 
     {
+        id: 6,
         title: "Beer Warehouse",
         description: "Personal Project",
         first: "Personal Projects",
@@ -477,6 +483,7 @@ const cards = [
     },
 
     {
+        id: 7,
         title: "App - Beer Warehouse",
         smallSrc: "/small/beer-mobile.png",
         bigSrc: "/big/beer-mobile.png",
@@ -521,6 +528,7 @@ const cards = [
     },
 
     {
+        id: 8,
         title: "Todo - Doing - Done",
         smallSrc: "/small/todoLogo.png",
         bigSrc: "/big/todoLogo.png",
@@ -563,6 +571,7 @@ const cards = [
     },
 
     {
+        id: 9,
         title: "GranLine Maps",
         smallSrc: "/small/maps.png",
         bigSrc: "/big/maps.png",
@@ -609,6 +618,7 @@ const cards = [
     },
 
     {
+        id: 10,
         title: "Olympus Dominoes",
         smallSrc: "/small/olympus.png",
         description: "Personal Project  ",
