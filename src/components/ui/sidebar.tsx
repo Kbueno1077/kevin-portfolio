@@ -177,7 +177,7 @@ export const SidebarLink = ({
         >
             {link.icon}
 
-            <motion.span
+            <motion.div
                 animate={{
                     display: animate
                         ? open
@@ -189,7 +189,7 @@ export const SidebarLink = ({
                 className="text-neutral-700 dark:text-neutral-200 text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
             >
                 {link.label}
-            </motion.span>
+            </motion.div>
         </Link>
     );
 };

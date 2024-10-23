@@ -128,6 +128,7 @@ export const LinkPreview = ({
                                 exit={{ opacity: 0, y: 20, scale: 0.6 }}
                                 className="shadow-xl rounded-xl"
                                 style={{
+                                    //@ts-expect-error
                                     x: translateX,
                                 }}
                             >
