@@ -2,7 +2,7 @@
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useId, useRef, useState } from "react";
+import { Fragment, useEffect, useId, useRef, useState } from "react";
 
 export default function ExpandableCardDemo() {
     const [active, setActive] = useState<
@@ -94,7 +94,7 @@ export default function ExpandableCardDemo() {
                                             {active.title}
                                         </motion.h3>
                                         <motion.p
-                                            layoutId={`description-${active.description}-${id}`}
+                                            layoutId={`description-${active.description}-${active.title}`}
                                             className="text-neutral-600 dark:text-neutral-400"
                                         >
                                             {active.description}
@@ -170,7 +170,7 @@ export default function ExpandableCardDemo() {
                                             {card.title}
                                         </motion.h3>
                                         <motion.p
-                                            layoutId={`description-${card.description}-${id}`}
+                                            layoutId={`description-${card.description}-${card.title}`}
                                             className="text-neutral-600 dark:text-neutral-400 text-center md:text-left"
                                         >
                                             {card.description}
@@ -253,12 +253,10 @@ const cards = [
                     <br />
                     <div>
                         {technologies.map((tech, idx) => (
-                            <>
-                                <span className="text-colorAccent" key={idx}>
-                                    {tech}
-                                </span>
+                            <Fragment key={tech}>
+                                <span className="text-colorAccent">{tech}</span>
                                 {idx !== technologies.length - 1 && ", "}
-                            </>
+                            </Fragment>
                         ))}
                     </div>
                 </div>
@@ -296,12 +294,10 @@ const cards = [
                     <br />{" "}
                     <div>
                         {technologies.map((tech, idx) => (
-                            <>
-                                <span className="text-colorAccent" key={idx}>
-                                    {tech}
-                                </span>
+                            <Fragment key={tech}>
+                                <span className="text-colorAccent">{tech}</span>
                                 {idx !== technologies.length - 1 && ", "}
-                            </>
+                            </Fragment>
                         ))}{" "}
                     </div>
                 </div>
@@ -339,12 +335,10 @@ const cards = [
                     <br />{" "}
                     <div>
                         {technologies.map((tech, idx) => (
-                            <>
-                                <span className="text-colorAccent" key={idx}>
-                                    {tech}
-                                </span>
+                            <Fragment key={tech}>
+                                <span className="text-colorAccent">{tech}</span>
                                 {idx !== technologies.length - 1 && ", "}
-                            </>
+                            </Fragment>
                         ))}{" "}
                     </div>
                 </div>
@@ -381,12 +375,10 @@ const cards = [
                     <br />{" "}
                     <div>
                         {technologies.map((tech, idx) => (
-                            <>
-                                <span className="text-colorAccent" key={idx}>
-                                    {tech}
-                                </span>
+                            <Fragment key={tech}>
+                                <span className="text-colorAccent">{tech}</span>
                                 {idx !== technologies.length - 1 && ", "}
-                            </>
+                            </Fragment>
                         ))}{" "}
                     </div>
                 </div>
@@ -418,12 +410,10 @@ const cards = [
                     <br />
                     <div>
                         {technologies.map((tech, idx) => (
-                            <>
-                                <span className="text-colorAccent" key={idx}>
-                                    {tech}
-                                </span>
+                            <Fragment key={tech}>
+                                <span className="text-colorAccent">{tech}</span>
                                 {idx !== technologies.length - 1 && ", "}
-                            </>
+                            </Fragment>
                         ))}{" "}
                     </div>
                 </div>
@@ -469,12 +459,10 @@ const cards = [
                     <br />{" "}
                     <div>
                         {technologies.map((tech, idx) => (
-                            <>
-                                <span className="text-colorAccent" key={idx}>
-                                    {tech}
-                                </span>
+                            <Fragment key={tech}>
+                                <span className="text-colorAccent">{tech}</span>
                                 {idx !== technologies.length - 1 && ", "}
-                            </>
+                            </Fragment>
                         ))}{" "}
                     </div>
                 </div>
@@ -514,12 +502,53 @@ const cards = [
                     <br />{" "}
                     <div>
                         {technologies.map((tech, idx) => (
-                            <>
-                                <span className="text-colorAccent" key={idx}>
-                                    {tech}
-                                </span>
+                            <Fragment key={tech}>
+                                <span className="text-colorAccent">{tech}</span>
                                 {idx !== technologies.length - 1 && ", "}
-                            </>
+                            </Fragment>
+                        ))}{" "}
+                    </div>
+                </div>
+            );
+        },
+    },
+
+    {
+        id: 11,
+        title: "FormMe",
+        smallSrc: "/small/formMe.png",
+        bigSrc: "/big/formMe.png",
+        description: "Personal Project  ",
+        ctaText: "Open",
+        ctaText2: "Details",
+        ctaLink: "https://form-me.kbueno-studio.com/",
+        tech: ["Svelte", "SvelteKit", "@skeleton.dev", "Firebase"],
+        content: (technologies: string[]) => {
+            return (
+                <div>
+                    <p>
+                        Introducing FormMe, a streamlined solution for creating
+                        custom forms and unique URLs tailored for individual
+                        use. With FormMe, users can easily design bespoke forms,
+                        share a personalized link with one recipient. Perfect
+                        for single-respondent surveys, private feedback
+                        requests, or exclusive event registrations.
+                        <br />
+                        <br />
+                        As a web developer, I`ve been hearing a lot of buzz
+                        around Svelte, a relatively new front-end framework that
+                        takes a different approach to building user interfaces.
+                        Intrigued by its promises of simplicity, performance,
+                        and a compelling component model, I`ve decided to dive
+                        in and explore Svelte for an upcoming project.
+                    </p>
+                    <br />{" "}
+                    <div>
+                        {technologies.map((tech, idx) => (
+                            <Fragment key={tech}>
+                                <span className="text-colorAccent">{tech}</span>
+                                {idx !== technologies.length - 1 && ", "}
+                            </Fragment>
                         ))}{" "}
                     </div>
                 </div>
@@ -557,12 +586,10 @@ const cards = [
                     <br />{" "}
                     <div>
                         {technologies.map((tech, idx) => (
-                            <>
-                                <span className="text-colorAccent" key={idx}>
-                                    {tech}
-                                </span>
+                            <Fragment key={tech}>
+                                <span className="text-colorAccent">{tech}</span>
                                 {idx !== technologies.length - 1 && ", "}
-                            </>
+                            </Fragment>
                         ))}{" "}
                     </div>
                 </div>
@@ -604,12 +631,10 @@ const cards = [
                     <br />{" "}
                     <div>
                         {technologies.map((tech, idx) => (
-                            <>
-                                <span className="text-colorAccent" key={idx}>
-                                    {tech}
-                                </span>
+                            <Fragment key={tech}>
+                                <span className="text-colorAccent">{tech}</span>
                                 {idx !== technologies.length - 1 && ", "}
-                            </>
+                            </Fragment>
                         ))}{" "}
                     </div>
                 </div>
@@ -646,12 +671,10 @@ const cards = [
                     <br />
                     <div>
                         {technologies.map((tech, idx) => (
-                            <>
-                                <span className="text-colorAccent" key={idx}>
-                                    {tech}
-                                </span>
+                            <Fragment key={tech}>
+                                <span className="text-colorAccent">{tech}</span>
                                 {idx !== technologies.length - 1 && ", "}
-                            </>
+                            </Fragment>
                         ))}{" "}
                     </div>
                     <br />
