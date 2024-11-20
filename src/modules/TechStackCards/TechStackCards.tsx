@@ -112,15 +112,6 @@ export const projects = [
     },
 
     {
-        title: "Node.js",
-        description:
-            "Node.js is an open-source, cross-platform JavaScript runtime environment. It allows developers to run JavaScript code on the server, making it possible to create servers, web apps, command line tools, and scripts.",
-        img: "/tech/nodejs-original-wordmark.svg",
-        link: "https://nodejs.org/en",
-        imgClassName: "bg-slate-200",
-    },
-
-    {
         title: "Git",
         description:
             "Git is a free and open-source distributed version control system designed for managing everything from small to very large projects with speed and efficiency. It’s easy to learn and has a tiny footprint, offering lightning-fast performance.",
