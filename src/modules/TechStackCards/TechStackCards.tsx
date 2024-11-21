@@ -62,7 +62,7 @@ export const projects = [
         title: "CSS",
         description:
             "CSS (Cascading Style Sheets) is a style sheet language used to define the presentation and styling of HTML documents. It allows you to control how HTML elements are displayed on a web page, including aspects like fonts, colors, spacing, column layouts, and animations. ",
-        img: "/tech/css3-original.svg",
+        img: "/tech/css.svg",
         link: "https://developer.mozilla.org/es/docs/Web/CSS",
     },
 
