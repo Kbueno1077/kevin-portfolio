@@ -34,7 +34,7 @@ export const HoverEffect = ({
                     target="_blank"
                     href={item?.link}
                     key={item?.link}
-                    className="relative group  block p-2 h-full w-full"
+                    className="relative group min-w-[280px] block p-2 h-full w-full"
                     onMouseEnter={() => setHoveredIndex(idx)}
                     onMouseLeave={() => setHoveredIndex(null)}
                 >
@@ -56,7 +56,7 @@ export const HoverEffect = ({
                         )}
                     </AnimatePresence>
 
-                    <BackgroundGradient className="h-full rounded-[22px] max-w-sm p-4 sm:p-10 bg-white dark:bg-zinc-900">
+                    <BackgroundGradient className="h-full rounded-[22px] p-4 sm:p-10 bg-white dark:bg-zinc-900">
                         <Image
                             priority
                             width={300}
