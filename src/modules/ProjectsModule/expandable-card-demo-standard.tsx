@@ -258,6 +258,7 @@ const cards = [
       );
     },
   },
+
   {
     id: 2,
     description: "Front10",
@@ -302,139 +303,26 @@ const cards = [
 
   {
     id: 4,
-    title: "Evan Home Care",
+    title: "WorkInWeb",
     description: "Contractor  ",
-    first: "WorkInWeb / Freelancer",
-    smallSrc: "/small/evan.png",
-    bigSrc: "/big/evan.png",
+    first: "WorkInWeb",
+    smallSrc: "/small/workinweb_logo.jpeg",
+    bigSrc: "/big/workinweb_logo.jpeg",
     ctaText: "Open",
     ctaText2: "Details",
-    ctaLink: "https://evanhomecare.kbueno-studio.com/",
-    tech: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "NextUI",
-      "TailwindCSS",
-      "AspyrPdf",
-      "Resend",
-    ],
+    ctaLink: "https://weworkinweb.netlify.app",
+    tech: ["Astro", "React", "TypeScript", "TailwindCSS"],
     content: (technologies: string[]) => {
       return (
         <div>
           <p>
-            Created a presentational web site for a healthcare business and also
-            a space where can request and apply for jobs in that enterprise
+            A small business I own that specializes in creating modern,
+            responsive landing pages for companies looking to establish their
+            online presence. We focus on delivering clean, professional websites
+            with hosting that help businesses effectively showcase their
+            products and services.
           </p>
           <br />{" "}
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: 3,
-    title: "Led Panels",
-    description: "Contractor  ",
-    smallSrc: "/small/panels.png",
-    bigSrc: "/big/panels.png",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://led-panels.kbueno-studio.com/",
-    tech: ["React.js", "Next.js", "TypeScript", "Radix UI", "TailwindCSS"],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            Developed a professional landing website for a cutting-edge LED
-            panel marketing and promotion services company. The website
-            showcases comprehensive digital display solutions tailored to
-            businesses seeking innovative advertising and communication
-            platforms.
-          </p>
-          <br />{" "}
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: 5,
-    description: "Contractor",
-    title: "Secret Store",
-    smallSrc: "/small/storeFront.png",
-    bigSrc: "/big/storeFront.png",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://storefront.kbueno-studio.com/",
-    tech: [
-      "React.js",
-      "Next.js",
-      "JavaScript",
-      "MaterialUI",
-      "Style-Components",
-      "Redux",
-    ],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            As part of a demo I created a prototype Ui for a Online Store
-            heavely inspired in Amazon and Aeroenvio with and interactive UX
-            Technologies used: React.js, Next.js, JavaScript, MaterialUI,
-            Style-Components, Redux,
-          </p>
-          <br />{" "}
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: 6,
-    title: "Illustrator Portfolio",
-    smallSrc: "/small/luiso.png",
-    description: "Contractor",
-    bigSrc: "/big/luiso.png",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://luiso-portfolio.framer.website/",
-    tech: ["Framer"],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            Explore vibrant and imaginative world`s of illustrations, brought to
-            life with the dynamic capabilities of Luis Ernesto. This portfolio
-            showcases his passion for storytelling through art, with each piece
-            crafted to transport you to a unique and captivating realm. Made
-            with Framer
-          </p>
-          <br />
           <div>
             {technologies.map((tech, idx) => (
               <Fragment key={tech}>
@@ -700,6 +588,46 @@ const cards = [
           <br />
           <strong>Olympus</strong>, where the gods come togheter to player
           dominoes
+        </div>
+      );
+    },
+  },
+  {
+    id: 13,
+    title: "Weather-Cast",
+    smallSrc: "/small/weather-cast.png",
+    description: "Personal Project  ",
+    bigSrc: "/big/weather-cast.png",
+    ctaText: "Open",
+    ctaText2: "Details",
+    ctaLink: "https://weather-cast.kbueno-studio.com",
+    tech: [
+      "React.js",
+      "Vite",
+      "TypeScript",
+      "TailwindCSS",
+      "Zustand",
+      "Tomorrows Weather API",
+      "Leaflet",
+    ],
+    content: (technologies: string[]) => {
+      return (
+        <div>
+          <p>
+            A weather forecast application that allows users to view current
+            weather conditions and forecasts for any location in the world.
+            Features include a map view, detailed weather information
+          </p>
+          <br />
+          <div>
+            {technologies.map((tech, idx) => (
+              <Fragment key={tech}>
+                <span className="text-colorAccent">{tech}</span>
+                {idx !== technologies.length - 1 && ", "}
+              </Fragment>
+            ))}{" "}
+          </div>
+          <br />
         </div>
       );
     },
