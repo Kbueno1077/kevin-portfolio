@@ -310,7 +310,7 @@ const cards = [
     bigSrc: "/big/workinweb_logo.jpeg",
     ctaText: "Open",
     ctaText2: "Details",
-    ctaLink: "https://weworkinweb.netlify.app",
+    ctaLink: "https://workinweb.kbueno-studio.com/",
     tech: ["Astro", "React", "TypeScript", "TailwindCSS"],
     content: (technologies: string[]) => {
       return (
