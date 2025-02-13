@@ -632,4 +632,39 @@ const cards = [
       );
     },
   },
+  {
+    id: 14,
+    title: "Storybook-Demo",
+    smallSrc: "/small/storybook.svg",
+    description: "Personal Project  ",
+    bigSrc: "/big/storybook.svg",
+    ctaText: "Open",
+    ctaText2: "Details",
+    ctaLink: "https://vercel.com/kevin-buenos-projects/storybook-demo",
+    tech: ["React.js", "Storybook", "TypeScript", "TailwindCSS"],
+    content: (technologies: string[]) => {
+      return (
+        <div>
+          <p>
+            A demo project showcasing component development and documentation
+            using Storybook. This project demonstrates best practices for
+            building reusable UI components, including interactive
+            documentation, different component states, and accessibility
+            features. The demo includes examples of buttons, forms, cards and
+            other common UI elements.
+          </p>
+          <br />
+          <div>
+            {technologies.map((tech, idx) => (
+              <Fragment key={tech}>
+                <span className="text-colorAccent">{tech}</span>
+                {idx !== technologies.length - 1 && ", "}
+              </Fragment>
+            ))}{" "}
+          </div>
+          <br />
+        </div>
+      );
+    },
+  },
 ];
