@@ -640,7 +640,7 @@ const cards = [
     bigSrc: "/big/storybook.svg",
     ctaText: "Open",
     ctaText2: "Details",
-    ctaLink: "https://vercel.com/kevin-buenos-projects/storybook-demo",
+    ctaLink: "https://storybook-demo.kbueno-studio.com/",
     tech: ["React.js", "Storybook", "TypeScript", "TailwindCSS"],
     content: (technologies: string[]) => {
       return (
