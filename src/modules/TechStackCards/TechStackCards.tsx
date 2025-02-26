@@ -97,10 +97,10 @@ export const projects = [
     link: "https://xata.io/",
   },
   {
-    title: "Storybook",
+    title: "NextAuth.js",
     description:
-      "Storybook is a frontend workshop for building UI components and pages in isolation. Thousands of teams use it for UI development, testing, and documentation.",
-    img: "/tech/storybook.svg",
+      "NextAuth.js is an open-source authentication library designed for Next.js applications. It simplifies the process of managing sessions, sign-in, and sign-out, making it easier to implement authentication features.",
+    img: "/tech/nextAuth.png",
     link: "https://next-auth.js.org/",
   },
   {
