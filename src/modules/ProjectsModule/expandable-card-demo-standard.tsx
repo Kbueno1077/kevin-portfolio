@@ -304,13 +304,13 @@ const cards = [
   {
     id: 4,
     title: "WorkInWeb",
-    description: "Contractor  ",
+    description: "Founder  ",
     first: "WorkInWeb",
     smallSrc: "/small/workinweb_logo.jpeg",
     bigSrc: "/big/workinweb_logo.jpeg",
     ctaText: "Open",
     ctaText2: "Details",
-    ctaLink: "https://workinweb.kbueno-studio.com/",
+    ctaLink: "https://weworkinweb.com/",
     tech: ["Astro", "React", "TypeScript", "TailwindCSS"],
     content: (technologies: string[]) => {
       return (
