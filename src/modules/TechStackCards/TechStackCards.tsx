@@ -104,10 +104,10 @@ export const projects = [
     link: "https://next-auth.js.org/",
   },
   {
-    title: "Strotybook",
+    title: "Storybook",
     description:
-      "NextAuth.js is an open-source authentication library designed for Next.js applications. It simplifies the process of managing sessions, sign-in, and sign-out, making it easier to implement authentication features. ",
-    img: "/tech/nextAuth.png",
+      "Storybook is a frontend workshop for building UI components and pages in isolation. Thousands of teams use it for UI development, testing, and documentation.",
+    img: "/tech/storybook.svg",
     link: "https://storybook.js.org/",
   },
   {
