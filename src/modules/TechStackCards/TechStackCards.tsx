@@ -97,11 +97,11 @@ export const projects = [
     link: "https://xata.io/",
   },
   {
-    title: "NextAuth.js",
+    title: "Auth.js",
     description:
-      "NextAuth.js is an open-source authentication library designed for Next.js applications. It simplifies the process of managing sessions, sign-in, and sign-out, making it easier to implement authentication features.",
+      "Auth.js is an open-source authentication library designed for Next.js applications. It simplifies the process of managing sessions, sign-in, and sign-out, making it easier to implement authentication features.",
     img: "/tech/nextAuth.png",
-    link: "https://next-auth.js.org/",
+    link: "https://authjs.dev/",
   },
   {
     title: "Storybook",
