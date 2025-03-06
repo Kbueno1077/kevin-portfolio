@@ -346,7 +346,7 @@ const cards = [
     bigSrc: "/big/beer-warehouse.png",
     ctaText: "Open",
     ctaText2: "Details",
-    ctaLink: "https://beer-warehouse.com/",
+    ctaLink: "https://beer-warehouse.vercel.app/en",
     tech: [
       "React.js",
       "Next.js",
