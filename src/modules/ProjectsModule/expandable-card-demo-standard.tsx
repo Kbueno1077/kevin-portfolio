@@ -306,8 +306,8 @@ const cards = [
     title: "WorkInWeb",
     description: "Founder  ",
     first: "WorkInWeb",
-    smallSrc: "/small/workinweb_logo.jpeg",
-    bigSrc: "/big/workinweb_logo.jpeg",
+    smallSrc: "/small/workinweb.svg",
+    bigSrc: "/big/workinweb.svg",
     ctaText: "Open",
     ctaText2: "Details",
     ctaLink: "https://weworkinweb.com/",
@@ -337,10 +337,39 @@ const cards = [
   },
 
   {
+    id: 15,
+    description: "Personal Project",
+    title: "EZ - Data View",
+    smallSrc: "/small/ez-charts.png",
+    bigSrc: "/big/ez-charts.png",
+    ctaText: "Open",
+    ctaText2: "Details",
+    ctaLink: "https://ezdataview.kbueno-studio.com/",
+
+    first: "Personal Projects",
+    tech: ["React.js", "Next.js", "TypeScript", "Hero UI", "Charts", "Zustand"],
+    content: (technologies: string[]) => {
+      return (
+        <div>
+          <p>Build your charts on the web with ease. Customizable Charts</p>
+          <br />{" "}
+          <div>
+            {technologies.map((tech, idx) => (
+              <Fragment key={tech}>
+                <span className="text-colorAccent">{tech}</span>
+                {idx !== technologies.length - 1 && ", "}
+              </Fragment>
+            ))}{" "}
+          </div>
+        </div>
+      );
+    },
+  },
+
+  {
     id: 7,
     title: "Beer Warehouse",
     description: "Personal Project",
-    first: "Personal Projects",
 
     smallSrc: "/small/beer-warehouse.png",
     bigSrc: "/big/beer-warehouse.png",
