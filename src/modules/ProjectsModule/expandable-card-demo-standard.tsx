@@ -223,10 +223,45 @@ export const CloseIcon = () => {
 
 const cards = [
   {
+    id: 0,
+    description: "Front10",
+    title: "Front10",
+    first: "Front10 LLC",
+    smallSrc: "/logos/front10.png",
+    bigSrc: "/logos/front10.png",
+    ctaText: "Open",
+    ctaText2: "Details",
+    ctaLink: "https://www.front10.com/",
+    tech: [],
+    content: (technologies: string[]) => {
+      return (
+        <div>
+          <p>
+            At Front10, I’ve worked as both a Technical Leader and Frontend
+            Developer, guiding product direction while staying deeply involved
+            in implementation. My role spans multiple client-facing and internal
+            projects, contributed to architectural decisions and collaborated
+            closely with teammates to clarify product goals and frontend
+            direction
+          </p>
+          <br />
+          <div>
+            {technologies.map((tech, idx) => (
+              <Fragment key={tech}>
+                <span className="text-colorAccent">{tech}</span>
+                {idx !== technologies.length - 1 && ", "}
+              </Fragment>
+            ))}
+          </div>
+        </div>
+      );
+    },
+  },
+
+  {
     id: 1,
     description: "Front10 - PROS",
     title: "TravelPaas",
-    first: "Front10 LLC",
     smallSrc: "/small/Pros.jpg",
     bigSrc: "/big/Pros.jpg",
     ctaText: "Open",
@@ -237,13 +272,18 @@ const cards = [
       return (
         <div>
           <p>
-            Help Airlines enhance customer experience by creating functional,
-            highly customizable web applications and translating designs into
-            efficient code. Streamline booking and check-in processes, implement
-            responsive and accessible designs, integrate real-time flight
-            information and updates, and offer personalized features and
-            recommendations to improve user satisfaction and operational
-            efficiency.
+            As the frontend developer behind Digital Retail, I’ve helped shape a
+            highly customizable white-label booking engine built for
+            multi-tenant environments. Designed to flex around each airline’s
+            brand identity and retail strategy, our Internet Booking Engine
+            (IBE) supports everything from full-service carriers to lean
+            startups—with tailored UX across desktop and mobile. The platform
+            includes robust flows for booking management, award shopping,
+            re-shopping, and cart functionality. Thanks to our component-based
+            UI, scalable logic layer, and Retail APIs built on the PROS
+            Offer/Order Management platform, airlines can configure features,
+            visuals, and interactions to suit their unique needs—without
+            compromising performance or consistency.
           </p>
           <br />
           <div>
@@ -316,11 +356,11 @@ const cards = [
       return (
         <div>
           <p>
-            A small business I own that specializes in creating modern,
-            responsive landing pages for companies looking to establish their
-            online presence. We focus on delivering clean, professional websites
-            with hosting that help businesses effectively showcase their
-            products and services.
+            I run a small business that crafts modern, responsive landing pages
+            for companies aiming to build their online presence. We specialize
+            in clean, professional designs paired with reliable hosting, helping
+            businesses present their products and services with clarity and
+            confidence.
           </p>
           <br />{" "}
           <div>

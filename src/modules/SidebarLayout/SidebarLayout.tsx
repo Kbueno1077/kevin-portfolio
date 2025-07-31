@@ -1,18 +1,17 @@
 "use client";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
 import {
+  IconAt,
   IconBrandGithub,
   IconBrandLinkedin,
   IconBrandTabler,
   IconBuildingSkyscraper,
+  IconClipboard,
   IconCode,
   IconLayoutDashboard,
   IconUserBolt,
-  IconAt,
-  IconBookDownload,
-  IconClipboard,
 } from "@tabler/icons-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -37,8 +36,8 @@ export function SidebarLayout({ children }: any) {
       ),
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "Experience",
+      href: "/experience",
       icon: (
         <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
