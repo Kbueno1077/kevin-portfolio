@@ -2,12 +2,27 @@
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { Fragment, useEffect, useId, useRef, useState } from "react";
+import { ReactElement, useEffect, useId, useRef, useState } from "react";
+import { cards } from "./projects";
+
+export interface Card {
+  id: number | string;
+  title: string;
+  description: string;
+  first?: string;
+  imgSrc: string;
+  ctaText: string;
+  ctaText2: string;
+  ctaLink: string | string[];
+  ctaTexts?: string[];
+  tech: string[];
+  content: (technologies: string[]) => ReactElement;
+  imageClassSmall?: string;
+  imageClassBig?: string;
+}
 
 export default function ExpandableCardDemo() {
-  const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
-    null
-  );
+  const [active, setActive] = useState<Card | boolean | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const id = useId();
 
@@ -30,6 +45,41 @@ export default function ExpandableCardDemo() {
 
   useOutsideClick(ref, () => setActive(null));
 
+  const renderCTALinks = (card: Card) => {
+    if (Array.isArray(card.ctaLink)) {
+      return (
+        <div className="flex flex-col sm:flex-row w-full gap-2">
+          {card.ctaLink.map((link, index) => (
+            <motion.div
+              key={`${card.title}-link-${index}`}
+              layoutId={`button-${card.title}-${id}-${index}`}
+              className={`px-3 sm:px-4 w-full py-2.5 sm:py-3 text-xs sm:text-sm rounded-full font-bold transition-colors cursor-pointer text-center ${
+                index === 0
+                  ? "bg-green-500 text-white hover:bg-green-600"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300"
+              }`}
+              onClick={() => window.open(link, "_blank", "noopener,noreferrer")}
+            >
+              {card.ctaTexts?.[index] || card.ctaText}
+            </motion.div>
+          ))}
+        </div>
+      );
+    } else {
+      return (
+        <motion.div
+          layoutId={`button-${card.title}-${id}`}
+          className="px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm rounded-full font-bold bg-green-500 text-white hover:bg-green-600 transition-colors cursor-pointer text-center"
+          onClick={() =>
+            window.open(card.ctaLink as string, "_blank", "noopener,noreferrer")
+          }
+        >
+          {card.ctaText}
+        </motion.div>
+      );
+    }
+  };
+
   return (
     <>
       <AnimatePresence>
@@ -42,10 +92,11 @@ export default function ExpandableCardDemo() {
           />
         )}
       </AnimatePresence>
+
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="fixed inset-0 grid place-items-center z-[100]">
-            <motion.button
+          <div className="fixed inset-0 flex items-center justify-center z-[100] p-2 sm:p-4">
+            <motion.div
               key={`button-${active.title}-${id}`}
               layout
               initial={{
@@ -60,149 +111,207 @@ export default function ExpandableCardDemo() {
                   duration: 0.05,
                 },
               }}
-              className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
+              className="flex absolute top-2 right-2 sm:top-4 sm:right-4 lg:hidden items-center justify-center bg-white dark:bg-neutral-800 rounded-full h-8 w-8 sm:h-10 sm:w-10 cursor-pointer z-20 shadow-lg"
               onClick={() => setActive(null)}
             >
               <CloseIcon />
-            </motion.button>
+            </motion.div>
             <motion.div
               layoutId={`card-${active.title}-${id}`}
-              ref={ref}
-              className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%]  flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="w-full max-w-[95vw] sm:max-w-[500px] h-[95vh] sm:h-fit sm:max-h-[90vh] flex flex-col bg-white dark:bg-neutral-900 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl"
             >
-              <motion.div layoutId={`image-${active.title}-${id}`}>
-                <Image
-                  priority
-                  width={300}
-                  height={300}
-                  src={active.bigSrc}
-                  alt={active.title}
-                  quality={100}
-                  className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover"
-                />
-              </motion.div>
+              <div ref={ref}>
+                <motion.div layoutId={`image-${active.title}-${id}`}>
+                  <Image
+                    priority
+                    width={300}
+                    height={300}
+                    src={active.imgSrc}
+                    alt={active.title}
+                    quality={100}
+                    className={`w-full h-48 sm:h-64 lg:h-80 rounded-t-2xl sm:rounded-t-3xl ${
+                      active.imageClassBig || "object-cover object-center"
+                    }`}
+                  />
+                </motion.div>
 
-              <div>
-                <div className="flex justify-between items-start p-4">
-                  <div className="">
-                    <motion.h3
-                      layoutId={`title-${active.title}-${id}`}
-                      className="font-bold text-neutral-700 dark:text-neutral-200 "
-                    >
-                      {active.title}
-                    </motion.h3>
-                    <motion.p
-                      layoutId={`description-${active.description}-${active.title}`}
-                      className="text-neutral-600 dark:text-neutral-400"
-                    >
-                      {active.description}
-                    </motion.p>
+                <div className="flex-1 flex flex-col">
+                  <div className="p-3 sm:p-4 flex-1">
+                    <div className="mb-3 sm:mb-4">
+                      <motion.div
+                        layoutId={`title-${active.title}-${id}`}
+                        className="font-bold text-lg sm:text-xl text-neutral-700 dark:text-neutral-200 mb-2"
+                      >
+                        {active.title}
+                      </motion.div>
+                      <motion.div
+                        layoutId={`description-${active.description}-${active.title}`}
+                        className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400"
+                      >
+                        {active.description}
+                      </motion.div>
+                    </div>
+
+                    <div className="w-full mt-3 sm:mt-4">
+                      {renderCTALinks(active)}
+                    </div>
                   </div>
 
-                  <motion.a
-                    layoutId={`button-${active.title}-${id}`}
-                    href={active.ctaLink}
-                    target="_blank"
-                    className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
-                  >
-                    {active.ctaText}
-                  </motion.a>
-                </div>
-                <div className="pt-4 relative px-4">
-                  <motion.div
-                    layout
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
-                  >
-                    {typeof active.content === "function"
-                      ? active.content(active.tech)
-                      : active.content}
-                  </motion.div>
+                  <div className="px-3 sm:px-4 pb-4 sm:pb-6">
+                    <motion.div
+                      layout
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="text-neutral-600 text-xs sm:text-sm lg:text-base h-32 sm:h-40 md:h-fit pb-4 sm:pb-6 flex flex-col items-start gap-3 sm:gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                    >
+                      {typeof active.content === "function"
+                        ? active.content(active.tech)
+                        : active.content}
+                    </motion.div>
+                  </div>
                 </div>
               </div>
             </motion.div>
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full px-4 md:px-0 gap-4 pb-10">
-        {cards.map((card, index) => (
-          <div key={card.id}>
-            {card.first && (
-              <h1
-                className={`pb-4 ${
-                  index !== 0 && "mt-10"
-                } text-2xl lg:ml-[-40px] font-bold underline`}
-              >
-                {card.first}
-              </h1>
-            )}
-            <li
-              key={`card-${card.title}-${id}`}
-              className="mb-3 md:mb-0 dark:border-white/[0.2] border-2 rounded-lg md:border-none"
+
+      <div className="max-w-7xl mx-auto w-full px-2 sm:px-4 lg:px-8 pb-6 sm:pb-10">
+        {(() => {
+          let currentCategory = "";
+          let categoryCards: Card[] = [];
+          const categoryGroups: { category: string; cards: Card[] }[] = [];
+
+          // Group cards by category
+          cards.forEach((card) => {
+            if (card.first && card.first !== currentCategory) {
+              if (categoryCards.length > 0) {
+                categoryGroups.push({
+                  category: currentCategory,
+                  cards: categoryCards,
+                });
+              }
+              currentCategory = card.first;
+              categoryCards = [card];
+            } else {
+              categoryCards.push(card);
+            }
+          });
+
+          if (categoryCards.length > 0) {
+            categoryGroups.push({
+              category: currentCategory,
+              cards: categoryCards,
+            });
+          }
+
+          return categoryGroups.map((group, groupIndex) => (
+            <div
+              key={group.category}
+              className={`${
+                groupIndex !== 0 ? "mt-12 sm:mt-16 lg:mt-20" : "mt-8 sm:mt-12"
+              } mb-8 sm:mb-12`}
             >
-              <motion.div
-                layoutId={`card-${card.title}-${id}`}
-                onClick={() => setActive(card)}
-                className="p-4 py-6 md:py-4 flex md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
-              >
-                <div className="flex gap-4 flex-col md:flex-row  ">
-                  <motion.div layoutId={`image-${card.title}-${id}`}>
-                    <Image
-                      width={100}
-                      height={100}
-                      src={card.smallSrc}
-                      alt={card.title}
-                      quality={100}
-                      className="h-40 w-40 md:h-20 md:w-20 rounded-lg object-cover object-top"
-                    />
+              {/* Category Header */}
+              <div className="mb-8 sm:mb-12">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-800 dark:text-neutral-200 mb-2 sm:mb-3 text-center lg:text-left">
+                  {group.category}
+                </h1>
+                <div className="w-16 sm:w-20 h-0.5 sm:h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-full mx-auto lg:mx-0"></div>
+              </div>
+
+              {/* Grid Layout */}
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-2 sm:gap-4 lg:gap-6">
+                {group.cards.map((card, cardIndex) => (
+                  <motion.div
+                    key={card.id}
+                    layoutId={`card-${card.title}-${id}`}
+                    onClick={() => setActive(card)}
+                    className="group bg-white dark:bg-neutral-900 rounded-lg sm:rounded-xl p-2 sm:p-4 hover:shadow-lg transition-all duration-300 cursor-pointer border border-neutral-200 dark:border-neutral-700 hover:border-green-300 dark:hover:border-green-600 overflow-hidden flex flex-col h-full"
+                  >
+                    {/* Image */}
+                    <motion.div
+                      layoutId={`image-${card.title}-${id}`}
+                      className="mb-1.5 sm:mb-3 overflow-hidden rounded-lg"
+                    >
+                      <Image
+                        width={300}
+                        height={200}
+                        src={card.imgSrc}
+                        alt={card.title}
+                        quality={100}
+                        className={`w-full h-48 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300 group-hover:scale-105 ${
+                          card.imageClassBig || "object-cover object-center"
+                        }`}
+                      />
+                    </motion.div>
+
+                    {/* Content */}
+                    <div className="space-y-1 sm:space-y-2 flex-1">
+                      <h3 className="font-semibold text-xs sm:text-base text-neutral-800 dark:text-neutral-200 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors line-clamp-1">
+                        {card.title}
+                      </h3>
+                      <div className="text-xs text-neutral-600 dark:text-neutral-400 line-clamp-2 sm:line-clamp-3">
+                        {card.content(card.tech)}
+                      </div>
+                    </div>
+
+                    {/* CTA Button */}
+                    <div className="pt-1.5 sm:pt-3 mt-auto">
+                      {Array.isArray(card.ctaLink) ? (
+                        <div className="flex flex-col gap-0.5 sm:gap-1">
+                          {card.ctaLink.map((link, index) => (
+                            <button
+                              key={`${card.title}-link-${index}`}
+                              className={`px-1.5 sm:px-3 py-1 sm:py-1.5 text-xs rounded-md font-medium transition-all duration-300 ${
+                                index === 0
+                                  ? "bg-green-500 text-white hover:bg-green-600"
+                                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300"
+                              }`}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                window.open(
+                                  link,
+                                  "_blank",
+                                  "noopener,noreferrer"
+                                );
+                              }}
+                            >
+                              {card.ctaTexts?.[index] || card.ctaText}
+                            </button>
+                          ))}
+                        </div>
+                      ) : (
+                        <button
+                          className="w-full px-1.5 sm:px-3 py-1 sm:py-1.5 text-xs rounded-md font-medium bg-green-500 text-white hover:bg-green-600 transition-all duration-300"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(
+                              card.ctaLink as string,
+                              "_blank",
+                              "noopener,noreferrer"
+                            );
+                          }}
+                        >
+                          {card.ctaText}
+                        </button>
+                      )}
+                    </div>
                   </motion.div>
-                  <div className="">
-                    <motion.h3
-                      layoutId={`title-${card.title}-${id}`}
-                      className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left"
-                    >
-                      {card.title}
-                    </motion.h3>
-                    <motion.p
-                      layoutId={`description-${card.description}-${card.title}`}
-                      className="text-neutral-600 dark:text-neutral-400 text-center md:text-left"
-                    >
-                      {card.description}
-                    </motion.p>
-                  </div>
-                </div>
-                <motion.button
-                  layoutId={`button-${card.title}-${id}`}
-                  className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-4 md:mt-0"
-                >
-                  {card.ctaText2}
-                </motion.button>
-              </motion.div>
-            </li>
-          </div>
-        ))}
-      </ul>
+                ))}
+              </div>
+            </div>
+          ));
+        })()}
+      </div>
     </>
   );
 }
 
 export const CloseIcon = () => {
   return (
-    <motion.svg
-      initial={{
-        opacity: 0,
-      }}
-      animate={{
-        opacity: 1,
-      }}
-      exit={{
-        opacity: 0,
-        transition: {
-          duration: 0.05,
-        },
-      }}
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -212,528 +321,11 @@ export const CloseIcon = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-4 w-4 text-black"
+      className="h-4 w-4 sm:h-5 sm:w-5 text-black dark:text-white"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M18 6l-12 12" />
       <path d="M6 6l12 12" />
-    </motion.svg>
+    </svg>
   );
 };
-
-const cards = [
-  {
-    id: 0,
-    description: "Front10",
-    title: "Front10",
-    first: "Front10 LLC",
-    smallSrc: "/logos/front10.png",
-    bigSrc: "/logos/front10.png",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://www.front10.com/",
-    tech: [],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            At Front10, I’ve worked as both a Technical Leader and Frontend
-            Developer, guiding product direction while staying deeply involved
-            in implementation. My role spans multiple client-facing and internal
-            projects, contributed to architectural decisions and collaborated
-            closely with teammates to clarify product goals and frontend
-            direction
-          </p>
-          <br />
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}
-          </div>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: 1,
-    description: "Front10 - PROS",
-    title: "TravelPaas",
-    smallSrc: "/small/Pros.jpg",
-    bigSrc: "/big/Pros.jpg",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://book.azoresairlines.pt/booking/",
-    tech: ["React.js", "TypeScript", "JavaScript", "Sass"],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            As the frontend developer behind Digital Retail, I’ve helped shape a
-            highly customizable white-label booking engine built for
-            multi-tenant environments. Designed to flex around each airline’s
-            brand identity and retail strategy, our Internet Booking Engine
-            (IBE) supports everything from full-service carriers to lean
-            startups—with tailored UX across desktop and mobile. The platform
-            includes robust flows for booking management, award shopping,
-            re-shopping, and cart functionality. Thanks to our component-based
-            UI, scalable logic layer, and Retail APIs built on the PROS
-            Offer/Order Management platform, airlines can configure features,
-            visuals, and interactions to suit their unique needs—without
-            compromising performance or consistency.
-          </p>
-          <br />
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}
-          </div>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: 2,
-    description: "Front10",
-    title: "Woxo Video Editor",
-    smallSrc: "/small/woxo.png",
-    bigSrc: "/big/woxo.png",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://woxo.tech/",
-    tech: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "JavaScript",
-      "MaterialUI",
-      "GSAP",
-      "Fabric.js",
-      "Zustand",
-    ],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            Woxo, is an Online effortless video editor that allows you to create
-            videos in a matter of seconds. The project is designed to be
-            user-friendly and take advantage of the new AI capabilities in the
-            market.
-          </p>
-          <br />{" "}
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: 4,
-    title: "WorkInWeb",
-    description: "Founder  ",
-    first: "WorkInWeb",
-    smallSrc: "/small/workinweb.svg",
-    bigSrc: "/big/workinweb.svg",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://weworkinweb.com/",
-    tech: ["Astro", "React", "TypeScript", "TailwindCSS"],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            I run a small business that crafts modern, responsive landing pages
-            for companies aiming to build their online presence. We specialize
-            in clean, professional designs paired with reliable hosting, helping
-            businesses present their products and services with clarity and
-            confidence.
-          </p>
-          <br />{" "}
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: 15,
-    description: "Personal Project",
-    title: "EZ - Data View",
-    smallSrc: "/small/ez-charts.png",
-    bigSrc: "/big/ez-charts.png",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://ezdataview.kbueno-studio.com/",
-
-    first: "Personal Projects",
-    tech: ["React.js", "Next.js", "TypeScript", "Hero UI", "Charts", "Zustand"],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>Build your charts on the web with ease. Customizable Charts</p>
-          <br />{" "}
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: 7,
-    title: "Beer Warehouse",
-    description: "Personal Project",
-
-    smallSrc: "/small/beer-warehouse.png",
-    bigSrc: "/big/beer-warehouse.png",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://beer-warehouse.vercel.app/en",
-    tech: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "NextUI",
-      "TailwindCSS",
-      "NextAuth",
-      "Cloudinary",
-      "Xata.io",
-      "Echarts",
-      "next-intl",
-      "Zustand",
-    ],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            Created a personal web application where I store a collection of
-            different beers that I have had the pleasure of enjoying. Powered
-            also with Gen AI to search and provied info of other beers as you
-            browse for them on a store. Friends can check the information as
-            create their owns account to store theirs.
-          </p>
-          <br />{" "}
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: 8,
-    title: "App - Beer Warehouse",
-    smallSrc: "/small/beer-mobile.png",
-    bigSrc: "/big/beer-mobile.png",
-    description: "Personal Project  ",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://github.com/Kbueno1077/beer-warehouse-rn",
-    tech: [
-      "React.js",
-      "React Native",
-      "Expo",
-      "Zustand",
-      "Cloudinary",
-      "Xata.io",
-    ],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            I created a mobile app for the beer warehouse. It was a personal
-            project that I worked on I used React Native, Cloudinary to store
-            media and Xata for data. The app was designed to be a simple and
-            user-friendly interface for ordering and managing my beer
-            collection, ispired by the web application and with a similar stack
-            of technologies.
-          </p>
-          <br />{" "}
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: 9,
-    title: "FormMe",
-    smallSrc: "/small/formMe.png",
-    bigSrc: "/big/formMe.png",
-    description: "Personal Project  ",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://form-me.kbueno-studio.com/",
-    tech: ["Svelte", "SvelteKit", "@skeleton.dev", "Firebase"],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            Introducing FormMe, a streamlined solution for creating custom forms
-            and unique URLs tailored for individual use. With FormMe, users can
-            easily design bespoke forms, share a personalized link with one
-            recipient. Perfect for single-respondent surveys, private feedback
-            requests, or exclusive event registrations.
-            <br />
-            <br />
-            As a web developer, I`ve been hearing a lot of buzz around Svelte, a
-            relatively new front-end framework that takes a different approach
-            to building user interfaces. Intrigued by its promises of
-            simplicity, performance, and a compelling component model, I`ve
-            decided to dive in and explore Svelte for an upcoming project.
-          </p>
-          <br />{" "}
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: 10,
-    title: "Todo - Doing - Done",
-    smallSrc: "/small/todoLogo.png",
-    bigSrc: "/big/todoLogo.png",
-    description: "Personal Project  ",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://todo-doing-done.kbueno-studio.com/",
-    tech: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "Zustand",
-      "Supabase",
-      "DaisyUI",
-    ],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            This project is a feature-rich project management board inspired by
-            popular tools like Trello, Jira and Kanban. It is designed to help
-            teams organize tasks, collaborate efficiently, and track progress in
-            a visually intuitive manner.
-          </p>
-          <br />{" "}
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: 11,
-    title: "GranLine Maps",
-    smallSrc: "/small/maps.png",
-    bigSrc: "/big/maps.png",
-    description: "Personal Project  ",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://grand-line.kbueno-studio.com/",
-    tech: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "Zustand",
-      "Supabase",
-      "Radix UI",
-      "Radix Themes",
-      "Leaflet",
-    ],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            GrandLine Maps is a web-based application designed to allow users to
-            create custom maps and assign locations that hold significant
-            emotional or important data. This tool is perfect for individuals
-            who want to visually document and share their personal journeys,
-            memories, and meaningful places. The Name is inspired by the One
-            Piece Franchise.
-          </p>
-          <br />{" "}
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: 12,
-    title: "Olympus Dominoes",
-    smallSrc: "/small/olympus.png",
-    description: "Personal Project  ",
-    bigSrc: "/big/olympus.png",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://olympus-dominoes.kbueno-studio.com/",
-    tech: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "MaterialUI",
-      "TailwindCSS",
-      "Supabase",
-      "Recoil",
-    ],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            I love to play dominoes, (55 pieces) so I created a web application
-            keep the score in matches and keep track of history records
-          </p>
-          <br />
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-          <br />
-          <strong>Olympus</strong>, where the gods come togheter to player
-          dominoes
-        </div>
-      );
-    },
-  },
-  {
-    id: 13,
-    title: "Weather-Cast",
-    smallSrc: "/small/weather-cast.png",
-    description: "Personal Project  ",
-    bigSrc: "/big/weather-cast.png",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://weather-cast.kbueno-studio.com",
-    tech: [
-      "React.js",
-      "Vite",
-      "TypeScript",
-      "TailwindCSS",
-      "Zustand",
-      "Tomorrows Weather API",
-      "Leaflet",
-    ],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            A weather forecast application that allows users to view current
-            weather conditions and forecasts for any location in the world.
-            Features include a map view, detailed weather information
-          </p>
-          <br />
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-          <br />
-        </div>
-      );
-    },
-  },
-  {
-    id: 14,
-    title: "Storybook-Demo",
-    smallSrc: "/small/storybook.svg",
-    description: "Personal Project  ",
-    bigSrc: "/big/storybook.svg",
-    ctaText: "Open",
-    ctaText2: "Details",
-    ctaLink: "https://storybook-demo.kbueno-studio.com/",
-    tech: ["React.js", "Storybook", "TypeScript", "TailwindCSS"],
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            A demo project showcasing component development and documentation
-            using Storybook. This project demonstrates best practices for
-            building reusable UI components, including interactive
-            documentation, different component states, and accessibility
-            features. The demo includes examples of buttons, forms, cards and
-            other common UI elements.
-          </p>
-          <br />
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-          <br />
-        </div>
-      );
-    },
-  },
-];

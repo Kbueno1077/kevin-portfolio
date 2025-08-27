@@ -234,7 +234,7 @@ export default function VerticalTimelineDemo() {
               height={500}
               width={500}
               quality={100}
-              src={"/logos/Front10.jpg"}
+              src={"/logos/Front10.png"}
               alt={"Front10 Company"}
               className="w-[60%] h-[60%] object-contain"
             />
