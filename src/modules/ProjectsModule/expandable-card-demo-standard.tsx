@@ -34,9 +34,22 @@ export default function ExpandableCardDemo() {
     }
 
     if (active && typeof active === "object") {
+      // Store the current scroll position
+      const scrollY = window.scrollY;
       document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
     } else {
-      document.body.style.overflow = "auto";
+      // Restore the scroll position
+      const scrollY = document.body.style.top;
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+      }
     }
 
     window.addEventListener("keydown", onKeyDown);
@@ -52,7 +65,6 @@ export default function ExpandableCardDemo() {
           {card.ctaLink.map((link, index) => (
             <motion.div
               key={`${card.title}-link-${index}`}
-              layoutId={`button-${card.title}-${id}-${index}`}
               className={`px-4 sm:px-4 w-full py-4 sm:py-3 text-base sm:text-sm rounded-full font-bold transition-colors cursor-pointer text-center ${
                 index === 0
                   ? "bg-green-500 text-white hover:bg-green-600"
@@ -68,7 +80,6 @@ export default function ExpandableCardDemo() {
     } else {
       return (
         <motion.div
-          layoutId={`button-${card.title}-${id}`}
           className="px-4 sm:px-4 py-4 sm:py-3 text-base sm:text-sm rounded-full font-bold bg-green-500 text-white hover:bg-green-600 transition-colors cursor-pointer text-center"
           onClick={() =>
             window.open(card.ctaLink as string, "_blank", "noopener,noreferrer")
@@ -88,29 +99,21 @@ export default function ExpandableCardDemo() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/20 h-full w-full z-10"
+            transition={{ duration: 0.15, ease: "easeOut" }}
+            className="fixed inset-0 bg-black/60 h-full w-full z-10"
           />
         )}
       </AnimatePresence>
 
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="fixed inset-0 flex items-center justify-center z-[100] p-0 sm:p-4">
+          <div className="fixed inset-0 flex items-center justify-center z-[100] p-0 sm:p-4 overflow-hidden">
             <motion.div
-              key={`button-${active.title}-${id}`}
-              layout
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              exit={{
-                opacity: 0,
-                transition: {
-                  duration: 0.05,
-                },
-              }}
+              key="close-button"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
               className="flex absolute top-2 right-2 sm:top-4 sm:right-4 lg:hidden items-center justify-center bg-white dark:bg-neutral-800 rounded-full h-12 w-12 sm:h-12 sm:w-12 cursor-pointer z-20 shadow-lg"
               onClick={() => setActive(null)}
             >
@@ -118,10 +121,45 @@ export default function ExpandableCardDemo() {
             </motion.div>
             <motion.div
               layoutId={`card-${active.title}-${id}`}
+              initial={{
+                opacity: 0,
+                scale: 0.95,
+                y: 10,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+                scale: 0.95,
+                y: 10,
+              }}
+              transition={{
+                duration: 0.2,
+                ease: "easeOut",
+                layout: {
+                  duration: 0.2,
+                  ease: "easeInOut",
+                },
+              }}
               className="w-full h-full sm:max-w-[500px] sm:h-fit sm:max-h-[90vh] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden shadow-2xl"
             >
-              <div ref={ref}>
-                <motion.div layoutId={`image-${active.title}-${id}`}>
+              <div
+                ref={ref}
+                className="flex flex-col h-full max-h-full overflow-hidden"
+              >
+                <motion.div
+                  initial={{ scale: 1.05 }}
+                  animate={{ scale: 1 }}
+                  exit={{ scale: 1.05 }}
+                  transition={{
+                    duration: 0.2,
+                    ease: "easeOut",
+                  }}
+                  className="overflow-hidden flex-shrink-0"
+                >
                   <Image
                     priority
                     width={300}
@@ -129,45 +167,79 @@ export default function ExpandableCardDemo() {
                     src={active.imgSrc}
                     alt={active.title}
                     quality={100}
-                    className={`w-full h-56 sm:h-64 lg:h-80 rounded-t-xl sm:rounded-t-3xl ${
+                    className={`w-full h-48 sm:h-56 lg:h-64 rounded-t-xl sm:rounded-t-3xl ${
                       active.imageClassBig || "object-cover object-center"
                     }`}
                   />
                 </motion.div>
 
-                <div className="flex-1 flex flex-col">
-                  <div className="p-6 sm:p-6 flex-1">
-                    <div className="mb-6 sm:mb-6">
+                <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+                  <div className="p-4 sm:p-6 flex-shrink-0">
+                    <div className="mb-4 sm:mb-6">
                       <motion.div
-                        layoutId={`title-${active.title}-${id}`}
-                        className="font-bold text-3xl sm:text-2xl lg:text-3xl text-neutral-700 dark:text-neutral-200 mb-4"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{
+                          duration: 0.2,
+                          delay: 0.1,
+                          ease: "easeOut",
+                        }}
+                        className="font-bold text-2xl sm:text-xl md:text-lg lg:text-xl text-neutral-700 dark:text-neutral-200 mb-3 sm:mb-4"
                       >
                         {active.title}
                       </motion.div>
                       <motion.div
-                        layoutId={`description-${active.description}-${active.title}`}
-                        className="text-xl sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{
+                          duration: 0.2,
+                          delay: 0.15,
+                          ease: "easeOut",
+                        }}
+                        className="text-lg sm:text-base md:text-sm lg:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed"
                       >
                         {active.description}
                       </motion.div>
                     </div>
 
-                    <div className="w-full mt-6 sm:mt-6">
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{
+                        duration: 0.2,
+                        delay: 0.2,
+                        ease: "easeOut",
+                      }}
+                      className="w-full mt-4 sm:mt-6"
+                    >
                       {renderCTALinks(active)}
-                    </div>
+                    </motion.div>
                   </div>
 
-                  <div className="px-6 sm:px-6 pb-8 sm:pb-8 flex-1">
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-8 flex-1 min-h-0">
                     <motion.div
-                      layout
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="text-neutral-600 text-lg sm:text-base lg:text-lg h-full sm:h-48 md:h-fit pb-8 sm:pb-8 flex flex-col items-start gap-6 sm:gap-6 overflow-auto dark:text-neutral-400 sm:[mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] leading-relaxed"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{
+                        duration: 0.2,
+                        delay: 0.25,
+                        ease: "easeOut",
+                      }}
+                      className="h-full max-h-full overflow-y-auto text-neutral-600 text-lg sm:text-sm dark:text-neutral-400 leading-relaxed"
+                      style={{
+                        scrollbarWidth: "thin",
+                        scrollbarColor: "#cbd5e1 #f8fafc",
+                      }}
                     >
-                      {typeof active.content === "function"
-                        ? active.content(active.tech)
-                        : active.content}
+                      <div className="flex flex-col items-start gap-4 sm:gap-6 pb-4 sm:pb-8 pr-2">
+                        {typeof active.content === "function"
+                          ? active.content(active.tech)
+                          : active.content}
+                      </div>
                     </motion.div>
                   </div>
                 </div>
@@ -177,7 +249,14 @@ export default function ExpandableCardDemo() {
         ) : null}
       </AnimatePresence>
 
-      <div className="max-w-7xl mx-auto w-full px-2 sm:px-4 lg:px-8 pb-6 sm:pb-10">
+      <motion.div
+        animate={{
+          opacity: active && typeof active === "object" ? 0.3 : 1,
+          scale: active && typeof active === "object" ? 0.98 : 1,
+        }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+        className="max-w-7xl mx-auto w-full px-2 sm:px-4 lg:px-8 pb-6 sm:pb-10"
+      >
         {(() => {
           let currentCategory = "";
           let categoryCards: Card[] = [];
@@ -228,24 +307,35 @@ export default function ExpandableCardDemo() {
                     key={card.id}
                     layoutId={`card-${card.title}-${id}`}
                     onClick={() => setActive(card)}
-                    className="group bg-white dark:bg-neutral-900 rounded-lg sm:rounded-xl p-2 sm:p-4 hover:shadow-lg transition-all duration-300 cursor-pointer border border-neutral-200 dark:border-neutral-700 hover:border-green-300 dark:hover:border-green-600 overflow-hidden flex flex-col h-full"
+                    className="group bg-white dark:bg-neutral-900 rounded-lg sm:rounded-xl p-2 sm:p-4 hover:shadow-lg transition-all duration-200 cursor-pointer border border-neutral-200 dark:border-neutral-700 hover:border-green-300 dark:hover:border-green-600 overflow-hidden flex flex-col h-full"
+                    whileHover={{
+                      y: -4,
+                      transition: { duration: 0.15 },
+                    }}
+                    whileTap={{
+                      scale: 0.98,
+                      transition: { duration: 0.08 },
+                    }}
+                    transition={{
+                      layout: {
+                        duration: 0.2,
+                        ease: "easeInOut",
+                      },
+                    }}
                   >
                     {/* Image */}
-                    <motion.div
-                      layoutId={`image-${card.title}-${id}`}
-                      className="mb-1.5 sm:mb-3 overflow-hidden rounded-lg"
-                    >
+                    <div className="mb-1.5 sm:mb-3 overflow-hidden rounded-lg">
                       <Image
                         width={300}
                         height={200}
                         src={card.imgSrc}
                         alt={card.title}
                         quality={100}
-                        className={`w-full h-48 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300 group-hover:scale-105 ${
+                        className={`w-full h-48 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-200 group-hover:scale-105 ${
                           card.imageClassBig || "object-cover object-center"
                         }`}
                       />
-                    </motion.div>
+                    </div>
 
                     {/* Content */}
                     <div className="space-y-1 sm:space-y-2 flex-1">
@@ -264,7 +354,7 @@ export default function ExpandableCardDemo() {
                           {card.ctaLink.map((link, index) => (
                             <button
                               key={`${card.title}-link-${index}`}
-                              className={`px-1.5 sm:px-3 py-1 sm:py-1.5 text-xs rounded-md font-medium transition-all duration-300 ${
+                              className={`px-1.5 sm:px-3 py-1 sm:py-1.5 text-xs rounded-md font-medium transition-all duration-200 ${
                                 index === 0
                                   ? "bg-green-500 text-white hover:bg-green-600"
                                   : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300"
@@ -284,7 +374,7 @@ export default function ExpandableCardDemo() {
                         </div>
                       ) : (
                         <button
-                          className="w-full px-1.5 sm:px-3 py-1 sm:py-1.5 text-xs rounded-md font-medium bg-green-500 text-white hover:bg-green-600 transition-all duration-300"
+                          className="w-full px-1.5 sm:px-3 py-1 sm:py-1.5 text-xs rounded-md font-medium bg-green-500 text-white hover:bg-green-600 transition-all duration-200"
                           onClick={(e) => {
                             e.stopPropagation();
                             window.open(
@@ -304,7 +394,7 @@ export default function ExpandableCardDemo() {
             </div>
           ));
         })()}
-      </div>
+      </motion.div>
     </>
   );
 }
