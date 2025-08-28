@@ -48,12 +48,12 @@ export default function ExpandableCardDemo() {
   const renderCTALinks = (card: Card) => {
     if (Array.isArray(card.ctaLink)) {
       return (
-        <div className="flex flex-col sm:flex-row w-full gap-2">
+        <div className="flex flex-col sm:flex-row w-full gap-3">
           {card.ctaLink.map((link, index) => (
             <motion.div
               key={`${card.title}-link-${index}`}
               layoutId={`button-${card.title}-${id}-${index}`}
-              className={`px-3 sm:px-4 w-full py-2.5 sm:py-3 text-xs sm:text-sm rounded-full font-bold transition-colors cursor-pointer text-center ${
+              className={`px-4 sm:px-4 w-full py-4 sm:py-3 text-base sm:text-sm rounded-full font-bold transition-colors cursor-pointer text-center ${
                 index === 0
                   ? "bg-green-500 text-white hover:bg-green-600"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300"
@@ -69,7 +69,7 @@ export default function ExpandableCardDemo() {
       return (
         <motion.div
           layoutId={`button-${card.title}-${id}`}
-          className="px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm rounded-full font-bold bg-green-500 text-white hover:bg-green-600 transition-colors cursor-pointer text-center"
+          className="px-4 sm:px-4 py-4 sm:py-3 text-base sm:text-sm rounded-full font-bold bg-green-500 text-white hover:bg-green-600 transition-colors cursor-pointer text-center"
           onClick={() =>
             window.open(card.ctaLink as string, "_blank", "noopener,noreferrer")
           }
@@ -95,7 +95,7 @@ export default function ExpandableCardDemo() {
 
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="fixed inset-0 flex items-center justify-center z-[100] p-2 sm:p-4">
+          <div className="fixed inset-0 flex items-center justify-center z-[100] p-0 sm:p-4">
             <motion.div
               key={`button-${active.title}-${id}`}
               layout
@@ -111,14 +111,14 @@ export default function ExpandableCardDemo() {
                   duration: 0.05,
                 },
               }}
-              className="flex absolute top-2 right-2 sm:top-4 sm:right-4 lg:hidden items-center justify-center bg-white dark:bg-neutral-800 rounded-full h-8 w-8 sm:h-10 sm:w-10 cursor-pointer z-20 shadow-lg"
+              className="flex absolute top-2 right-2 sm:top-4 sm:right-4 lg:hidden items-center justify-center bg-white dark:bg-neutral-800 rounded-full h-12 w-12 sm:h-12 sm:w-12 cursor-pointer z-20 shadow-lg"
               onClick={() => setActive(null)}
             >
               <CloseIcon />
             </motion.div>
             <motion.div
               layoutId={`card-${active.title}-${id}`}
-              className="w-full max-w-[95vw] sm:max-w-[500px] h-[95vh] sm:h-fit sm:max-h-[90vh] flex flex-col bg-white dark:bg-neutral-900 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl"
+              className="w-full h-full sm:max-w-[500px] sm:h-fit sm:max-h-[90vh] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden shadow-2xl"
             >
               <div ref={ref}>
                 <motion.div layoutId={`image-${active.title}-${id}`}>
@@ -129,41 +129,41 @@ export default function ExpandableCardDemo() {
                     src={active.imgSrc}
                     alt={active.title}
                     quality={100}
-                    className={`w-full h-48 sm:h-64 lg:h-80 rounded-t-2xl sm:rounded-t-3xl ${
+                    className={`w-full h-56 sm:h-64 lg:h-80 rounded-t-xl sm:rounded-t-3xl ${
                       active.imageClassBig || "object-cover object-center"
                     }`}
                   />
                 </motion.div>
 
                 <div className="flex-1 flex flex-col">
-                  <div className="p-3 sm:p-4 flex-1">
-                    <div className="mb-3 sm:mb-4">
+                  <div className="p-6 sm:p-6 flex-1">
+                    <div className="mb-6 sm:mb-6">
                       <motion.div
                         layoutId={`title-${active.title}-${id}`}
-                        className="font-bold text-lg sm:text-xl text-neutral-700 dark:text-neutral-200 mb-2"
+                        className="font-bold text-3xl sm:text-2xl lg:text-3xl text-neutral-700 dark:text-neutral-200 mb-4"
                       >
                         {active.title}
                       </motion.div>
                       <motion.div
                         layoutId={`description-${active.description}-${active.title}`}
-                        className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400"
+                        className="text-xl sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed"
                       >
                         {active.description}
                       </motion.div>
                     </div>
 
-                    <div className="w-full mt-3 sm:mt-4">
+                    <div className="w-full mt-6 sm:mt-6">
                       {renderCTALinks(active)}
                     </div>
                   </div>
 
-                  <div className="px-3 sm:px-4 pb-4 sm:pb-6">
+                  <div className="px-6 sm:px-6 pb-8 sm:pb-8 flex-1">
                     <motion.div
                       layout
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      className="text-neutral-600 text-xs sm:text-sm lg:text-base h-32 sm:h-40 md:h-fit pb-4 sm:pb-6 flex flex-col items-start gap-3 sm:gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                      className="text-neutral-600 text-lg sm:text-base lg:text-lg h-full sm:h-48 md:h-fit pb-8 sm:pb-8 flex flex-col items-start gap-6 sm:gap-6 overflow-auto dark:text-neutral-400 sm:[mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] leading-relaxed"
                     >
                       {typeof active.content === "function"
                         ? active.content(active.tech)
