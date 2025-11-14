@@ -9,8 +9,15 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
-  icons: { icon: "./favicon.ico" },
+  metadataBase: new URL(siteUrl),
+  icons: { icon: "/favicon.ico" },
   title: "Kevin Bueno's Portfolio - Frontend Developer & UI/UX Specialist",
   keywords: [
     "Kevin Bueno",
@@ -32,20 +39,39 @@ export const metadata: Metadata = {
   ],
   description:
     "Welcome to Kevin Bueno's portfolio. Kevin is a skilled frontend developer specializing in converting mockups into responsive, user-friendly web applications using React, Next.js, and modern web technologies.",
+  applicationName: "Kevin Bueno - Portfolio",
+  authors: [{ name: "Kevin Bueno" }],
+  creator: "Kevin Bueno",
+  publisher: "Kevin Bueno",
+  alternates: {
+    canonical: siteUrl,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     type: "website",
-    url: "kbueno-studio.com",
+    url: siteUrl,
     title: "Kevin Bueno's Portfolio - Frontend Developer & UI/UX Specialist",
     description:
       "Explore Kevin Bueno's portfolio showcasing projects and skills in frontend development, UI/UX design, and modern web technologies.",
     images: [
       {
-        url: "kbueno-studio.com/og-image.jpg",
+        url: "/profile.jpg",
         width: 1200,
         height: 630,
         alt: "Kevin Bueno's Portfolio",
       },
     ],
+    siteName: "Kevin Bueno - Portfolio",
   },
   twitter: {
     card: "summary_large_image",
@@ -56,7 +82,7 @@ export const metadata: Metadata = {
       "Discover the projects and skills of Kevin Bueno, a frontend developer specializing in React, Next.js, and UI/UX design.",
     images: [
       {
-        url: "kbueno-studio.com/twitter-image.jpg",
+        url: "/profile.jpg",
         alt: "Kevin Bueno's Portfolio",
       },
     ],
