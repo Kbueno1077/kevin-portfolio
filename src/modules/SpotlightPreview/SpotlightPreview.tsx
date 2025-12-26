@@ -29,19 +29,16 @@ export function SpotlightPreview() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto "
         >
-          This is my little corner of the web where you can get to know me and
-          my journey as a{" "}
+          Hi, I&apos;m Kevin Bueno a software developer specialized on frontend
+          web development. Based in{" "}
           <motion.span
             initial={{ color: "#9377FF" }}
             animate={{ color: ["#9377FF", "#b4a0ff", "#9377FF"] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="text-[#9377FF] font-bold"
           >
-            Frontend Developer.
+            Miami, USA.
           </motion.span>{" "}
-          Every project here reflects my growth and passion for creating great
-          experiences. Feel free to explore, and if something stands out,
-          I&apos;d love to have a chat!
         </motion.p>
 
         <motion.div
