@@ -67,7 +67,7 @@ export default function ExpandableCardDemo() {
               key={`${card.title}-link-${index}`}
               className={`px-4 sm:px-4 w-full py-4 sm:py-3 text-base sm:text-sm rounded-full font-bold transition-colors cursor-pointer text-center ${
                 index === 0
-                  ? "bg-green-500 text-white hover:bg-green-600"
+                  ? "bg-[#9377FF] text-white hover:bg-[#7e65d8]"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300"
               }`}
               onClick={() => window.open(link, "_blank", "noopener,noreferrer")}
@@ -80,7 +80,7 @@ export default function ExpandableCardDemo() {
     } else {
       return (
         <motion.div
-          className="px-4 sm:px-4 py-4 sm:py-3 text-base sm:text-sm rounded-full font-bold bg-green-500 text-white hover:bg-green-600 transition-colors cursor-pointer text-center"
+          className="px-4 sm:px-4 py-4 sm:py-3 text-base sm:text-sm rounded-full font-bold bg-[#9377FF] text-white hover:bg-[#7e65d8] transition-colors cursor-pointer text-center"
           onClick={() =>
             window.open(card.ctaLink as string, "_blank", "noopener,noreferrer")
           }
@@ -297,7 +297,7 @@ export default function ExpandableCardDemo() {
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-800 dark:text-neutral-200 mb-2 sm:mb-3 text-center lg:text-left">
                   {group.category}
                 </h1>
-                <div className="w-16 sm:w-20 h-0.5 sm:h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-full mx-auto lg:mx-0"></div>
+                <div className="w-16 sm:w-20 h-0.5 sm:h-1 bg-gradient-to-r from-[#9377FF] to-violet-600 rounded-full mx-auto lg:mx-0"></div>
               </div>
 
               {/* Grid Layout */}
@@ -307,7 +307,7 @@ export default function ExpandableCardDemo() {
                     key={card.id}
                     layoutId={`card-${card.title}-${id}`}
                     onClick={() => setActive(card)}
-                    className="group bg-white dark:bg-neutral-900 rounded-lg sm:rounded-xl p-2 sm:p-4 hover:shadow-lg transition-all duration-200 cursor-pointer border border-neutral-200 dark:border-neutral-700 hover:border-green-300 dark:hover:border-green-600 overflow-hidden flex flex-col h-full"
+                    className="group bg-white dark:bg-neutral-900 rounded-lg sm:rounded-xl p-2 sm:p-4 hover:shadow-lg transition-all duration-200 cursor-pointer border border-neutral-200 dark:border-neutral-700 hover:border-[#9377FF] dark:hover:border-[#9377FF] overflow-hidden flex flex-col h-full"
                     whileHover={{
                       y: -4,
                       transition: { duration: 0.15 },
@@ -339,7 +339,7 @@ export default function ExpandableCardDemo() {
 
                     {/* Content */}
                     <div className="space-y-1 sm:space-y-2 flex-1">
-                      <h3 className="font-semibold text-xs sm:text-base text-neutral-800 dark:text-neutral-200 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors line-clamp-1">
+                      <h3 className="font-semibold text-xs sm:text-base text-neutral-800 dark:text-neutral-200 group-hover:text-[#9377FF] dark:group-hover:text-[#9377FF] transition-colors line-clamp-1">
                         {card.title}
                       </h3>
                       <div className="text-xs text-neutral-600 dark:text-neutral-400 line-clamp-2 sm:line-clamp-3">
@@ -356,7 +356,7 @@ export default function ExpandableCardDemo() {
                               key={`${card.title}-link-${index}`}
                               className={`px-1.5 sm:px-3 py-1 sm:py-1.5 text-xs rounded-md font-medium transition-all duration-200 ${
                                 index === 0
-                                  ? "bg-green-500 text-white hover:bg-green-600"
+                                  ? "bg-[#9377FF] text-white hover:bg-[#7e65d8]"
                                   : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300"
                               }`}
                               onClick={(e) => {
@@ -374,7 +374,7 @@ export default function ExpandableCardDemo() {
                         </div>
                       ) : (
                         <button
-                          className="w-full px-1.5 sm:px-3 py-1 sm:py-1.5 text-xs rounded-md font-medium bg-green-500 text-white hover:bg-green-600 transition-all duration-200"
+                          className="w-full px-1.5 sm:px-3 py-1 sm:py-1.5 text-xs rounded-md font-medium bg-[#9377FF] text-white hover:bg-[#7e65d8] transition-all duration-200"
                           onClick={(e) => {
                             e.stopPropagation();
                             window.open(

@@ -18,29 +18,26 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   icons: { icon: "/favicon.ico" },
-  title: "Kevin Bueno's Portfolio - Frontend Developer & UI/UX Specialist",
+  title: {
+    default: "Kevin Bueno - Frontend Developer & UI/UX Specialist",
+    template: "%s | Kevin Bueno",
+  },
   keywords: [
     "Kevin Bueno",
-    "Kevin Studio",
-    "Portfolio",
-    "Web Developer",
-    "Web Applications ",
     "Frontend Developer",
-    "JavaScript",
-    "TypeScript",
+    "UI/UX Specialist",
     "React Developer",
-    "Next.js Developer",
-    "Svelte Developer",
-    "SvelteKit Developer",
-    "UI/UX Designer",
-    "Frontend Projects ",
-
-    "Responsive Design",
+    "Next.js",
+    "TypeScript",
+    "Web Development",
+    "Creative Developer",
+    "Software Engineer",
+    "Miami",
   ],
   description:
-    "Welcome to Kevin Bueno's portfolio. Kevin is a skilled frontend developer specializing in converting mockups into responsive, user-friendly web applications using React, Next.js, and modern web technologies.",
-  applicationName: "Kevin Bueno - Portfolio",
-  authors: [{ name: "Kevin Bueno" }],
+    "Kevin Bueno is a Frontend Developer & UI/UX Specialist based in Miami, crafting immersive, high-performance web experiences with React, Next.js, and modern design principles.",
+  applicationName: "Kevin Bueno Portfolio",
+  authors: [{ name: "Kevin Bueno", url: siteUrl }],
   creator: "Kevin Bueno",
   publisher: "Kevin Bueno",
   alternates: {
@@ -60,43 +57,40 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Kevin Bueno's Portfolio - Frontend Developer & UI/UX Specialist",
+    title: "Kevin Bueno - Frontend Developer & UI/UX Specialist",
     description:
-      "Explore Kevin Bueno's portfolio showcasing projects and skills in frontend development, UI/UX design, and modern web technologies.",
+      "Crafting immersive, high-performance web experiences with React, Next.js, and modern design principles.",
+    siteName: "Kevin Bueno Portfolio",
+    locale: "en_US",
     images: [
       {
-        url: "/profile.jpg",
+        url: "/openGraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Kevin Bueno's Portfolio",
+        alt: "Kevin Bueno - Frontend Developer & UI/UX Specialist",
       },
     ],
-    siteName: "Kevin Bueno - Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     site: "@kbueno1077",
     creator: "@kbueno1077",
-    title: "Kevin Bueno's Portfolio - Frontend Developer & UI/UX Specialist",
+    title: "Kevin Bueno - Frontend Developer & UI/UX Specialist",
     description:
-      "Discover the projects and skills of Kevin Bueno, a frontend developer specializing in React, Next.js, and UI/UX design.",
-    images: [
-      {
-        url: "/profile.jpg",
-        alt: "Kevin Bueno's Portfolio",
-      },
-    ],
+      "Crafting immersive, high-performance web experiences with React, Next.js, and modern design principles.",
+    images: ["/openGraph-image.png"],
   },
 };
 
 export const viewport: Viewport = {
   initialScale: 1,
   minimumScale: 1,
-  maximumScale: 1,
-  height: "device-height",
+  maximumScale: 5,
   width: "device-width",
-  colorScheme: "dark",
-  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
 };
 
 export default function RootLayout({

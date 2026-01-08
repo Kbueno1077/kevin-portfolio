@@ -17,53 +17,66 @@ export default function VerticalTimelineDemo() {
   const { ref: ref4, inView: inView4 } = useInView({ triggerOnce: true });
   const { ref: ref5, inView: inView5 } = useInView({ triggerOnce: true });
 
+  const contentStyle = {
+    background: "#18181b", // zinc-900
+    color: "#e5e5e5", // neutral-200
+    boxShadow: "none",
+    border: "1px solid #27272a", // zinc-800
+    borderRadius: "1rem",
+  };
+
+  const contentArrowStyle = {
+    borderRight: "7px solid #18181b", // zinc-900
+  };
+
+  const iconStyle = {
+    background: "#18181b", // zinc-900
+    color: "#fff",
+    border: "4px solid #27272a", // zinc-800
+    boxShadow: "0 0 0 2px #18181b",
+  };
+
   return (
-    <VerticalTimeline>
+    <VerticalTimeline lineColor="#27272a">
       <VerticalTimelineElement
         visible={inView0}
         className="vertical-timeline-element--work"
-        contentStyle={{ background: "#111827", color: "#fff" }}
-        contentArrowStyle={{ borderRight: "7px solid #374151" }}
+        contentStyle={contentStyle}
+        contentArrowStyle={contentArrowStyle}
         date="2016 - 2021"
-        iconStyle={{ background: "#404040", color: "#fff" }}
+        iconStyle={iconStyle}
         icon={
-          <div className="flex justify-center items-center w-full h-full">
+          <div className="flex justify-center items-center w-full h-full p-1 rounded-full bg-white overflow-hidden">
             <Image
               height={500}
               width={500}
               quality={100}
               src={"/logos/uclv.png"}
-              alt={"Front10 Company"}
-              className="w-[100%] h-[100%] object-contain"
+              alt={"UCLV"}
+              className="w-full h-full object-contain"
             />
           </div>
         }
       >
         <div ref={ref0}>
           <div>
-            <h3 className="text-white text-[24px] font-bold">
+            <h3 className="text-white text-xl md:text-2xl font-bold">
               Central University {'"Marta Abreu"'} of Las Villas
             </h3>
-            <div className={"flex justify-between"}>
-              <p
-                className="text-primary text-[16px] font-semibold"
-                style={{ margin: 0 }}
-              >
+            <div className="flex flex-col md:flex-row justify-between mt-2">
+              <p className="text-neutral-400 text-sm md:text-base font-semibold m-0">
                 Bachelor in Computer Science
               </p>
-              <p
-                className=" text-[16px] font-semibold text-[#9377FF]"
-                style={{ margin: 0 }}
-              >
+              <p className="text-[#9377FF] text-sm md:text-base font-semibold m-0 mt-1 md:mt-0">
                 Full Time
               </p>
             </div>
           </div>
-          <ul className="mt-5 list-disc ml-5 space-y-2">
+          <ul className="mt-6 list-disc ml-5 space-y-2">
             {UclvBulletPoints.map((point, index) => (
               <li
                 key={`experience-point-${index}`}
-                className="text-white-100 text-[14px] pl-1 tracking-wider"
+                className="text-neutral-300 text-sm pl-1 tracking-wide leading-relaxed"
               >
                 {point}
               </li>
@@ -71,42 +84,39 @@ export default function VerticalTimelineDemo() {
           </ul>
         </div>
       </VerticalTimelineElement>
+
       <VerticalTimelineElement
         visible={inView1}
         className="vertical-timeline-element--work"
-        contentStyle={{ background: "#111827", color: "#fff" }}
-        contentArrowStyle={{ borderRight: "7px solid #374151" }}
+        contentStyle={contentStyle}
+        contentArrowStyle={contentArrowStyle}
         date="2021"
-        iconStyle={{ background: "#404040", color: "#fff" }}
+        iconStyle={iconStyle}
         icon={
-          <IconCode className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+          <div className="flex justify-center items-center w-full h-full bg-zinc-800 rounded-full">
+            <IconCode className="text-white h-6 w-6" />
+          </div>
         }
       >
         <div ref={ref1}>
           <div>
-            <h3 className="text-white text-[24px] font-bold">
+            <h3 className="text-white text-xl md:text-2xl font-bold">
               Frontend Developer
             </h3>
-            <div className={"flex justify-between"}>
-              <p
-                className="text-primary text-[16px] font-semibold"
-                style={{ margin: 0 }}
-              >
+            <div className="flex flex-col md:flex-row justify-between mt-2">
+              <p className="text-neutral-400 text-sm md:text-base font-semibold m-0">
                 Freelancer
               </p>
-              <p
-                className=" text-[16px] font-semibold text-[#9377FF]"
-                style={{ margin: 0 }}
-              >
+              <p className="text-[#9377FF] text-sm md:text-base font-semibold m-0 mt-1 md:mt-0">
                 Part Time
               </p>
             </div>
           </div>
-          <ul className="mt-5 list-disc ml-5 space-y-2">
+          <ul className="mt-6 list-disc ml-5 space-y-2">
             {Freelancer1BulletPoints.map((point, index) => (
               <li
                 key={`experience-point-${index}`}
-                className="text-white-100 text-[14px] pl-1 tracking-wider"
+                className="text-neutral-300 text-sm pl-1 tracking-wide leading-relaxed"
               >
                 {point}
               </li>
@@ -114,54 +124,46 @@ export default function VerticalTimelineDemo() {
           </ul>
         </div>
       </VerticalTimelineElement>
+
       <VerticalTimelineElement
         visible={inView2}
-        contentStyle={{ background: "#111827", color: "#fff" }}
-        contentArrowStyle={{ borderRight: "7px solid #374151" }}
+        contentStyle={contentStyle}
+        contentArrowStyle={contentArrowStyle}
         className="vertical-timeline-element--work"
         date="Nov 2021 - Jul 2023"
-        iconStyle={{
-          background: "#2B2C30",
-          color: "#fff",
-        }}
+        iconStyle={iconStyle}
         icon={
-          <div className="flex justify-center items-center w-full h-full">
+          <div className="flex justify-center items-center w-full h-full bg-black rounded-full overflow-hidden p-1">
             <Image
               height={500}
               width={500}
               quality={100}
               src={"/logos/dark_woxo.jpeg"}
               alt={"Front10 Company"}
-              className="w-[60%] h-[60%] object-contain"
+              className="w-full h-full object-contain rounded-full"
             />
           </div>
         }
       >
         <div ref={ref2}>
           <div>
-            <h3 className="text-white text-[24px] font-bold">
+            <h3 className="text-white text-xl md:text-2xl font-bold">
               Frontend Developer
             </h3>
-            <div className={"flex justify-between"}>
-              <p
-                className="text-primary text-[16px] font-semibold"
-                style={{ margin: 0 }}
-              >
+            <div className="flex flex-col md:flex-row justify-between mt-2">
+              <p className="text-neutral-400 text-sm md:text-base font-semibold m-0">
                 Front10 - Woxo
               </p>
-              <p
-                className=" text-[16px] font-semibold text-[#9377FF]"
-                style={{ margin: 0 }}
-              >
+              <p className="text-[#9377FF] text-sm md:text-base font-semibold m-0 mt-1 md:mt-0">
                 Full Time
               </p>
             </div>
           </div>
-          <ul className="mt-5 list-disc ml-5 space-y-2">
+          <ul className="mt-6 list-disc ml-5 space-y-2">
             {WoxoBulletPoints.map((point, index) => (
               <li
                 key={`experience-point-${index}`}
-                className="text-white-100 text-[14px] pl-1 tracking-wider"
+                className="text-neutral-300 text-sm pl-1 tracking-wide leading-relaxed"
               >
                 {point}
               </li>
@@ -171,48 +173,44 @@ export default function VerticalTimelineDemo() {
       </VerticalTimelineElement>
 
       <VerticalTimelineElement
-        contentStyle={{ background: "#111827", color: "#fff" }}
-        contentArrowStyle={{ borderRight: "7px solid #374151" }}
+        contentStyle={contentStyle}
+        contentArrowStyle={contentArrowStyle}
         visible={inView4}
         className="vertical-timeline-element--work"
         date="2023 - 2024"
-        iconStyle={{ background: "#404040", color: "#fff" }}
+        iconStyle={iconStyle}
         icon={
-          <div className="flex justify-center items-center w-full h-full">
+          <div className="flex justify-center items-center w-full h-full bg-black rounded-full overflow-hidden p-1">
             <Image
               height={500}
               width={500}
               quality={100}
               src={"/logos/Logo.png"}
               alt={"Front10 Company"}
-              className="w-[80%] h-[80%] object-contain"
+              className="w-full h-full object-contain"
             />
           </div>
         }
       >
         <div ref={ref4}>
           <div>
-            <h3 className="text-white text-[24px] font-bold">Web Developer</h3>
-            <div className={"flex justify-between"}>
-              <p
-                className="text-primary text-[16px] font-semibold"
-                style={{ margin: 0 }}
-              >
+            <h3 className="text-white text-xl md:text-2xl font-bold">
+              Web Developer
+            </h3>
+            <div className="flex flex-col md:flex-row justify-between mt-2">
+              <p className="text-neutral-400 text-sm md:text-base font-semibold m-0">
                 Freelancer
               </p>
-              <p
-                className=" text-[16px] font-semibold text-[#9377FF]"
-                style={{ margin: 0 }}
-              >
+              <p className="text-[#9377FF] text-sm md:text-base font-semibold m-0 mt-1 md:mt-0">
                 Full Time
               </p>
             </div>
           </div>
-          <ul className="mt-5 list-disc ml-5 space-y-2">
+          <ul className="mt-6 list-disc ml-5 space-y-2">
             {Freelancer2BulletPoints.map((point, index) => (
               <li
                 key={`experience-point-${index}`}
-                className="text-white-100 text-[14px] pl-1 tracking-wider"
+                className="text-neutral-300 text-sm pl-1 tracking-wide leading-relaxed"
               >
                 {point}
               </li>
@@ -222,51 +220,44 @@ export default function VerticalTimelineDemo() {
       </VerticalTimelineElement>
 
       <VerticalTimelineElement
-        contentStyle={{ background: "#111827", color: "#fff" }}
-        contentArrowStyle={{ borderRight: "7px solid #374151" }}
+        contentStyle={contentStyle}
+        contentArrowStyle={contentArrowStyle}
         visible={inView3}
         className="vertical-timeline-element--work"
         date="Jul 2023 - Present"
-        iconStyle={{ background: "black", color: "#fff" }}
+        iconStyle={iconStyle}
         icon={
-          <div className="flex justify-center items-center w-full h-full">
+          <div className="flex justify-center items-center w-full h-full bg-black rounded-full overflow-hidden p-1">
             <Image
               height={500}
               width={500}
               quality={100}
               src={"/logos/Front10.png"}
               alt={"Front10 Company"}
-              className="w-[60%] h-[60%] object-contain"
+              className="w-full h-full object-contain"
             />
           </div>
         }
       >
-        {" "}
         <div ref={ref3}>
           <div>
-            <h3 className="text-white text-[24px] font-bold">
+            <h3 className="text-white text-xl md:text-2xl font-bold">
               Lead Frontend Developer
             </h3>
-            <div className={"flex justify-between"}>
-              <p
-                className="text-primary text-[16px] font-semibold"
-                style={{ margin: 0 }}
-              >
+            <div className="flex flex-col md:flex-row justify-between mt-2">
+              <p className="text-neutral-400 text-sm md:text-base font-semibold m-0">
                 Front10 - Pros
               </p>
-              <p
-                className=" text-[16px] font-semibold text-[#9377FF]"
-                style={{ margin: 0 }}
-              >
+              <p className="text-[#9377FF] text-sm md:text-base font-semibold m-0 mt-1 md:mt-0">
                 Full Time
               </p>
             </div>
           </div>
-          <ul className="mt-5 list-disc ml-5 space-y-2">
+          <ul className="mt-6 list-disc ml-5 space-y-2">
             {ProsBulletPoints.map((point, index) => (
               <li
                 key={`experience-point-${index}`}
-                className="text-white-100 text-[14px] pl-1 tracking-wider"
+                className="text-neutral-300 text-sm pl-1 tracking-wide leading-relaxed"
               >
                 {point}
               </li>
@@ -276,50 +267,44 @@ export default function VerticalTimelineDemo() {
       </VerticalTimelineElement>
 
       <VerticalTimelineElement
-        contentStyle={{ background: "#111827", color: "#fff" }}
-        contentArrowStyle={{ borderRight: "7px solid #374151" }}
+        contentStyle={contentStyle}
+        contentArrowStyle={contentArrowStyle}
         visible={inView5}
         className="vertical-timeline-element--work"
         date="Sept 2024 - Present"
-        iconStyle={{ background: "#0F1119", color: "#fff" }}
+        iconStyle={iconStyle}
         icon={
-          <div className="flex justify-center items-center w-full h-full">
+          <div className="flex justify-center items-center w-full h-full bg-white rounded-full overflow-hidden p-1">
             <Image
               height={500}
               width={500}
               quality={100}
               src={"/logos/workinweb_logo.jpeg"}
               alt={"WorkinWeb Company"}
-              className="w-[70%] h-[70%] object-contain"
+              className="w-full h-full object-contain rounded-full"
             />
           </div>
         }
       >
         <div ref={ref5}>
           <div>
-            <h3 className="text-white text-[24px] font-bold">
-              Fundator / Developer
+            <h3 className="text-white text-xl md:text-2xl font-bold">
+              Founder / Developer
             </h3>
-            <div className={"flex justify-between"}>
-              <p
-                className="text-primary text-[16px] font-semibold"
-                style={{ margin: 0 }}
-              >
+            <div className="flex flex-col md:flex-row justify-between mt-2">
+              <p className="text-neutral-400 text-sm md:text-base font-semibold m-0">
                 WorkInWeb
               </p>
-              <p
-                className=" text-[16px] font-semibold text-[#9377FF]"
-                style={{ margin: 0 }}
-              >
+              <p className="text-[#9377FF] text-sm md:text-base font-semibold m-0 mt-1 md:mt-0">
                 Full Time
               </p>
             </div>
           </div>
-          <ul className="mt-5 list-disc ml-5 space-y-2">
+          <ul className="mt-6 list-disc ml-5 space-y-2">
             {WorkInWebBulletPoints.map((point, index) => (
               <li
                 key={`experience-point-${index}`}
-                className="text-white-100 text-[14px] pl-1 tracking-wider"
+                className="text-neutral-300 text-sm pl-1 tracking-wide leading-relaxed"
               >
                 {point}
               </li>
@@ -356,27 +341,21 @@ const Freelancer2BulletPoints = [
 ];
 
 const WoxoBulletPoints = [
-  `Thrive in a fast-paced environment, contributing innovative ideas and swiftly executing 
-them for continuous improvement.`,
+  `Thrive in a fast-paced environment, contributing innovative ideas and swiftly executing them for continuous improvement.`,
   `Assisted in troubleshooting and improving existing code, improving software quality overall`,
-  `Redesigned modules to enhance efﬁciency, resulting in a substantial performance 
-improvement`,
-  `Developed an enhanced a core library for the seamless playback of customizable in-ﬂight 
-videos.`,
+  `Redesigned modules to enhance efﬁciency, resulting in a substantial performance improvement`,
+  `Developed an enhanced a core library for the seamless playback of customizable in-ﬂight videos.`,
   `Exercise creative discretion to augment and reﬁne the user interface design.`,
 ];
 
 const ProsBulletPoints = [
-  `Implement and sustain features for a highly adaptable interface, tailored to accommodate 
-    the unique requirements of various airlines utilizing the product.`,
+  `Implement and sustain features for a highly adaptable interface, tailored to accommodate the unique requirements of various airlines utilizing the product.`,
   `Transform Figma designs into precise and efﬁcient code`,
-  `Employ responsive design principles to ensure optimal viewing and interaction experience 
-    across a wide range of devices`,
+  `Employ responsive design principles to ensure optimal viewing and interaction experience across a wide range of devices`,
   `Prioritize tasks based on their relevance, proactively propose efﬁcient and rapidly implenting solutions to rectify unwanted behaviors.`,
   `Develop tests and conduct thorough code reviews to ensure software quality and reliability.`,
   `Worked with QA team to ﬁx bugs and improve the quality of applications`,
-  `Participate in code reviews
-`,
+  `Participate in code reviews`,
 ];
 
 const WorkInWebBulletPoints = [

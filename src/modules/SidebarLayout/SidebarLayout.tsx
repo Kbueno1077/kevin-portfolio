@@ -85,7 +85,7 @@ export function SidebarLayout({ children }: any) {
                 label: "CV",
                 href: "/KbResume.pdf",
                 icon: (
-                  <IconClipboard className="h-7 w-7 flex-shrink-0 rounded-full" />
+                  <IconClipboard className="h-6 w-6 flex-shrink-0 rounded-full" />
                 ),
               }}
             />
@@ -97,7 +97,7 @@ export function SidebarLayout({ children }: any) {
                 label: "Github",
                 href: "https://github.com/Kbueno1077",
                 icon: (
-                  <IconBrandGithub className="h-7 w-7 flex-shrink-0 rounded-full" />
+                  <IconBrandGithub className="h-6 w-6 flex-shrink-0 rounded-full" />
                 ),
               }}
             />
@@ -109,7 +109,7 @@ export function SidebarLayout({ children }: any) {
                 label: "Linkedin",
                 href: "https://www.linkedin.com/in/kevin-bueno-0a8809218/",
                 icon: (
-                  <IconBrandLinkedin className="h-7 w-7 flex-shrink-0 rounded-full" />
+                  <IconBrandLinkedin className="h-6 w-6 flex-shrink-0 rounded-full" />
                 ),
               }}
             />
@@ -121,7 +121,7 @@ export function SidebarLayout({ children }: any) {
                 icon: (
                   <Image
                     src="/profile.jpg"
-                    className="h-7 w-7 flex-shrink-0 rounded-full"
+                    className="h-6 w-6 flex-shrink-0 rounded-full"
                     width={50}
                     height={50}
                     quality={100}

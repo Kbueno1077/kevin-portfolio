@@ -15,8 +15,8 @@ export const HoverEffect = ({
         title: string;
         description: string;
         link: string;
-        img: string;
-        imgClassName?: String;
+        img?: string;
+        imgClassName?: string;
     }[];
     className?: string;
 }) => {
@@ -56,21 +56,23 @@ export const HoverEffect = ({
                         )}
                     </AnimatePresence>
 
-                    <BackgroundGradient className="h-full rounded-[22px] p-4 sm:p-10 bg-white dark:bg-zinc-900">
-                        <Image
-                            priority
-                            width={300}
-                            height={300}
-                            src={item.img}
-                            alt={item.title}
-                            quality={100}
-                            className={cn(
-                                "w-full h-20  sm:rounded-lg object-contain",
-                                item.imgClassName
-                            )}
-                        />
+                    <BackgroundGradient className="h-full rounded-[22px] p-4 sm:p-8 bg-white dark:bg-zinc-900">
+                        {item.img && (
+                            <Image
+                                priority
+                                width={300}
+                                height={300}
+                                src={item.img}
+                                alt={item.title}
+                                quality={100}
+                                className={cn(
+                                    "w-full h-16 sm:h-20 sm:rounded-lg object-contain",
+                                    item.imgClassName
+                                )}
+                            />
+                        )}
 
-                        <CardTitle className="text-2xl mt-10">
+                        <CardTitle className={cn("text-xl", item.img ? "mt-4" : "mt-0")}>
                             {item.title}
                         </CardTitle>
                         <CardDescription className="mt-2">
