@@ -232,7 +232,7 @@ export default function VerticalTimelineDemo() {
               height={500}
               width={500}
               quality={100}
-              src={"/logos/Front10.png"}
+              src={"/logos/front10.png"}
               alt={"Front10 Company"}
               className="w-full h-full object-contain"
             />
