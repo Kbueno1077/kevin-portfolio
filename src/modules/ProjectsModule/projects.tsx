@@ -289,6 +289,41 @@ export const cards: Card[] = [
   },
 
   {
+    id: "Lumidraw",
+    title: "Lumidraw",
+    imgSrc: "/big/lumidraw.png",
+    description: "Personal Project  ",
+    ctaText: "Live Demo",
+    ctaText2: "Details",
+    ctaLink: "https://lumidraw.kbueno-studio.com/",
+    tech: ["React.js", "TypeScript", "Canvas API"],
+    imageClassSmall: "object-contain object-center",
+    imageClassBig: "object-contain object-center",
+    content: (technologies: string[]) => {
+      return (
+        <div>
+          <p>
+            Lumidraw is a clone of Excalidraw, a simple whiteboard type of
+            application. It provides an intuitive interface for creating
+            diagrams, sketches, and drawings directly in the browser with a
+            clean and minimal design.
+          </p>
+          <br />
+          <div>
+            {technologies.map((tech, idx) => (
+              <Fragment key={tech}>
+                <span className="text-colorAccent">{tech}</span>
+                {idx !== technologies.length - 1 && ", "}
+              </Fragment>
+            ))}{" "}
+          </div>
+          <br />
+        </div>
+      );
+    },
+  },
+
+  {
     id: "Trip Planner AI",
     description: "Personal Project",
     title: "Trip Planner AI",
@@ -736,4 +771,5 @@ export const cards: Card[] = [
       );
     },
   },
+
 ];
