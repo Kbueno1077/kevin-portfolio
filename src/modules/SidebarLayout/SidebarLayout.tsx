@@ -10,6 +10,7 @@ import {
   IconCode,
   IconLayoutDashboard,
   IconUserBolt,
+  IconCertificate,
 } from "@tabler/icons-react";
 import { useState } from "react";
 
@@ -48,6 +49,14 @@ export function SidebarLayout({ children }: any) {
       href: "/tech",
       icon: (
         <IconCode className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    },
+
+    {
+      label: "Certifications",
+      href: "/certifications",
+      icon: (
+        <IconCertificate className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
 

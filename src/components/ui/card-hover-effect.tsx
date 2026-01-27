@@ -17,6 +17,7 @@ export const HoverEffect = ({
         link: string;
         img?: string;
         imgClassName?: string;
+        caption?: React.ReactNode;
     }[];
     className?: string;
 }) => {
@@ -78,6 +79,11 @@ export const HoverEffect = ({
                         <CardDescription className="mt-2">
                             {item.description}
                         </CardDescription>
+                        {item.caption && (
+                            <div className="mt-4 text-xs text-neutral-500 font-medium">
+                                {item.caption}
+                            </div>
+                        )}
                     </BackgroundGradient>
                 </Link>
             ))}
