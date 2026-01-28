@@ -332,9 +332,10 @@ export const cards: Card[] = [
     ctaText2: "Details",
     ctaLink: [
       "https://trip-planner.kbueno-studio.com/",
+      "https://simple-trip-planner.kbueno-studio.com/",
       "https://github.com/Kbueno1077/trip-planner",
     ],
-    ctaTexts: ["Live Demo", "GitHub"],
+    ctaTexts: ["Live Demo", "Simple Demo", "GitHub"],
 
     tech: [
       "React.js",
