@@ -73,7 +73,7 @@ export function SidebarLayout({ children }: any) {
     <div
       className={cn(
         "rounded-md flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-800 w-full flex-1  mx-auto border border-neutral-200 dark:border-neutral-700 overflow-hidden",
-        "h-dvh"
+        "h-dvh",
       )}
     >
       <Sidebar open={open} setOpen={setOpen}>
@@ -92,7 +92,7 @@ export function SidebarLayout({ children }: any) {
               target="_blank"
               link={{
                 label: "CV",
-                href: "/KbResume.pdf",
+                href: "/documents/resume/KbResume.pdf",
                 icon: (
                   <IconClipboard className="h-6 w-6 flex-shrink-0 rounded-full" />
                 ),
@@ -129,7 +129,7 @@ export function SidebarLayout({ children }: any) {
                 href: "#",
                 icon: (
                   <Image
-                    src="/profile.jpg"
+                    src="/images/profile.jpg"
                     className="h-6 w-6 flex-shrink-0 rounded-full"
                     width={50}
                     height={50}

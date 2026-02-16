@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/openGraph-image.png",
+        url: "/images/openGraph-image.png",
         width: 1200,
         height: 630,
         alt: "Kevin Bueno - Frontend Developer & UI/UX Specialist",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     title: "Kevin Bueno - Frontend Developer & UI/UX Specialist",
     description:
       "Crafting immersive, high-performance web experiences with React, Next.js, and modern design principles.",
-    images: ["/openGraph-image.png"],
+    images: ["/images/openGraph-image.png"],
   },
 };
 

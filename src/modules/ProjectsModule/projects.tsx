@@ -7,7 +7,7 @@ export const cards: Card[] = [
     description: "Front10",
     title: "Front10",
     first: "Front10 LLC",
-    imgSrc: "/logos/front10.png",
+    imgSrc: "/logos/companies/front10.png",
     ctaText: "Go to Website",
     ctaText2: "Details",
     ctaLink: "https://www.front10.com/",
@@ -42,7 +42,7 @@ export const cards: Card[] = [
     id: "TravelPaas",
     description: "Front10 - PROS",
     title: "TravelPaas",
-    imgSrc: "/big/Pros.jpg",
+    imgSrc: "/projects/Pros.jpg",
     ctaText: "Go to Product",
     ctaText2: "Details",
     ctaLink: "https://book.azoresairlines.pt/booking/",
@@ -84,7 +84,7 @@ export const cards: Card[] = [
     id: "Woxo Video Editor",
     description: "Front10",
     title: "Woxo Video Editor",
-    imgSrc: "/big/woxo.png",
+    imgSrc: "/projects/woxo.png",
     ctaText: "Go to Product",
     ctaText2: "Details",
     ctaLink: "https://woxo.tech/",
@@ -128,7 +128,7 @@ export const cards: Card[] = [
     title: "WorkInWeb",
     description: "Founder",
     first: "WorkInWeb",
-    imgSrc: "/big/workinweb.svg",
+    imgSrc: "/projects/workinweb.svg",
     ctaText: "Go to Website",
     ctaText2: "Details",
     ctaLink: "https://weworkinweb.com/",
@@ -163,7 +163,7 @@ export const cards: Card[] = [
     id: "The Florida Clinics Aesthetic",
     title: "The Florida Clinics Aesthetic",
     description: "Website of a Aesthetic Clinic",
-    imgSrc: "/logos/floridaclinic.png",
+    imgSrc: "/logos/projects/floridaclinic.png",
     ctaText: "Go to Website",
     ctaText2: "Details",
     ctaLink: "https://www.thefloridaclinicsaesthetics.com/",
@@ -195,7 +195,7 @@ export const cards: Card[] = [
     id: "Evan Home Care",
     title: "Evan Home Care",
     description: "Website of a Home Care Agency",
-    imgSrc: "/logos/evan.png",
+    imgSrc: "/logos/projects/evan.png",
     ctaText: "Go to Website",
     ctaText2: "Details",
     ctaLink: "https://evanhomecare.com/",
@@ -229,7 +229,7 @@ export const cards: Card[] = [
     description: "Web App and Mobile App (Demo)",
     first: "Personal Demos",
 
-    imgSrc: "/big/beer-warehouse.png",
+    imgSrc: "/projects/beer-warehouse.png",
     ctaText: "Go to Product",
     ctaText2: "Details",
     ctaLink: [
@@ -291,7 +291,7 @@ export const cards: Card[] = [
   {
     id: "Lumidraw",
     title: "Lumidraw",
-    imgSrc: "/big/lumidraw.png",
+    imgSrc: "/projects/lumidraw.png",
     description: "Personal Project  ",
     ctaText: "Live Demo",
     ctaText2: "Details",
@@ -327,7 +327,7 @@ export const cards: Card[] = [
     id: "Trip Planner AI",
     description: "Personal Project",
     title: "Trip Planner AI",
-    imgSrc: "/logos/tripplanner.svg",
+    imgSrc: "/logos/projects/tripplanner.svg",
     ctaText: "Live Demo",
     ctaText2: "Details",
     ctaLink: [
@@ -376,7 +376,7 @@ export const cards: Card[] = [
     id: "Ai Sdk Playground",
     description: "Personal Project",
     title: "Ai Sdk Playground",
-    imgSrc: "/logos/aisdk.png",
+    imgSrc: "/logos/projects/aisdk.png",
     ctaText: "Live Demo",
     ctaText2: "Details",
     ctaLink: [
@@ -471,7 +471,7 @@ export const cards: Card[] = [
     id: "EZ - Data View",
     description: "Personal Project",
     title: "EZ - Data View",
-    imgSrc: "/big/ez-charts.png",
+    imgSrc: "/projects/ez-charts.png",
     ctaText: "Live Demo",
     ctaText2: "Details",
     ctaLink: [
@@ -504,7 +504,7 @@ export const cards: Card[] = [
   {
     id: "FormMe",
     title: "FormMe",
-    imgSrc: "/big/formMe.png",
+    imgSrc: "/projects/formMe.png",
     description: "Personal Project  ",
     ctaText: "Live Demo",
     ctaText2: "Details",
@@ -550,7 +550,7 @@ export const cards: Card[] = [
   {
     id: "Todo - Doing - Done",
     title: "Todo - Doing - Done",
-    imgSrc: "/big/todoLogo.png",
+    imgSrc: "/projects/todoLogo.png",
     description: "Personal Project  ",
     ctaText: "Live Demo",
     ctaText2: "Details",
@@ -595,7 +595,7 @@ export const cards: Card[] = [
   {
     id: "GranLine Maps",
     title: "GranLine Maps",
-    imgSrc: "/big/maps.png",
+    imgSrc: "/projects/maps.png",
     description: "Personal Project  ",
     ctaText: "Live Demo",
     ctaText2: "Details",
@@ -644,7 +644,7 @@ export const cards: Card[] = [
   {
     id: "Olympus Dominoes",
     title: "Olympus Dominoes",
-    imgSrc: "/big/olympus.png",
+    imgSrc: "/projects/olympus.png",
     description: "Personal Project  ",
     ctaText: "Live Demo",
     ctaText2: "Details",
@@ -690,7 +690,7 @@ export const cards: Card[] = [
   {
     id: "Weather-Cast",
     title: "Weather-Cast",
-    imgSrc: "/big/weather-cast.png",
+    imgSrc: "/projects/weather-cast.png",
     description: "Personal Project  ",
     ctaText: "Live Demo",
     ctaText2: "Details",
@@ -735,7 +735,7 @@ export const cards: Card[] = [
   {
     id: "Storybook-Demo",
     title: "Storybook-Demo",
-    imgSrc: "/big/storybook.svg",
+    imgSrc: "/projects/storybook.svg",
     description: "Personal Project  ",
     ctaText: "Live Demo",
     ctaText2: "Details",
@@ -772,5 +772,4 @@ export const cards: Card[] = [
       );
     },
   },
-
 ];

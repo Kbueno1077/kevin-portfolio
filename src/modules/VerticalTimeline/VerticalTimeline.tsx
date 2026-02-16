@@ -51,7 +51,7 @@ export default function VerticalTimelineDemo() {
               height={500}
               width={500}
               quality={100}
-              src={"/logos/uclv.png"}
+              src={"/logos/companies/uclv.png"}
               alt={"UCLV"}
               className="w-full h-full object-contain"
             />
@@ -138,7 +138,7 @@ export default function VerticalTimelineDemo() {
               height={500}
               width={500}
               quality={100}
-              src={"/logos/dark_woxo.jpeg"}
+              src={"/logos/companies/dark_woxo.jpeg"}
               alt={"Front10 Company"}
               className="w-full h-full object-contain rounded-full"
             />
@@ -185,7 +185,7 @@ export default function VerticalTimelineDemo() {
               height={500}
               width={500}
               quality={100}
-              src={"/logos/Logo.png"}
+              src={"/logos/companies/Logo.png"}
               alt={"Front10 Company"}
               className="w-full h-full object-contain"
             />
@@ -232,7 +232,7 @@ export default function VerticalTimelineDemo() {
               height={500}
               width={500}
               quality={100}
-              src={"/logos/front10.png"}
+              src={"/logos/companies/front10.png"}
               alt={"Front10 Company"}
               className="w-full h-full object-contain"
             />
@@ -279,7 +279,7 @@ export default function VerticalTimelineDemo() {
               height={500}
               width={500}
               quality={100}
-              src={"/logos/workinweb_logo.jpeg"}
+              src={"/logos/companies/workinweb_logo.jpeg"}
               alt={"WorkinWeb Company"}
               className="w-full h-full object-contain rounded-full"
             />
