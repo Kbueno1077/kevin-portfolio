@@ -160,6 +160,33 @@ export const cards: Card[] = [
   },
 
   {
+    id: "EZ2 Chart",
+    title: "EZ2 Chart",
+    description: "WorkInWeb - Full SaaS",
+    first: "WorkInWeb",
+    imgSrc: "/projects/ez-charts.png",
+    ctaText: "Go to Product",
+    ctaText2: "Details",
+    ctaLink: "https://www.ez2chart.com/",
+    tech: ["Next.js", "Convex", "Stripe", "Better Auth", "Vercel"],
+    imageClassSmall: "object-cover object-center scale-110",
+    imageClassBig: "object-cover object-center",
+    content: (technologies: string[]) => {
+      return (
+        <div>
+          <p>
+            Ez2Chart is a full-stack SaaS that turns text and files into charts
+            using AI and a no-code editor. Users can chat with an AI to generate
+            and refine visualizations or use the Manual Studio for direct
+            editing.
+          </p>
+          <br />{" "}
+        </div>
+      );
+    },
+  },
+
+  {
     id: "The Florida Clinics Aesthetic",
     title: "The Florida Clinics Aesthetic",
     description: "Website of a Aesthetic Clinic",
@@ -297,8 +324,8 @@ export const cards: Card[] = [
     ctaText2: "Details",
     ctaLink: "https://lumidraw.kbueno-studio.com/",
     tech: ["React.js", "TypeScript", "Canvas API"],
-    imageClassSmall: "object-contain object-center",
-    imageClassBig: "object-contain object-center",
+    imageClassSmall: "object-contain object-center bg-white",
+    imageClassBig: "object-contain object-center bg-white",
     content: (technologies: string[]) => {
       return (
         <div>
@@ -424,7 +451,7 @@ export const cards: Card[] = [
     id: "Con10th",
     description: "Personal Project",
     title: "Con10th",
-    imgSrc: "/logos/con10th.svg",
+    imgSrc: "/projects/con10th.svg",
     ctaText: "Live Demo",
     ctaText2: "Details",
     ctaLink: [
@@ -441,8 +468,8 @@ export const cards: Card[] = [
       "Vercel AI SDK",
       "Gemini",
     ],
-    imageClassSmall: "object-contain object-center",
-    imageClassBig: "object-contain object-center p-2",
+    imageClassSmall: "object-contain object-center bg-white",
+    imageClassBig: "object-contain object-center bg-white",
     content: (technologies: string[]) => {
       return (
         <div>

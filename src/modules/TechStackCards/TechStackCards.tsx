@@ -46,6 +46,13 @@ const techGroups = [
         img: "/tech/vitejs.svg",
       },
       {
+        title: "Astro",
+        description:
+          "Astro is a modern web framework optimized for content-driven websites with excellent performance and selective hydration.",
+        link: "https://astro.build/",
+        img: "/tech/astro.svg",
+      },
+      {
         title: "React.js",
         img: "/tech/react-js-icon.svg",
         description:
@@ -253,6 +260,13 @@ const techGroups = [
         link: "https://orm.drizzle.team/",
         img: "/tech/drizzle-orm_dark.svg",
       },
+      {
+        title: "Convex",
+        description:
+          "Convex is a TypeScript-first backend platform with realtime data sync, strongly typed functions, and built-in backend primitives that help ship full-stack apps faster.",
+        link: "https://www.convex.dev/",
+        img: "/tech/convex.svg",
+      },
     ],
   },
   {
@@ -294,6 +308,73 @@ const techGroups = [
         link: "https://git-scm.com/",
       },
     ],
+  },
+  {
+    category: "AI Engineering",
+    items: [
+      {
+        title: "LLMs & Prompt Engineering",
+        description:
+          "I work with LLMs through practical prompt engineering, iterating quickly and adapting to a fast-moving AI landscape. I focus on reliable prompts, clear context design, and evaluation loops that improve output quality over time.",
+        link: "https://platform.openai.com/docs/guides/prompt-engineering",
+      },
+      {
+        title: "AI-IDE Workflows",
+        description:
+          "I use AI-enabled IDE workflows to speed up implementation, refactoring, and debugging while keeping code quality high. This includes fast prototyping, structured reviews, and turning requirements into shippable features with AI assistance.",
+        link: "https://www.cursor.com/",
+      },
+      {
+        title: "AI-Powered Apps (Vercel AI SDK)",
+        description:
+          "I build AI-powered products end-to-end, mainly with Vercel AI SDK: chat interfaces, streaming responses, tool calling, structured outputs, and multi-step assistant flows connected to real product features.",
+        link: "https://sdk.vercel.ai/docs",
+      },
+      {
+        title: "AI SaaS Architecture",
+        description:
+          "Beyond demos, I ship production AI SaaS apps with auth, subscriptions, and deployment workflows. My typical stack includes Clerk (and Better Auth where needed), Stripe billing, Convex backend orchestration, and Vercel deployment.",
+        link: "https://clerk.com/",
+      },
+    ],
+    footer: (
+      <p className="text-neutral-500 text-justify dark:text-neutral-400 text-base md:text-lg max-w-4xl">
+        I can design and ship complete AI app experiences, from prompt strategy
+        and UX flows to backend orchestration and deployment. I also integrate
+        production auth and billing with
+        <LinkPreview
+          url="https://clerk.com/"
+          className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-[#9377FF] to-violet-600 mx-2"
+        >
+          Clerk
+        </LinkPreview>
+        ,
+        <LinkPreview
+          url="https://www.better-auth.com/"
+          className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-[#9377FF] to-violet-600 mx-2"
+        >
+          Better Auth
+        </LinkPreview>
+        ,
+        <LinkPreview
+          url="https://stripe.com/"
+          className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-[#9377FF] to-violet-600 mx-2"
+        >
+          Stripe
+        </LinkPreview>
+        and
+        <LinkPreview
+          url="https://vercel.com/"
+          className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-[#9377FF] to-violet-600 mx-2"
+        >
+          Vercel
+        </LinkPreview>
+        . I have shipped features like streaming chat UX, tool-enabled
+        assistants, structured outputs for UI rendering, subscription-gated AI
+        features, and full deployment pipelines for production-ready AI SaaS
+        apps.
+      </p>
+    ),
   },
   {
     category: "General Knowledge & Best Practices",
