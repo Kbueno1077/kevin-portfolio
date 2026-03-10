@@ -251,6 +251,39 @@ export const cards: Card[] = [
   },
 
   {
+    id: "Gallo Express",
+    title: "Gallo Express",
+    description: "E-commerce website for commercial goods",
+    first: "WorkInWeb",
+    imgSrc: "/projects/galloexpress/galloexpress.png",
+    ctaText: "Go to Website",
+    ctaText2: "Details",
+    ctaLink: "https://galloexpress.com/",
+    tech: ["React", "TypeScript", "TailwindCSS", "Next.js"],
+    imageClassSmall: "object-cover object-center",
+    imageClassBig: "object-cover object-center",
+    content: (technologies: string[]) => {
+      return (
+        <div>
+          <p>
+            E-commerce website for commercial goods and handling logistics of
+            the business.
+          </p>
+          <br />{" "}
+          <div>
+            {technologies.map((tech, idx) => (
+              <Fragment key={tech}>
+                <span className="text-colorAccent">{tech}</span>
+                {idx !== technologies.length - 1 && ", "}
+              </Fragment>
+            ))}{" "}
+          </div>
+        </div>
+      );
+    },
+  },
+
+  {
     id: "Beer Warehouse",
     title: "Beer Warehouse",
     description: "Web App and Mobile App (Demo)",
@@ -620,55 +653,6 @@ export const cards: Card[] = [
   },
 
   {
-    id: "GranLine Maps",
-    title: "GranLine Maps",
-    imgSrc: "/projects/maps.png",
-    description: "Personal Project  ",
-    ctaText: "Live Demo",
-    ctaText2: "Details",
-    ctaLink: [
-      "https://grand-line.kbueno-studio.com/",
-      "https://github.com/Kbueno1077/grand-line",
-    ],
-    ctaTexts: ["Live Demo", "GitHub"],
-    tech: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "Zustand",
-      "Supabase",
-      "Radix UI",
-      "Radix Themes",
-      "Leaflet",
-    ],
-    imageClassSmall: "object-contain object-center",
-    imageClassBig: "object-contain object-center",
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            GrandLine Maps is a web-based application designed to allow users to
-            create custom maps and assign locations that hold significant
-            emotional or important data. This tool is perfect for individuals
-            who want to visually document and share their personal journeys,
-            memories, and meaningful places. The Name is inspired by the One
-            Piece Franchise.
-          </p>
-          <br />{" "}
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-        </div>
-      );
-    },
-  },
-
-  {
     id: "Olympus Dominoes",
     title: "Olympus Dominoes",
     imgSrc: "/projects/olympus.png",
@@ -714,6 +698,7 @@ export const cards: Card[] = [
       );
     },
   },
+
   {
     id: "Weather-Cast",
     title: "Weather-Cast",
