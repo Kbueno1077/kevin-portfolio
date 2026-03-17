@@ -251,6 +251,39 @@ export const cards: Card[] = [
   },
 
   {
+    id: "Kindly Hearts Home Care",
+    title: "Kindly Hearts Home Care",
+    description: "Landing page for a home care agency in Central Florida",
+    first: "WorkInWeb",
+    imgSrc: "/projects/kindly.png",
+    ctaText: "Go to Website",
+    ctaText2: "Details",
+    ctaLink: "https://www.kindlyheartshomecare.com/",
+    tech: ["React", "TypeScript", "TailwindCSS", "Next.js"],
+    imageClassSmall: "object-cover object-center",
+    imageClassBig: "object-cover object-center",
+    content: (technologies: string[]) => {
+      return (
+        <div>
+          <p>
+            Landing page for Kindly Hearts Home Care, supporting individuals and
+            families across Central Florida with kind and compassionate care.
+          </p>
+          <br />{" "}
+          <div>
+            {technologies.map((tech, idx) => (
+              <Fragment key={tech}>
+                <span className="text-colorAccent">{tech}</span>
+                {idx !== technologies.length - 1 && ", "}
+              </Fragment>
+            ))}{" "}
+          </div>
+        </div>
+      );
+    },
+  },
+
+  {
     id: "Gallo Express",
     title: "Gallo Express",
     description: "E-commerce website for commercial goods",
