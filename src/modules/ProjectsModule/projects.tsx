@@ -8,9 +8,10 @@ export const cards: Card[] = [
     title: "Front10",
     first: "Front10 LLC",
     imgSrc: "/logos/companies/front10.png",
-    ctaText: "Go to Website",
+    ctaText: "Website",
     ctaText2: "Details",
-    ctaLink: "https://www.front10.com/",
+    ctaLink: ["https://www.front10.com/", "https://blog.front10.com/"],
+    ctaTexts: ["Website", "Blog"],
     tech: [],
     imageClassBig: "object-contain object-center bg-black",
     content: (technologies: string[]) => {
@@ -400,6 +401,75 @@ export const cards: Card[] = [
             application. It provides an intuitive interface for creating
             diagrams, sketches, and drawings directly in the browser with a
             clean and minimal design.
+          </p>
+          <br />
+          <div>
+            {technologies.map((tech, idx) => (
+              <Fragment key={tech}>
+                <span className="text-colorAccent">{tech}</span>
+                {idx !== technologies.length - 1 && ", "}
+              </Fragment>
+            ))}{" "}
+          </div>
+          <br />
+        </div>
+      );
+    },
+  },
+
+  {
+    id: "Emilios Rankings",
+    title: "Emilio's Rankings",
+    imgSrc: "/projects/emilios-rankings.png",
+    description: "Personal Project  ",
+    ctaText: "Live Demo",
+    ctaText2: "Details",
+    ctaLink: "https://emilios-rankings.vercel.app/es",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+    imageClassSmall: "object-contain object-center",
+    imageClassBig: "object-contain object-center",
+    content: (technologies: string[]) => {
+      return (
+        <div>
+          <p>
+            Rankings de Emilio is a Spanish-language showcase for video game
+            rankings: highlights, scores, and short takes on standout titles
+            &mdash; built as a small, fast site deployed on Vercel.
+          </p>
+          <br />
+          <div>
+            {technologies.map((tech, idx) => (
+              <Fragment key={tech}>
+                <span className="text-colorAccent">{tech}</span>
+                {idx !== technologies.length - 1 && ", "}
+              </Fragment>
+            ))}{" "}
+          </div>
+          <br />
+        </div>
+      );
+    },
+  },
+
+  {
+    id: "Snappy Kit",
+    title: "Snappy Kit",
+    imgSrc: "/projects/snappy-kit.png",
+    description: "Personal Project  ",
+    ctaText: "Live Demo",
+    ctaText2: "Details",
+    ctaLink: "https://snappy-kit.com/",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Web APIs"],
+    imageClassSmall: "object-contain object-center bg-black",
+    imageClassBig: "object-contain object-center bg-black",
+    content: (technologies: string[]) => {
+      return (
+        <div>
+          <p>
+            Snappy Kit is a free, privacy-first toolkit for images and diffs:
+            compress, resize, convert, crop, remove backgrounds, paint and erase,
+            plus image and structured text diffs. Everything runs in the
+            browser &mdash; files stay on your device.
           </p>
           <br />
           <div>
