@@ -14,15 +14,9 @@ export function ContactMeModule() {
     const [message, setMessage] = React.useState("");
 
     function setCSSLink() {
-        var ss = document.createElement("link");
+        const ss = document.createElement("link");
         ss.rel = "stylesheet";
-        if (true) {
-            ss.href =
-                "//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css";
-        } else {
-            ss.href =
-                "//cdn.jsdelivr.net/npm/@sweetalert2/theme-minimal/minimal.css";
-        }
+        ss.href = "//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css";
         document.head.appendChild(ss);
     }
 
@@ -81,8 +75,6 @@ export function ContactMeModule() {
                 message: message,
             }),
         });
-
-        console.log(response);
 
         if (response.ok) {
             Swal.fire({
@@ -156,7 +148,7 @@ export function ContactMeModule() {
                 </LabelInputContainer>
 
                 <LabelInputContainer className="mb-4">
-                    <Label htmlFor="subject">Message</Label>
+                    <Label htmlFor="message">Message</Label>
                     <TextArea
                         onChange={handleChange}
                         value={message}

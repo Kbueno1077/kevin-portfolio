@@ -175,53 +175,6 @@ export default function VerticalTimelineDemo() {
       <VerticalTimelineElement
         contentStyle={contentStyle}
         contentArrowStyle={contentArrowStyle}
-        visible={inView4}
-        className="vertical-timeline-element--work"
-        date="2023 - 2024"
-        iconStyle={iconStyle}
-        icon={
-          <div className="flex justify-center items-center w-full h-full bg-black rounded-full overflow-hidden p-1">
-            <Image
-              height={500}
-              width={500}
-              quality={100}
-              src={"/logos/companies/Logo.png"}
-              alt={"Front10 Company"}
-              className="w-full h-full object-contain"
-            />
-          </div>
-        }
-      >
-        <div ref={ref4}>
-          <div>
-            <h3 className="text-white text-xl md:text-2xl font-bold">
-              Web Developer
-            </h3>
-            <div className="flex flex-col md:flex-row justify-between mt-2">
-              <p className="text-neutral-400 text-sm md:text-base font-semibold m-0">
-                Freelancer
-              </p>
-              <p className="text-[#9377FF] text-sm md:text-base font-semibold m-0 mt-1 md:mt-0">
-                Full Time
-              </p>
-            </div>
-          </div>
-          <ul className="mt-6 list-disc ml-5 space-y-2">
-            {Freelancer2BulletPoints.map((point, index) => (
-              <li
-                key={`experience-point-${index}`}
-                className="text-neutral-300 text-sm pl-1 tracking-wide leading-relaxed"
-              >
-                {point}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </VerticalTimelineElement>
-
-      <VerticalTimelineElement
-        contentStyle={contentStyle}
-        contentArrowStyle={contentArrowStyle}
         visible={inView3}
         className="vertical-timeline-element--work"
         date="Jul 2023 - Present"
@@ -255,6 +208,53 @@ export default function VerticalTimelineDemo() {
           </div>
           <ul className="mt-6 list-disc ml-5 space-y-2">
             {ProsBulletPoints.map((point, index) => (
+              <li
+                key={`experience-point-${index}`}
+                className="text-neutral-300 text-sm pl-1 tracking-wide leading-relaxed"
+              >
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </VerticalTimelineElement>
+
+      <VerticalTimelineElement
+        contentStyle={contentStyle}
+        contentArrowStyle={contentArrowStyle}
+        visible={inView4}
+        className="vertical-timeline-element--work"
+        date="2023 - 2024"
+        iconStyle={iconStyle}
+        icon={
+          <div className="flex justify-center items-center w-full h-full bg-black rounded-full overflow-hidden p-1">
+            <Image
+              height={500}
+              width={500}
+              quality={100}
+              src={"/logos/companies/Logo.png"}
+              alt={"Front10 Company"}
+              className="w-full h-full object-contain"
+            />
+          </div>
+        }
+      >
+        <div ref={ref4}>
+          <div>
+            <h3 className="text-white text-xl md:text-2xl font-bold">
+              Web Developer
+            </h3>
+            <div className="flex flex-col md:flex-row justify-between mt-2">
+              <p className="text-neutral-400 text-sm md:text-base font-semibold m-0">
+                Freelancer
+              </p>
+              <p className="text-[#9377FF] text-sm md:text-base font-semibold m-0 mt-1 md:mt-0">
+                Full Time
+              </p>
+            </div>
+          </div>
+          <ul className="mt-6 list-disc ml-5 space-y-2">
+            {Freelancer2BulletPoints.map((point, index) => (
               <li
                 key={`experience-point-${index}`}
                 className="text-neutral-300 text-sm pl-1 tracking-wide leading-relaxed"
@@ -352,7 +352,7 @@ const ProsBulletPoints = [
   `Implement and sustain features for a highly adaptable interface, tailored to accommodate the unique requirements of various airlines utilizing the product.`,
   `Transform Figma designs into precise and efﬁcient code`,
   `Employ responsive design principles to ensure optimal viewing and interaction experience across a wide range of devices`,
-  `Prioritize tasks based on their relevance, proactively propose efﬁcient and rapidly implenting solutions to rectify unwanted behaviors.`,
+  `Prioritize tasks based on their relevance, proactively proposing efﬁcient solutions and rapidly implementing fixes to rectify unwanted behaviors.`,
   `Develop tests and conduct thorough code reviews to ensure software quality and reliability.`,
   `Worked with QA team to ﬁx bugs and improve the quality of applications`,
   `Participate in code reviews`,

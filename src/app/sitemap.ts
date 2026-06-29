@@ -8,10 +8,20 @@ const siteUrl =
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const routes = ["", "about-me", "contact-me", "experience", "tech"];
+  const routes = [
+    "",
+    "about-me",
+    "experience",
+    "projects",
+    "tech",
+    "certifications",
+    "contact-me",
+  ];
+
+  const base = siteUrl.replace(/\/$/, "");
 
   return routes.map((route) => ({
-    url: `${siteUrl}${route || "/"}`,
+    url: route ? `${base}/${route}` : `${base}/`,
     lastModified: now,
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : 0.7,

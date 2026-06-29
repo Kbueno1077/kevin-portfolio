@@ -5,6 +5,7 @@ import {
   IconBrandGithub,
   IconBrandLinkedin,
   IconBrandTabler,
+  IconBriefcase,
   IconBuildingSkyscraper,
   IconClipboard,
   IconCode,
@@ -19,7 +20,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-export function SidebarLayout({ children }: any) {
+export function SidebarLayout({ children }: { children: React.ReactNode }) {
   const links = [
     {
       label: "Home",
@@ -41,6 +42,14 @@ export function SidebarLayout({ children }: any) {
       href: "/experience",
       icon: (
         <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    },
+
+    {
+      label: "Projects",
+      href: "/projects",
+      icon: (
+        <IconBriefcase className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
 
@@ -88,7 +97,6 @@ export function SidebarLayout({ children }: any) {
 
           <div className="flex flex-col gap-1">
             <SidebarLink
-              //@ts-ignore
               target="_blank"
               link={{
                 label: "CV",
@@ -100,7 +108,6 @@ export function SidebarLayout({ children }: any) {
             />
 
             <SidebarLink
-              //@ts-ignore
               target="_blank"
               link={{
                 label: "Github",
@@ -112,7 +119,6 @@ export function SidebarLayout({ children }: any) {
             />
 
             <SidebarLink
-              //@ts-ignore
               target="_blank"
               link={{
                 label: "Linkedin",
@@ -126,7 +132,7 @@ export function SidebarLayout({ children }: any) {
             <SidebarLink
               link={{
                 label: "Kevin Bueno",
-                href: "#",
+                href: "/about-me",
                 icon: (
                   <Image
                     src="/images/profile.jpg"
@@ -158,7 +164,7 @@ export function SidebarLayout({ children }: any) {
 export const Logo = () => {
   return (
     <Link
-      href="#"
+      href="/"
       className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
     >
       {/* <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" /> */}
@@ -176,7 +182,7 @@ export const Logo = () => {
 export const LogoIcon = () => {
   return (
     <Link
-      href="#"
+      href="/"
       className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
     >
       <IconBuildingSkyscraper className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />

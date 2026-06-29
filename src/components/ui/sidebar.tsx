@@ -1,6 +1,5 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { LinkProps } from "next/link";
 import { Link } from "next-view-transitions";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -163,8 +162,7 @@ export const SidebarLink = ({
 }: {
   link: Links;
   className?: string;
-  props?: LinkProps;
-}) => {
+} & Omit<React.ComponentProps<typeof Link>, "href">) => {
   const { open, setOpen, animate } = useSidebar();
   return (
     <Link

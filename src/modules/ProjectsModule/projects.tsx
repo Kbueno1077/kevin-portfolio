@@ -7,6 +7,7 @@ export const cards: Card[] = [
     description: "Front10",
     title: "Front10",
     first: "Front10 LLC",
+    category: "Client / Professional",
     imgSrc: "/logos/companies/front10.png",
     ctaText: "Website",
     ctaText2: "Details",
@@ -43,6 +44,7 @@ export const cards: Card[] = [
     id: "TravelPaas",
     description: "Front10 - PROS",
     title: "TravelPaas",
+    category: "Client / Professional",
     imgSrc: "/projects/Pros.jpg",
     ctaText: "Go to Product",
     ctaText2: "Details",
@@ -85,6 +87,7 @@ export const cards: Card[] = [
     id: "Woxo Video Editor",
     description: "Front10",
     title: "Woxo Video Editor",
+    category: "Client / Professional",
     imgSrc: "/projects/woxo.png",
     ctaText: "Go to Product",
     ctaText2: "Details",
@@ -129,6 +132,7 @@ export const cards: Card[] = [
     title: "WorkInWeb",
     description: "Founder",
     first: "WorkInWeb",
+    category: "Founder / WorkInWeb",
     imgSrc: "/projects/workinweb.svg",
     ctaText: "Go to Website",
     ctaText2: "Details",
@@ -165,6 +169,7 @@ export const cards: Card[] = [
     title: "EZ2 Chart",
     description: "WorkInWeb - Full SaaS",
     first: "WorkInWeb",
+    category: "Founder / WorkInWeb",
     imgSrc: "/projects/ez-charts.png",
     ctaText: "Go to Product",
     ctaText2: "Details",
@@ -190,7 +195,9 @@ export const cards: Card[] = [
   {
     id: "The Florida Clinics Aesthetic",
     title: "The Florida Clinics Aesthetic",
-    description: "Website of a Aesthetic Clinic",
+    description: "Website of an Aesthetic Clinic",
+    first: "WorkInWeb",
+    category: "Founder / WorkInWeb",
     imgSrc: "/logos/projects/floridaclinic.png",
     ctaText: "Go to Website",
     ctaText2: "Details",
@@ -202,7 +209,7 @@ export const cards: Card[] = [
       return (
         <div>
           <p>
-            Design and development of a website for a Aesthetic Clinic based in
+            Design and development of a website for an Aesthetic Clinic based in
             Florida
           </p>
           <br />{" "}
@@ -223,6 +230,8 @@ export const cards: Card[] = [
     id: "Evan Home Care",
     title: "Evan Home Care",
     description: "Website of a Home Care Agency",
+    first: "WorkInWeb",
+    category: "Founder / WorkInWeb",
     imgSrc: "/logos/projects/evan.png",
     ctaText: "Go to Website",
     ctaText2: "Details",
@@ -256,6 +265,7 @@ export const cards: Card[] = [
     title: "Kindly Hearts Home Care",
     description: "Landing page for a home care agency in Central Florida",
     first: "WorkInWeb",
+    category: "Founder / WorkInWeb",
     imgSrc: "/projects/kindly.png",
     ctaText: "Go to Website",
     ctaText2: "Details",
@@ -289,6 +299,7 @@ export const cards: Card[] = [
     title: "Gallo Express",
     description: "E-commerce website for commercial goods",
     first: "WorkInWeb",
+    category: "Founder / WorkInWeb",
     imgSrc: "/projects/galloexpress/galloexpress.png",
     ctaText: "Go to Website",
     ctaText2: "Details",
@@ -322,6 +333,7 @@ export const cards: Card[] = [
     title: "Beer Warehouse",
     description: "Web App and Mobile App (Demo)",
     first: "Personal Demos",
+    category: "Personal / Demos",
 
     imgSrc: "/projects/beer-warehouse.png",
     ctaText: "Go to Product",
@@ -355,9 +367,9 @@ export const cards: Card[] = [
           <p>
             Created a personal web application where I store a collection of
             different beers that I have had the pleasure of enjoying. Powered
-            also with Gen AI to search and provied info of other beers as you
-            browse for them on a store. Friends can check the information as
-            create their owns account to store theirs.
+            also with Gen AI to search and provide info of other beers as you
+            browse for them in a store. Friends can check the information and
+            create their own accounts to store theirs.
           </p>
           <br />
           <p>
@@ -365,7 +377,7 @@ export const cards: Card[] = [
             project that I worked on I used React Native, Cloudinary to store
             media and Xata for data. The app was designed to be a simple and
             user-friendly interface for ordering and managing my beer
-            collection, ispired by the web application and with a similar stack
+            collection, inspired by the web application and with a similar stack
             of technologies.
           </p>
           <br />{" "}
@@ -385,8 +397,9 @@ export const cards: Card[] = [
   {
     id: "Lumidraw",
     title: "Lumidraw",
+    category: "Personal / Demos",
     imgSrc: "/projects/lumidraw.png",
-    description: "Personal Project  ",
+    description: "Personal Project",
     ctaText: "Live Demo",
     ctaText2: "Details",
     ctaLink: "https://lumidraw.kbueno-studio.com/",
@@ -420,8 +433,9 @@ export const cards: Card[] = [
   {
     id: "Emilios Rankings",
     title: "Emilio's Rankings",
+    category: "Personal / Demos",
     imgSrc: "/projects/emilios-rankings.png",
-    description: "Personal Project  ",
+    description: "Personal Project",
     ctaText: "Live Demo",
     ctaText2: "Details",
     ctaLink: "https://emilios-rankings.vercel.app/es",
@@ -454,8 +468,9 @@ export const cards: Card[] = [
   {
     id: "Snappy Kit",
     title: "Snappy Kit",
+    category: "Personal / Demos",
     imgSrc: "/projects/snappy-kit.png",
-    description: "Personal Project  ",
+    description: "Personal Project",
     ctaText: "Live Demo",
     ctaText2: "Details",
     ctaLink: "https://snappy-kit.com/",
@@ -490,6 +505,7 @@ export const cards: Card[] = [
     id: "Trip Planner AI",
     description: "Personal Project",
     title: "Trip Planner AI",
+    category: "Personal / Demos",
     imgSrc: "/logos/projects/tripplanner.svg",
     ctaText: "Live Demo",
     ctaText2: "Details",
@@ -516,10 +532,10 @@ export const cards: Card[] = [
       return (
         <div>
           <p>
-            Trip Planner AI is a platform that allows you to plan your trip with
-            ease. It is built with React, Next.js, TypeScript, Vercel AI SDK,
-            and Gemini. (is a demo project to learn and showcase the use of LLMs
-            and ai sdk)
+            Trip Planner AI is a platform that lets you plan a trip with ease,
+            built with React, Next.js, TypeScript, the Vercel AI SDK, and
+            Gemini. It demonstrates LLM-driven itinerary generation, the Vercel
+            AI SDK, and tight Google Maps / Places integration.
           </p>
           <br />{" "}
           <div>
@@ -539,6 +555,7 @@ export const cards: Card[] = [
     id: "Ai Sdk Playground",
     description: "Personal Project",
     title: "Ai Sdk Playground",
+    category: "Personal / Demos",
     imgSrc: "/logos/projects/aisdk.png",
     ctaText: "Live Demo",
     ctaText2: "Details",
@@ -587,6 +604,7 @@ export const cards: Card[] = [
     id: "Con10th",
     description: "Personal Project",
     title: "Con10th",
+    category: "Personal / Demos",
     imgSrc: "/projects/con10th.svg",
     ctaText: "Live Demo",
     ctaText2: "Details",
@@ -610,11 +628,10 @@ export const cards: Card[] = [
       return (
         <div>
           <p>
-            Con10th is a platform that allows you to transform your ideas into
-            engaging content in seconds. Our AI-powered platform helps you
-            create high-quality, original content for any purpose with advanced
-            machine learning. (is a demo project to learn and showcase the use
-            of LLMs and ai sdk)
+            Con10th is a platform that turns ideas into engaging content in
+            seconds. The AI-powered editor helps you create high-quality,
+            original content for any purpose, demonstrating LLM integration and
+            streaming generation with the Vercel AI SDK.
           </p>
           <br />{" "}
           <div>
@@ -634,6 +651,7 @@ export const cards: Card[] = [
     id: "EZ - Data View",
     description: "Personal Project",
     title: "EZ - Data View",
+    category: "Personal / Demos",
     imgSrc: "/projects/ez-charts.png",
     ctaText: "Live Demo",
     ctaText2: "Details",
@@ -667,8 +685,9 @@ export const cards: Card[] = [
   {
     id: "FormMe",
     title: "FormMe",
+    category: "Personal / Demos",
     imgSrc: "/projects/formMe.png",
-    description: "Personal Project  ",
+    description: "Personal Project",
     ctaText: "Live Demo",
     ctaText2: "Details",
     ctaLink: [
@@ -690,11 +709,11 @@ export const cards: Card[] = [
             requests, or exclusive event registrations.
             <br />
             <br />
-            As a web developer, I`ve been hearing a lot of buzz around Svelte, a
-            relatively new front-end framework that takes a different approach
-            to building user interfaces. Intrigued by its promises of
-            simplicity, performance, and a compelling component model, I`ve
-            decided to dive in and explore Svelte for an upcoming project.
+            As a web developer, I&apos;ve been hearing a lot of buzz around
+            Svelte, a relatively new front-end framework that takes a different
+            approach to building user interfaces. Intrigued by its promises of
+            simplicity, performance, and a compelling component model, I&apos;ve
+            decided to dive in and explore Svelte for this project.
           </p>
           <br />{" "}
           <div>
@@ -713,8 +732,9 @@ export const cards: Card[] = [
   {
     id: "Todo - Doing - Done",
     title: "Todo - Doing - Done",
+    category: "Personal / Demos",
     imgSrc: "/projects/todoLogo.png",
-    description: "Personal Project  ",
+    description: "Personal Project",
     ctaText: "Live Demo",
     ctaText2: "Details",
     ctaLink: [
@@ -758,8 +778,9 @@ export const cards: Card[] = [
   {
     id: "Olympus Dominoes",
     title: "Olympus Dominoes",
+    category: "Personal / Demos",
     imgSrc: "/projects/olympus.png",
-    description: "Personal Project  ",
+    description: "Personal Project",
     ctaText: "Live Demo",
     ctaText2: "Details",
     ctaLink: [
@@ -782,8 +803,8 @@ export const cards: Card[] = [
       return (
         <div>
           <p>
-            I love to play dominoes, (55 pieces) so I created a web application
-            keep the score in matches and keep track of history records
+            I love to play dominoes (55 pieces), so I created a web application
+            to keep score during matches and track history records.
           </p>
           <br />
           <div>
@@ -795,7 +816,7 @@ export const cards: Card[] = [
             ))}{" "}
           </div>
           <br />
-          <strong>Olympus</strong>, where the gods come togheter to player
+          <strong>Olympus</strong>, where the gods come together to play
           dominoes
         </div>
       );
@@ -805,8 +826,9 @@ export const cards: Card[] = [
   {
     id: "Weather-Cast",
     title: "Weather-Cast",
+    category: "Personal / Demos",
     imgSrc: "/projects/weather-cast.png",
-    description: "Personal Project  ",
+    description: "Personal Project",
     ctaText: "Live Demo",
     ctaText2: "Details",
     ctaLink: [
@@ -850,8 +872,9 @@ export const cards: Card[] = [
   {
     id: "Storybook-Demo",
     title: "Storybook-Demo",
+    category: "Personal / Demos",
     imgSrc: "/projects/storybook.svg",
-    description: "Personal Project  ",
+    description: "Personal Project",
     ctaText: "Live Demo",
     ctaText2: "Details",
     ctaLink: [

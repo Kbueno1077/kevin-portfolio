@@ -5,11 +5,17 @@ import Image from "next/image";
 import { ReactElement, useEffect, useId, useRef, useState } from "react";
 import { cards } from "./projects";
 
+export type ProjectCategory =
+  | "Client / Professional"
+  | "Founder / WorkInWeb"
+  | "Personal / Demos";
+
 export interface Card {
   id: number | string;
   title: string;
   description: string;
   first?: string;
+  category: ProjectCategory;
   imgSrc: string;
   ctaText: string;
   ctaText2: string;
@@ -21,8 +27,17 @@ export interface Card {
   imageClassBig?: string;
 }
 
+const CATEGORY_ORDER: ProjectCategory[] = [
+  "Client / Professional",
+  "Founder / WorkInWeb",
+  "Personal / Demos",
+];
+
+type Filter = "All" | ProjectCategory;
+
 export default function ExpandableCardDemo() {
   const [active, setActive] = useState<Card | boolean | null>(null);
+  const [filter, setFilter] = useState<Filter>("All");
   const ref = useRef<HTMLDivElement>(null);
   const id = useId();
 
@@ -257,33 +272,39 @@ export default function ExpandableCardDemo() {
         transition={{ duration: 0.2, ease: "easeOut" }}
         className="max-w-7xl mx-auto w-full px-2 sm:px-4 lg:px-8 pb-6 sm:pb-10"
       >
+        <div className="flex flex-wrap justify-center lg:justify-start gap-2 mt-6">
+          {(["All", ...CATEGORY_ORDER] as Filter[]).map((option) => {
+            const count =
+              option === "All"
+                ? cards.length
+                : cards.filter((card) => card.category === option).length;
+            const isActive = filter === option;
+            return (
+              <button
+                key={option}
+                onClick={() => setFilter(option)}
+                className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+                  isActive
+                    ? "bg-[#9377FF] text-white"
+                    : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700"
+                }`}
+              >
+                {option}
+                <span className="ml-1.5 opacity-60">{count}</span>
+              </button>
+            );
+          })}
+        </div>
+
         {(() => {
-          let currentCategory = "";
-          let categoryCards: Card[] = [];
-          const categoryGroups: { category: string; cards: Card[] }[] = [];
-
-          // Group cards by category
-          cards.forEach((card) => {
-            if (card.first && card.first !== currentCategory) {
-              if (categoryCards.length > 0) {
-                categoryGroups.push({
-                  category: currentCategory,
-                  cards: categoryCards,
-                });
-              }
-              currentCategory = card.first;
-              categoryCards = [card];
-            } else {
-              categoryCards.push(card);
-            }
-          });
-
-          if (categoryCards.length > 0) {
-            categoryGroups.push({
-              category: currentCategory,
-              cards: categoryCards,
-            });
-          }
+          const categoryGroups = CATEGORY_ORDER.filter(
+            (category) => filter === "All" || filter === category
+          )
+            .map((category) => ({
+              category,
+              cards: cards.filter((card) => card.category === category),
+            }))
+            .filter((group) => group.cards.length > 0);
 
           return categoryGroups.map((group, groupIndex) => (
             <div

@@ -93,6 +93,41 @@ export const viewport: Viewport = {
   ],
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      name: "Kevin Bueno",
+      url: siteUrl,
+      jobTitle: "Lead Frontend Developer & UI/UX Specialist",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Miami",
+        addressCountry: "US",
+      },
+      sameAs: [
+        "https://github.com/Kbueno1077",
+        "https://www.linkedin.com/in/kevin-bueno-0a8809218/",
+        "https://x.com/kbueno1077",
+      ],
+      knowsAbout: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "UI/UX Design",
+        "AI Engineering",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      url: siteUrl,
+      name: "Kevin Bueno Portfolio",
+      author: { "@type": "Person", name: "Kevin Bueno" },
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -102,6 +137,10 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en" className={"dark"}>
         <body className={inter.className}>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
           <SidebarLayout>{children}</SidebarLayout>
 
           <Analytics />
