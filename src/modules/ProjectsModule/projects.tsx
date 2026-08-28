@@ -41,6 +41,58 @@ export const cards: Card[] = [
   },
 
   {
+    id: "Olympus Dominoes",
+    title: "Olympus Dominoes",
+    category: "Personal / Demos",
+    imgSrc: "/projects/olympus.png",
+    description: "Scorepad for Cuban dominoes — web + mobile",
+    ctaText: "Live Demo",
+    ctaText2: "Details",
+    ctaLink: [
+      "https://olympus-dominoes.kbueno-studio.com/",
+      "https://apps.apple.com/us/app/olympus-dominoes/id6799737142",
+      "https://github.com/Kbueno1077/olympus-dominoes",
+    ],
+    ctaTexts: ["Live Demo", "App Store", "GitHub"],
+    tech: [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "React Native",
+      "MaterialUI",
+      "TailwindCSS",
+      "Supabase",
+      "Recoil",
+    ],
+    imageClassSmall: "object-cover object-center scale-110",
+    imageClassBig: "object-cover object-center",
+    content: (technologies: string[]) => {
+      return (
+        <div>
+          <p>
+            Keep score, not arguments. Olympus Dominoes is a clean scorepad for
+            Cuban dominoes — set the table, tally each hand, and let the app
+            call the winner. Play a full table against bots, or use the score
+            notepad for a live mesa with 2 to 4 players in partners or free for
+            all. Built as a Next.js web app and a React Native app for iOS and
+            Android, with match history, stats, and CSV sync between phone and
+            web.
+          </p>
+          <br />
+          <div>
+            {technologies.map((tech, idx) => (
+              <Fragment key={tech}>
+                <span className="text-colorAccent">{tech}</span>
+                {idx !== technologies.length - 1 && ", "}
+              </Fragment>
+            ))}{" "}
+          </div>
+        </div>
+      );
+    },
+  },
+
+  {
     id: "TravelPaas",
     description: "Front10 - PROS",
     title: "TravelPaas",
@@ -775,54 +827,6 @@ export const cards: Card[] = [
               </Fragment>
             ))}{" "}
           </div>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: "Olympus Dominoes",
-    title: "Olympus Dominoes",
-    category: "Personal / Demos",
-    imgSrc: "/projects/olympus.png",
-    description: "Personal Project",
-    ctaText: "Live Demo",
-    ctaText2: "Details",
-    ctaLink: [
-      "https://olympus-dominoes.kbueno-studio.com/",
-      "https://github.com/Kbueno1077/olympus-dominoes",
-    ],
-    ctaTexts: ["Live Demo", "GitHub"],
-    tech: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "MaterialUI",
-      "TailwindCSS",
-      "Supabase",
-      "Recoil",
-    ],
-    imageClassSmall: "object-cover object-center scale-110",
-    imageClassBig: "object-cover object-center",
-    content: (technologies: string[]) => {
-      return (
-        <div>
-          <p>
-            I love to play dominoes (55 pieces), so I created a web application
-            to keep score during matches and track history records.
-          </p>
-          <br />
-          <div>
-            {technologies.map((tech, idx) => (
-              <Fragment key={tech}>
-                <span className="text-colorAccent">{tech}</span>
-                {idx !== technologies.length - 1 && ", "}
-              </Fragment>
-            ))}{" "}
-          </div>
-          <br />
-          <strong>Olympus</strong>, where the gods come together to play
-          dominoes
         </div>
       );
     },
