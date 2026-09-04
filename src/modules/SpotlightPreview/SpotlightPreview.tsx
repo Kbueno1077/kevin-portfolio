@@ -3,12 +3,12 @@ import React from "react";
 import { Spotlight } from "@/components/ui/spotlight";
 import { motion } from "framer-motion";
 import { Link } from "next-view-transitions";
-import { featuredProjects } from "@/modules/ProjectsModule/featured";
+import { featuredProjects, projectSlug } from "@/modules/ProjectsModule/featured";
 import Image from "next/image";
 
 export function SpotlightPreview() {
   return (
-    <div className="min-h-[calc(100dvh-42px)] w-full rounded-md flex flex-col items-center justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden py-16">
+    <div className="min-h-[calc(100dvh-42px)] w-full rounded-md flex flex-col items-center justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden py-12">
       <Spotlight className="top-20 left-0 md:left-60 md:-top-20" fill="white" />
 
       <div className="p-4 max-w-5xl mx-auto flex flex-col items-center relative z-10 w-full">
@@ -42,9 +42,9 @@ export function SpotlightPreview() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-5 font-normal text-base md:text-lg text-neutral-300 max-w-2xl text-center mx-auto"
         >
-          I build immersive, high-performance web and AI products with React,
+          I build high-performance web, mobile, and AI products with React,
           Next.js, and TypeScript — from a white-label airline booking engine to
-          full-stack SaaS at my studio,{" "}
+          independent apps at my studio,{" "}
           <span className="text-[#9377FF] font-semibold">WorkInWeb</span>. Based
           in Miami, USA.
         </motion.p>
@@ -71,45 +71,50 @@ export function SpotlightPreview() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.7 }}
-        className="relative z-10 w-full max-w-5xl px-4 mt-16"
+        transition={{ duration: 0.6, delay: 0.7 }}
+        className="relative z-10 w-full max-w-5xl px-4 mt-12"
       >
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-sm uppercase tracking-[0.2em] text-neutral-400 font-semibold">
-            Featured work
+        <div className="flex items-baseline justify-between mb-4">
+          <h2 className="text-xs uppercase tracking-[0.22em] text-neutral-500 font-semibold">
+            Selected work
           </h2>
           <Link
             href="/projects"
-            className="text-sm text-[#9377FF] hover:text-[#b4a0ff] transition-colors"
+            className="text-sm text-neutral-400 hover:text-white transition-colors"
           >
             View all →
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
           {featuredProjects.map((project) => (
             <Link
               key={project.title}
-              href="/projects"
-              className="group rounded-2xl border border-neutral-800 bg-neutral-900/50 overflow-hidden transition-colors hover:border-[#9377FF]"
+              href={`/projects?project=${projectSlug(project.title)}`}
+              className="group overflow-hidden rounded-xl border border-white/10 bg-neutral-950/70 transition-colors hover:border-white/25"
             >
-              <div className="h-32 overflow-hidden bg-black">
+              <div
+                className={`relative h-20 sm:h-24 overflow-hidden ${project.wellClass}`}
+              >
                 <Image
                   src={project.imgSrc}
                   alt={project.title}
-                  width={400}
-                  height={200}
+                  fill
                   quality={100}
-                  className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${project.imageClass}`}
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  className={project.imageClass}
                 />
               </div>
-              <div className="p-4">
-                <h3 className="font-semibold text-neutral-100 group-hover:text-[#9377FF] transition-colors">
+              <div className="px-3 py-2.5 sm:px-3.5 sm:py-3">
+                <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-neutral-500">
+                  {project.label}
+                </p>
+                <p className="mt-1 text-sm font-medium text-neutral-100 group-hover:text-white">
                   {project.title}
-                </h3>
-                <p className="mt-1 text-sm text-neutral-400 line-clamp-2">
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-neutral-400 line-clamp-2">
                   {project.summary}
                 </p>
               </div>

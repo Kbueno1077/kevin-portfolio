@@ -273,6 +273,14 @@ const techGroups = [
     category: "Tools & Testing",
     items: [
       {
+        title: "Cursor",
+        description:
+          "My daily AI-powered IDE. I use Cursor to move faster on implementation, refactors, and reviews while keeping the code quality bar high.",
+        link: "https://www.cursor.com/",
+        img: "/tech/cursor.svg",
+        caption: "AI-powered IDEs",
+      },
+      {
         title: "VS Code",
         description:
           "Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.",

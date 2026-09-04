@@ -1,30 +1,50 @@
+export function projectSlug(id: string): string {
+  return id
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export interface FeaturedProject {
   title: string;
   summary: string;
   imgSrc: string;
   imageClass: string;
+  wellClass: string;
+  label: string;
 }
 
 export const featuredProjects: FeaturedProject[] = [
   {
     title: "TravelPaas",
-    summary:
-      "White-label airline booking engine for multi-tenant carriers, built on the PROS Offer/Order platform.",
+    summary: "White-label airline booking engine for multi-tenant carriers.",
     imgSrc: "/projects/Pros.jpg",
     imageClass: "object-cover object-center",
+    wellClass: "bg-white",
+    label: "Client · Front10",
   },
   {
     title: "EZ2 Chart",
-    summary:
-      "Full-stack AI SaaS that turns text and files into charts, with auth, billing, and a no-code editor.",
+    summary: "AI SaaS that turns text and files into charts.",
     imgSrc: "/projects/ez-charts.png",
-    imageClass: "object-cover object-center scale-110",
+    imageClass: "object-contain object-center scale-[2.25]",
+    wellClass: "bg-black",
+    label: "Studio · WorkInWeb",
   },
   {
-    title: "Snappy Kit",
-    summary:
-      "Free, privacy-first image and diff toolkit that runs entirely in the browser — files never leave your device.",
-    imgSrc: "/projects/snappy-kit.png",
-    imageClass: "object-contain object-center bg-black",
+    title: "Olympus Dominoes",
+    summary: "Cuban-dominoes scorepad with match history — web and iOS.",
+    imgSrc: "/projects/olympus.png",
+    imageClass: "object-contain object-center scale-[2]",
+    wellClass: "bg-black",
+    label: "Independent · Web + iOS",
+  },
+  {
+    title: "Beer Warehouse",
+    summary: "Personal beer journal with AI-powered discovery.",
+    imgSrc: "/projects/beer-warehouse.png",
+    imageClass: "object-cover object-center",
+    wellClass: "bg-[#f3ead8]",
+    label: "Independent · Web + mobile",
   },
 ];

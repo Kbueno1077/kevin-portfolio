@@ -5,6 +5,7 @@ export const cards: Card[] = [
   {
     id: "Front10",
     description: "Front10",
+    summary: "Technical leadership and frontend work across client and internal products.",
     title: "Front10",
     first: "Front10 LLC",
     category: "Client / Professional",
@@ -44,8 +45,14 @@ export const cards: Card[] = [
     id: "Olympus Dominoes",
     title: "Olympus Dominoes",
     category: "Personal / Demos",
+    featured: true,
     imgSrc: "/projects/olympus.png",
     description: "Scorepad for Cuban dominoes — web + mobile",
+    summary:
+      "Cuban-dominoes scorepad and table companion, with match history, stats, and an iOS app.",
+    imageClassSmall: "object-cover object-center",
+    imageClassBig: "object-cover object-center",
+    imageWellClass: "bg-black",
     ctaText: "Live Demo",
     ctaText2: "Details",
     ctaLink: [
@@ -64,8 +71,6 @@ export const cards: Card[] = [
       "Supabase",
       "Recoil",
     ],
-    imageClassSmall: "object-cover object-center scale-110",
-    imageClassBig: "object-cover object-center",
     content: (technologies: string[]) => {
       return (
         <div>
@@ -95,6 +100,8 @@ export const cards: Card[] = [
   {
     id: "TravelPaas",
     description: "Front10 - PROS",
+    summary:
+      "White-label airline booking engine for multi-tenant carriers on the PROS platform.",
     title: "TravelPaas",
     category: "Client / Professional",
     imgSrc: "/projects/Pros.jpg",
@@ -108,6 +115,7 @@ export const cards: Card[] = [
     tech: ["React.js", "TypeScript", "JavaScript", "Sass"],
     imageClassSmall: "object-cover object-center",
     imageClassBig: "object-cover object-center",
+    imageWellClass: "bg-white",
     content: (technologies: string[]) => {
       return (
         <div>
@@ -142,6 +150,7 @@ export const cards: Card[] = [
   {
     id: "Woxo Video Editor",
     description: "Front10",
+    summary: "AI-assisted online video editor for creating videos in seconds.",
     title: "Woxo Video Editor",
     category: "Client / Professional",
     imgSrc: "/projects/woxo.png",
@@ -187,6 +196,7 @@ export const cards: Card[] = [
     id: "WorkInWeb",
     title: "WorkInWeb",
     description: "Founder",
+    summary: "Studio building modern landing pages, hosting, and product work for clients.",
     first: "WorkInWeb",
     category: "Founder / WorkInWeb",
     imgSrc: "/projects/workinweb.svg",
@@ -224,6 +234,7 @@ export const cards: Card[] = [
     id: "EZ2 Chart",
     title: "EZ2 Chart",
     description: "WorkInWeb - Full SaaS",
+    summary: "AI SaaS that turns text and files into charts, with auth, billing, and a no-code editor.",
     first: "WorkInWeb",
     category: "Founder / WorkInWeb",
     imgSrc: "/projects/ez-charts.png",
@@ -231,8 +242,9 @@ export const cards: Card[] = [
     ctaText2: "Details",
     ctaLink: "https://www.ez2chart.com/",
     tech: ["Next.js", "Convex", "Stripe", "Better Auth", "Vercel"],
-    imageClassSmall: "object-cover object-center scale-110",
-    imageClassBig: "object-cover object-center",
+    imageClassSmall: "object-contain object-center p-6",
+    imageClassBig: "object-contain object-center p-6",
+    imageWellClass: "bg-black",
     content: (technologies: string[]) => {
       return (
         <div>
@@ -388,8 +400,11 @@ export const cards: Card[] = [
     id: "Beer Warehouse",
     title: "Beer Warehouse",
     description: "Web App and Mobile App (Demo)",
+    summary:
+      "Personal beer journal with AI-powered discovery and a React Native companion app.",
     first: "Personal Demos",
     category: "Personal / Demos",
+    featured: true,
 
     imgSrc: "/projects/beer-warehouse.png",
     ctaText: "Go to Product",
@@ -417,6 +432,7 @@ export const cards: Card[] = [
     ],
     imageClassSmall: "object-cover object-center",
     imageClassBig: "object-cover object-center",
+    imageWellClass: "bg-[#f3ead8]",
     content: (technologies: string[]) => {
       return (
         <div>
@@ -528,12 +544,15 @@ export const cards: Card[] = [
     first: "WorkInWeb",
     imgSrc: "/projects/snappy-kit.png",
     description: "WorkInWeb Product",
+    summary:
+      "Privacy-first image and diff toolkit that runs entirely in the browser.",
     ctaText: "Live Demo",
     ctaText2: "Details",
     ctaLink: "https://snappy-kit.com/",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Web APIs"],
-    imageClassSmall: "object-contain object-center bg-black",
-    imageClassBig: "object-contain object-center bg-black",
+    imageClassSmall: "object-cover object-center",
+    imageClassBig: "object-cover object-center",
+    imageWellClass: "bg-black",
     content: (technologies: string[]) => {
       return (
         <div>
