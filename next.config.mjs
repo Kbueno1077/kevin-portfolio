@@ -3,12 +3,14 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   images: {
-    domains: ["api.microlink.io"],
+    qualities: [75, 100],
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "api.microlink.io",
+        pathname: "**",
+      },
       {
         protocol: "https",
         hostname: "assets.aceternity.com",

@@ -60,6 +60,14 @@ const techGroups = [
         link: "https://react.dev/",
       },
       {
+        title: "React Native",
+        img: "/tech/react-js-icon.svg",
+        description:
+          "React Native for iOS and Android apps, using the same React patterns I ship on the web.",
+        link: "https://reactnative.dev/",
+        caption: "iOS + Android",
+      },
+      {
         title: "TypeScript",
         description:
           "TypeScript is a free and open-source high-level programming language developed by Microsoft. It adds static typing with optional type annotations to JavaScript, making it suitable for building large applications.",

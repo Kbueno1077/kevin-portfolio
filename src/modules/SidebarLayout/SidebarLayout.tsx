@@ -15,6 +15,7 @@ import {
 } from "@tabler/icons-react";
 import { useState } from "react";
 
+import { PageViewTransition } from "@/components/page-view-transition";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -155,7 +156,7 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
         <div className="absolute pointer rounded-t-3xl md:rounded-l-3xl -events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
 
         <div className="h-full w-full relative z-20 bg-clip-text ">
-          {children}
+          <PageViewTransition>{children}</PageViewTransition>
         </div>
       </div>
     </div>

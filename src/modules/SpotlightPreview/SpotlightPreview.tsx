@@ -2,7 +2,7 @@
 import React from "react";
 import { Spotlight } from "@/components/ui/spotlight";
 import { motion } from "framer-motion";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { featuredProjects, projectSlug } from "@/modules/ProjectsModule/featured";
 import Image from "next/image";
 

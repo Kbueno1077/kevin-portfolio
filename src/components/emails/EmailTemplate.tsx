@@ -1,5 +1,3 @@
-import * as React from "react";
-
 interface EmailTemplateProps {
     firstName: string;
     lastName: string;
@@ -8,25 +6,26 @@ interface EmailTemplateProps {
     message: string;
 }
 
-export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
+export function EmailTemplate({
     firstName,
     lastName,
     email,
-    subject,
     message,
-}) => (
-    <div>
-        <h1>
-            Hello from, {firstName} {lastName}!
-        </h1>
+}: Readonly<EmailTemplateProps>) {
+    return (
+        <div>
+            <h1>
+                Hello from, {firstName} {lastName}!
+            </h1>
 
-        <h2>Introduction:</h2>
-        <p>My email is {email}</p>
+            <h2>Introduction:</h2>
+            <p>My email is {email}</p>
 
-        <h2>Message:</h2>
-        <p>{message}</p>
+            <h2>Message:</h2>
+            <p>{message}</p>
 
-        <br />
-        <p>Send using Resend</p>
-    </div>
-);
+            <br />
+            <p>Send using Resend</p>
+        </div>
+    );
+}

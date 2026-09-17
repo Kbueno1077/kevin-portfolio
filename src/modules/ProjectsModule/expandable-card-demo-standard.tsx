@@ -69,6 +69,21 @@ function categoryBlurb(category: ProjectCategory): string {
   }
 }
 
+function featuredEyebrow(card: Card): string {
+  switch (card.category) {
+    case "Client / Professional":
+      return categoryLabel(card.category);
+    case "Founder / WorkInWeb":
+      return `${categoryLabel(card.category)} · WorkInWeb`;
+    case "Personal / Demos":
+      return `${categoryLabel(card.category)} · Web + mobile`;
+    default: {
+      const _exhaustive: never = card.category;
+      return _exhaustive;
+    }
+  }
+}
+
 function cardCopy(card: Card): string {
   return card.summary || card.description;
 }
@@ -143,9 +158,7 @@ function ProjectCard({
           }`}
         >
           <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-neutral-500">
-            {featured
-              ? `${categoryLabel(card.category)} · Web + mobile`
-              : categoryLabel(card.category)}
+            {featured ? featuredEyebrow(card) : categoryLabel(card.category)}
           </p>
           <h3
             className={`mt-2 font-semibold text-white transition-colors group-hover:text-[#c4b5ff] ${
